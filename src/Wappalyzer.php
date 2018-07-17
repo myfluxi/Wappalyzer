@@ -370,6 +370,9 @@ class Wappalyzer
 
             if (in_array($headerName, array_keys($headers))) {
                 $headerValue = $headers[$headerName];
+                if(is_array($headerValue)) {
+                    $headerValue = $headerValue[0];
+                }
                 if (preg_match('~' . $pattern['regex'] . '~i', $headerValue)) {
                     $this->addDetected($appName, $app, $pattern, 'headers', $headerValue, $headerName);
                 }
@@ -472,7 +475,7 @@ class Wappalyzer
             
             if (preg_match('/' . $pattern['regex'] . '/i', $value, $matches)) {
                 if (isset($matches[1])) {
-                    $version = $matches[1];
+                    $version = trim($matches[1]);
                     
                     if (strlen($version) > 0 && !in_array($version, $versions)) {
                         $versions[] = $version;
