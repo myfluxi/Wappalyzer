@@ -448,6 +448,7 @@ class Wappalyzer
     /**
     * Analyze JavaScript variables
     */
+    /*
     public function analyzeJs($app, $results)
     {
         $promises = [];
@@ -467,6 +468,7 @@ class Wappalyzer
 
         return $promises;
     }
+    */
 
     /**
     * Mark application as detected, set confidence and version
