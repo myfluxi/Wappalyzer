@@ -17,6 +17,7 @@
         <whitelist>
             <directory suffix=".php">./src</directory>
             <exclude>
+                <file>src/config/wappalyzer.php</file>
                 <file>src/WappalyzerFacade.php</file>
                 <file>src/WappalyzerServiceProvider.php</file>
             </exclude>
