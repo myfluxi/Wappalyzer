@@ -3,6 +3,7 @@
 use PHPUnit\Framework\TestCase;
 use MadeITBelgium\Wappalyzer\Wappalyzer;
 use GuzzleHttp\Client;
+use GuzzleHttp\Cookie\CookieJar;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
@@ -16,6 +17,8 @@ class WappalyzerTest extends TestCase
 
     public function testHtml()
     {
+        $jar = new CookieJar;
+        $cookieJar = $jar->fromArray(['laravel_session' => 'ABC'], 'localhost');
         $mock = new MockHandler([
             new Response(200, [], file_get_contents(__DIR__ . '/app.json')),
             new Response(200, [
@@ -35,7 +38,7 @@ class WappalyzerTest extends TestCase
         
         
         $handler = HandlerStack::create($mock);
-        $client = new Client(['handler' => $handler]);
+        $client = new Client(['handler' => $handler, 'cookies' => $cookieJar]);
         
         $wappalyzer = new Wappalyzer('http://localhost', $client);
         $this->assertEquals([
@@ -103,6 +106,19 @@ class WappalyzerTest extends TestCase
                     'cats' => [ 34 ],
                     'icon' => 'MySQL.svg',
                     'website' => 'http://mysql.com',
+                ],
+                'Laravel' => [
+                    'cats' => [18],
+                    'cookies' => [
+                        'laravel_session' => ''
+                    ],
+                    'icon' => 'Laravel.png',
+                    'implies' => 'PHP',
+                    'js' => [
+                        'Laravel' => ''
+                    ],
+                    'website' => 'http://laravel.com',
+                    'detected' => true,
                 ]
             ]
         ], $wappalyzer->analyze('http://localhost'));

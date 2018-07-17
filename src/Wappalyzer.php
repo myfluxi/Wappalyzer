@@ -26,7 +26,7 @@ class Wappalyzer
     public function __construct($app, $client = null)
     {
         if ($client === null) {
-            $this->client = new Client();
+            $this->client = new Client(['cookies' => true]);
         } else {
             $this->client = $client;
         }
@@ -74,6 +74,9 @@ class Wappalyzer
             if ($response->getStatusCode() == 200) {
                 $html = (string) $response->getBody();
                 $headers = $response->getHeaders();
+                
+                $cookieJar = $this->client->getConfig('cookies');
+                $cookies = $cookieJar->toArray();
             } else {
                 throw new Exception("Can't load URL.");
             }
@@ -102,6 +105,7 @@ class Wappalyzer
             
             $this->analyzeHeaders($appName, $app, $headers);
             $this->analyzeScripts($appName, $app, $html);
+            $this->analyzeCookies($appName, $app, $cookies);
         }
         
         $apps = $this->detected;
@@ -116,6 +120,8 @@ class Wappalyzer
             $this->analyzeHtml($appName, $app, $html);
             $this->analyzeMeta($appName, $app, $html);
             $this->analyzeHeaders($appName, $app, $headers);
+            $this->analyzeScripts($appName, $app, $html);
+            $this->analyzeCookies($appName, $app, $cookies);
         }
         
         return [
@@ -416,26 +422,27 @@ class Wappalyzer
     /**
     * Analyze cookies
     */
-    public function analyzeCookies($app, $cookies)
+    public function analyzeCookies($appName, $app, $cookies)
     {
-        $patterns = $this->parsePatterns($app->props->cookies);
-        $promises = [];
+        if (!isset($app['cookies'])) {
+            return;
+        }
+        $patterns = $this->parsePatterns($app['cookies']);
 
-        foreach (array_keys($patterns) as $cookieName) {
-            if (! function_exists($patterns[$cookieName])) {
-                $cookieName = strtolower($cookieName);
-
-                foreach ($patterns[$cookieName] as $pattern) {
-                    //$cookie = $cookies.find(cookie => cookie.name.toLowerCase() === cookieName);
-
-                    if ($cookie && $pattern->regex->test($cookie->value)) {
-                        $promises[] = $this->addDetected($app, $pattern, 'cookies', $cookie->value, $cookieName);
+        if (count($patterns) == 0) {
+            return;
+        }
+        
+        foreach ($patterns as $patternName => $pattern) {
+            $patternName = strtolower($patternName);
+            foreach($cookies as $cookie) {
+                if($patternName === strtolower($cookie['Name'])) {
+                    if (preg_match('/' . $pattern['regex'] . '/i', $cookie['Value'])) {
+                        $this->addDetected($appName, $app, $pattern, 'cookies', $cookie, $cookie['Name']);
                     }
                 }
             }
         }
-        
-        return $promises;
     }
 
     /**
