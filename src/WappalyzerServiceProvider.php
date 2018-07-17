@@ -44,7 +44,7 @@ class WappalyzerServiceProvider extends ServiceProvider
             $config = $app->make('config')->get('wappalyzer');
             
             $app = __DIR__ . '/apps.json';
-            if(isset($config['data_file']) && $config['data_file'] !== null) {
+            if (isset($config['data_file']) && $config['data_file'] !== null) {
                 $app = $config['data_file'];
             }
             
