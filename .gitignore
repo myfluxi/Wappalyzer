@@ -3,6 +3,8 @@
 /node_modules
 /npm-debug.log
 /npm-debug.log
+/vendor
+composer.lock
 
 package-lock.json
 
