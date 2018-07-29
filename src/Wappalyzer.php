@@ -482,7 +482,7 @@ class Wappalyzer
             $versions = [];
             $version  = $pattern['version'];
             
-            if (preg_match('/' . $pattern['regex'] . '/i', $value, $matches)) {
+            if (preg_match('~' . $pattern['regex'] . '~i', $value, $matches)) {
                 if (isset($matches[1])) {
                     $version = trim($matches[1]);
                     
