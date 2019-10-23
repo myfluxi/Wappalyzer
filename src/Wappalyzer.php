@@ -32,7 +32,7 @@ class Wappalyzer
         }
         
         // Remote file load 
-        if (filter_var($app, FILTER_VALIDATE_URL) === true || $this->client === false) {
+        if (filter_var($app, FILTER_VALIDATE_URL) === true && $this->client !== false) {
             $response = $this->client->request("GET", $app);
             if ($response->getStatusCode() == 200) {
                 $appData = (string)$response->getBody();
