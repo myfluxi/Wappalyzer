@@ -31,16 +31,19 @@ class Wappalyzer
             $this->client = $client;
         }
         
-        if ($this->client === false && (substr($app, 0, strlen('http://')) == 'http://' || substr($app, 0, strlen('https://')) == 'https://')) {
-            $appData = file_get_contents($app);
-        } else {
+        // Remote file load 
+        if (filter_var($app, FILTER_VALIDATE_URL) === true || $this->client === false) {
             $response = $this->client->request("GET", $app);
             if ($response->getStatusCode() == 200) {
-                $appData = (string) $response->getBody();
+                $appData = (string)$response->getBody();
             } else {
                 throw new Exception('Cannot parse Wappalizer data.');
             }
+        } else {
+            // No client available or local file
+            $appData = file_get_contents($app);
         }
+
         
         $appParsed = json_decode($appData, true);
         $this->apps = $appParsed['apps'];
