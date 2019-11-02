@@ -32,18 +32,17 @@ class Wappalyzer
         }
         
         // Remote file load 
-        if (filter_var($app, FILTER_VALIDATE_URL) === true && $this->client !== false) {
+        if (filter_var($app, FILTER_VALIDATE_URL) !== false && $this->client !== false) {
             $response = $this->client->request("GET", $app);
             if ($response->getStatusCode() == 200) {
                 $appData = (string)$response->getBody();
             } else {
-                throw new Exception('Cannot parse Wappalizer data.');
+                throw new Exception('Cannot fetch Wappalizer data.');
             }
         } else {
             // No client available or local file
             $appData = file_get_contents($app);
         }
-
         
         $appParsed = json_decode($appData, true);
         $this->apps = $appParsed['apps'];
