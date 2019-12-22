@@ -75,7 +75,7 @@ class Wappalyzer
             $response = $this->client->request('GET', $url);
             if ($response->getStatusCode() == 200) {
                 $html = (string) $response->getBody();
-                $headers = $response->getHeaders();
+                $headers = $this->fixHeaders($response->getHeaders());
                 
                 $cookieJar = $this->client->getConfig('cookies');
                 $cookies = $cookieJar->toArray();
@@ -131,6 +131,15 @@ class Wappalyzer
             'language' => $language,
             'detected' => $this->detected,
         ];
+    }
+    
+    private function fixHeaders($headers)
+    {
+        $h = [];
+        foreach($headers as $k => $v) {
+            $h[strtolower($k)] = $v;
+        }
+        return $h;
     }
     
     public function getHeadersFromResponse($response)
