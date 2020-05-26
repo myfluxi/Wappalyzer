@@ -152,9 +152,13 @@ class Wappalyzer
             if ($i === 0) {
                 $headers['http_code'] = $line;
             } else {
-                list($key, $value) = explode(': ', $line);
+                try {
+                    list($key, $value) = explode(': ', $line);
 
-                $headers[strtolower($key)] = $value;
+                    $headers[strtolower($key)] = $value;
+                } catch(\Exception $e) {
+                    
+                }
             }
         }
 
