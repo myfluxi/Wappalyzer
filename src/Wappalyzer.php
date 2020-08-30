@@ -310,7 +310,7 @@ class Wappalyzer
 
         foreach ($patterns as $pattern) {
             if (preg_match('~' . $pattern['regex'] . '~i', $url)) {
-                $this->addDetected($appName, $app, $pattern, 'url', $url->canonical);
+                $this->addDetected($appName, $app, $pattern, 'url', $url);
             }
         }
     }
