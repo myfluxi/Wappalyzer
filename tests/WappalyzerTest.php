@@ -10,7 +10,7 @@ use GuzzleHttp\Psr7\Response;
 
 class WappalyzerTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
     }
