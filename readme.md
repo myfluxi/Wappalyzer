@@ -28,6 +28,8 @@ $wappalyzer->analyze('http://www.example.com');
 
 ## Usage Laravel Facade
 ```php
+use MadeITBelgium\Wappalyzer\WappalyzerFacade as Wappalyzer;
+
 $analyze = Wappalyzer::analyze('http://www.example.com');
 ```
 
