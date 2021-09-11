@@ -17,10 +17,6 @@ class WappalyzerServiceProvider extends ServiceProvider
 {
     protected $defer = false;
 
-    protected $rules = [
-        
-    ];
-
     /**
      * Bootstrap the application events.
      *
@@ -28,9 +24,6 @@ class WappalyzerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->publishes([
-            __DIR__.'/config/wappalyzer.php' => config_path('wappalyzer.php'),
-        ]);
     }
 
     /**
@@ -41,14 +34,7 @@ class WappalyzerServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('wappalyzer', function ($app) {
-            $config = $app->make('config')->get('wappalyzer');
-            
-            $app = __DIR__ . '/apps.json';
-            if (isset($config['data_file']) && $config['data_file'] !== null) {
-                $app = $config['data_file'];
-            }
-            
-            return new Wappalyzer($app);
+            return new Wappalyzer();
         });
     }
 

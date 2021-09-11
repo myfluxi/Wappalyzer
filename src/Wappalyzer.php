@@ -23,7 +23,7 @@ class Wappalyzer
     private $detected = [];
     private $client = null;
     
-    public function __construct($app, $client = null)
+    public function __construct($client = null)
     {
         if ($client === null) {
             $this->client = new Client(['cookies' => true]);
@@ -31,22 +31,16 @@ class Wappalyzer
             $this->client = $client;
         }
         
-        // Remote file load 
-        if (filter_var($app, FILTER_VALIDATE_URL) !== false && $this->client !== false) {
-            $response = $this->client->request("GET", $app);
-            if ($response->getStatusCode() == 200) {
-                $appData = (string)$response->getBody();
-            } else {
-                throw new Exception('Cannot fetch Wappalizer data.');
-            }
-        } else {
-            // No client available or local file
-            $appData = file_get_contents($app);
+        $files = array_diff(scandir(__DIR__ . '/technologies'), array('..', '.'));
+
+        $apps = [];
+        foreach ($files as $file) {
+            $appData = json_decode(file_get_contents(__DIR__ . '/technologies/' . $file), true);
+            $apps = array_merge($apps, $appData);
         }
-        
-        $appParsed = json_decode($appData, true);
-        $this->apps = $appParsed['apps'];
-        $this->categories = $appParsed['categories'];
+
+        $this->apps = $apps;
+        $this->categories = json_decode(file_get_contents(__DIR__ . '/categories.json'), true);
     }
     
     public function analyze($url)
@@ -91,12 +85,12 @@ class Wappalyzer
             if (!is_string($html)) {
                 $html = '';
             }
-            
+
             preg_match('/<html[^>]*[: ]lang="([a-z]{2}((-|_)[A-Z]{2})?)"/i', $html, $matches);
             
-            $language = $matches && count($matches) > 0 ? $matches[1] : null;
+            $language = is_array($matches) && count($matches) > 0 ? $matches[1] : null;
         }
-        
+
         foreach ($this->apps as $appName => $app) {
             $this->apps[$appName] = isset($this->detected[$appName]) ? $this->detected[$appName] : $app;
             
@@ -136,7 +130,7 @@ class Wappalyzer
     private function fixHeaders($headers)
     {
         $h = [];
-        foreach($headers as $k => $v) {
+        foreach ($headers as $k => $v) {
             $h[strtolower($k)] = $v;
         }
         return $h;
@@ -156,8 +150,7 @@ class Wappalyzer
                     list($key, $value) = explode(': ', $line);
 
                     $headers[strtolower($key)] = $value;
-                } catch(\Exception $e) {
-                    
+                } catch (\Exception $e) {
                 }
             }
         }
@@ -190,26 +183,27 @@ class Wappalyzer
 
             foreach ($patterns as $key => $pattern) {
                 $attrs = [];
+                if (!is_array($pattern)) {
+                    foreach (explode('\\;', $pattern) as $i => $attr) {
+                        if ($i) {
+                            // Key value pairs
+                            $attr = explode(":", $attr);
 
-                foreach (explode('\\;', $pattern) as $i => $attr) {
-                    if ($i) {
-                        // Key value pairs
-                        $attr = explode(":", $attr);
-
-                        if (count($attr) > 1) {
-                            $attrs[array_shift($attr)] = $attr;
-                        }
-                    } else {
-                        $attrs['string'] = $attr;
-
-                        try {
-                            if ($escape) {
-                                $attrs['regex'] = str_replace('/', '\/', $attr); // Escape slashes in regular expression
-                            } else {
-                                $attrs['regex'] = $attr;
+                            if (count($attr) > 1) {
+                                $attrs[array_shift($attr)] = $attr;
                             }
-                        } catch (Exception $e) {
-                            $attrs['regex'] = '';
+                        } else {
+                            $attrs['string'] = $attr;
+
+                            try {
+                                if ($escape) {
+                                    $attrs['regex'] = str_replace('/', '\/', $attr); // Escape slashes in regular expression
+                                } else {
+                                    $attrs['regex'] = $attr;
+                                }
+                            } catch (Exception $e) {
+                                $attrs['regex'] = '';
+                            }
                         }
                     }
                 }
@@ -272,8 +266,8 @@ class Wappalyzer
             $checkImplies = false;
 
             foreach ($apps as $appName => $app) {
-                if (isset($app['implies'])) {
-                    foreach ($this->asArray($app['implies']) as $implied) {
+                if (isset($app['requires'])) {
+                    foreach ($this->asArray($app['requires']) as $implied) {
                         $implied = $this->parsePatterns($implied)[0];
 
                         if (!isset($this->apps[$implied['string']])) {
@@ -360,6 +354,9 @@ class Wappalyzer
                             preg_match("/content=(\"|')([^\"']+)(\"|')/i", $match, $content);
 
                             foreach ($patterns as $patternKey => $pattern) {
+                                if (!isset($pattern['regex'])) {
+                                    continue;
+                                }
                                 if ($patternKey == $key && $content && count($content) === 4 && preg_match('~' . $pattern['regex'] . '~i', $content[2])) {
                                     $this->addDetected($appName, $app, $pattern, 'meta', $content[2], $meta);
                                 }
@@ -391,7 +388,7 @@ class Wappalyzer
 
             if (in_array($headerName, array_keys($headers))) {
                 $headerValue = $headers[$headerName];
-                if(is_array($headerValue)) {
+                if (is_array($headerValue)) {
                     $headerValue = $headerValue[0];
                 }
                 if (preg_match('~' . $pattern['regex'] . '~i', $headerValue)) {
@@ -450,8 +447,8 @@ class Wappalyzer
         
         foreach ($patterns as $patternName => $pattern) {
             $patternName = strtolower($patternName);
-            foreach($cookies as $cookie) {
-                if($patternName === strtolower($cookie['Name'])) {
+            foreach ($cookies as $cookie) {
+                if ($patternName === strtolower($cookie['Name'])) {
                     if (preg_match('/' . $pattern['regex'] . '/i', $cookie['Value'])) {
                         $this->addDetected($appName, $app, $pattern, 'cookies', $cookie, $cookie['Name']);
                     }

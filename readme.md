@@ -22,7 +22,7 @@ Require this package in your `composer.json` and update composer.
 ## Usage
 ```php
 use MadeITBelgium\Wappalyzer\Wappalyzer;
-$wappalyzer = new Wappalyzer('https://raw.githubusercontent.com/madeITBelgium/Wappalyzer/master/src/apps.json');
+$wappalyzer = new Wappalyzer();
 $wappalyzer->analyze('http://www.example.com');
 ```
 
@@ -35,6 +35,8 @@ $analyze = Wappalyzer::analyze('http://www.example.com');
 
 The complete documentation can be found at: [http://www.madeit.be/](http://www.madeit.be/)
 
+# Upgrade from v1 to v2
+The json file containing all the data is removed and replaced with multiple json files. Due to this change the config file isn't used any more.
 
 # Support
 Support github or mail: tjebbe.lievens@madeit.be

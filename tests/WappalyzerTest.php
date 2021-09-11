@@ -20,7 +20,6 @@ class WappalyzerTest extends TestCase
         $jar = new CookieJar;
         $cookieJar = $jar->fromArray(['laravel_session' => 'ABC'], 'localhost');
         $mock = new MockHandler([
-            new Response(200, [], file_get_contents(__DIR__ . '/app.json')),
             new Response(200, [
                 'cache-control' => 'no-store, no-cache, must-revalidate',
                 'content-encoding' => 'gzip',
@@ -40,21 +39,34 @@ class WappalyzerTest extends TestCase
         $handler = HandlerStack::create($mock);
         $client = new Client(['handler' => $handler, 'cookies' => $cookieJar]);
         
-        $wappalyzer = new Wappalyzer('http://localhost', $client);
+        $wappalyzer = new Wappalyzer($client);
         $this->assertEquals([
-            'url' => 'http://localhost',
+            'url' => 'https://www.madeit.be/',
             'language' => 'nl-BE',
             'detected' => [
                 'Font Awesome' => [
                     'cats' => [17],
-                    'html' => [
-                        '<link[^>]* href=[^>]+(?:([\d.]+)/)?(?:css/)?font-awesome(?:\.min)?\.css\;version:\1',
-                        '<link[^>]* href="https://use\.fontawesome\.com/releases/v([^>]+)/css/\;version:\1',
-                        '<script[^>]* src=[^>]+fontawesome(?:\.js)?',
-                    ],
-                    'icon' => 'Font Awesome.png',
-                    'website' => 'http://fontawesome.io',
                     'detected' => true,
+                    "description" => "Font Awesome is a font and icon toolkit based on CSS and Less.",
+                    "html" => [
+                        "<link[^>]* href=[^>]+(?:([\\d.]+)/)?(?:css/)?font-awesome(?:\\.min)?\\.css\\;version:\\1",
+                        "<link[^>]* href=[^>]*kit\\-pro\\.fontawesome\\.com/releases/v([0-9.]+)/\\;version:\\1"
+                    ],
+                    "icon" => "font-awesome.svg",
+                    "js" => [
+                        "FontAwesomeCdnConfig" => "",
+                        "___FONT_AWESOME___" => ""
+                    ],
+                    "pricing" => [
+                        "low",
+                        "freemium",
+                        "recurring"
+                    ],
+                    "scripts" => [
+                        "(?:F|f)o(?:n|r)t-?(?:A|a)wesome(?:.*?([0-9a-fA-F]{7,40}|[\\d]+(?:.[\\d]+(?:.[\\d]+)?)?)|)",
+                        "\\.fontawesome\\.com/([0-9a-z]+).js"
+                    ],
+                    "website" => "https://fontawesome.com/"
                 ],
                 'PHP' => [
                     'cats' => [27],
@@ -68,7 +80,8 @@ class WappalyzerTest extends TestCase
                     'website' => 'http://php.net',
                     'detected' => true,
                     'version' => '7.2.7',
-                    'cpe' => 'cpe:/a:php:php'
+                    'cpe' => 'cpe:/a:php:php',
+                    "description" => "PHP is a general-purpose scripting language used for web development.",
                 ],
                 'WordPress' => [
                     'cats' => [
@@ -87,32 +100,54 @@ class WappalyzerTest extends TestCase
                     'js' => [
                         'wp_username' => ''
                     ],
-                    'meta' => ['generator' => '^WordPress ?([\d.]+)?\;version:\1'],
-                    'script' => '/wp-(?:content|includes)/',
+                    'meta' => [
+                        'generator' => '^WordPress ?([\d.]+)?\;version:\1',
+                        "shareaholic:wp_version" => ""
+                    ],
                     'website' => 'https://wordpress.org',
                     'detected' => true,
                     'version' =>  '4.9.7',
                     'headers' => [
-                        'link' => 'rel="https://api\.w\.org/"'
+                        'link' => 'rel="https://api\.w\.org/"',
+                        'X-Pingback' => '/xmlrpc\.php$',
+                    ],
+                    "cpe" => "cpe:/a:wordpress:wordpress",
+                    "description" => "WordPress is a free and open-source content management system written in PHP and paired with a MySQL or MariaDB database. Features include a plugin architecture and a template system.",
+                    "pricing" => [
+                        "low",
+                        "recurring",
+                        "freemium"
+                    ],
+                    "saas" => true,
+                    "scripts" => [
+                        "/wp-(?:content|includes)/",
+                        "wp-embed\\.min\\.js"
                     ],
                 ],
                 'Yoast SEO' => [
-                    'cats' => [ 54 ],
-                    'html' => [ 
-                        '<!-- This site is optimized with the Yoast (?:WordPress )?SEO plugin v([\d.]+) -\;version:\1',
+                    'cats' => [ 54, 87 ],
+                    "description" => "Yoast SEO is a search engine optimisation plugin for WordPress and other platforms.",
+                    "dom" => [
+                        "script.yoast-schema-graph" => [
+                            "attributes" => [
+                                "class" => ""
+                            ]
+                        ]
                     ],
-                    'icon' => 'Yoast SEO.png',
-                    'implies' => 'WordPress',
-                    'website' => 'http://yoast.com',
-                    'detected' => 1,
+                    "html" => "<!-- This site is optimized with the Yoast (?:WordPress )?SEO plugin v([\\d.]+) -\\;version:\\1",
+                    "icon" => "Yoast SEO.png",
+                    "requires" => "WordPress",
+                    "website" => "https://yoast.com",
+                    'detected' => true,
                     'version' => '7.8',
                 ],
-                'MySQL' => [
+                /*'MySQL' => [
                     'cats' => [ 34 ],
                     'icon' => 'MySQL.svg',
                     'website' => 'http://mysql.com',
                     'cpe' => 'cpe:/a:mysql:mysql',
-                ],
+                    "description" => "MySQL is an open-source relational database management system.",
+                ],*/
                 'Laravel' => [
                     'cats' => [18],
                     'cookies' => [
@@ -125,10 +160,11 @@ class WappalyzerTest extends TestCase
                     ],
                     'website' => 'https://laravel.com',
                     'detected' => true,
-                    'cpe' => 'cpe:/a:laravel:laravel'
+                    'cpe' => 'cpe:/a:laravel:laravel',
+                    "description" => "Laravel is a free, open-source PHP web framework.",
                 ]
             ]
-        ], $wappalyzer->analyze('http://localhost'));
+        ], $wappalyzer->analyze('https://www.madeit.be/'));
     }
 
     public function testHtmlFile()
@@ -155,21 +191,34 @@ class WappalyzerTest extends TestCase
         $handler = HandlerStack::create($mock);
         $client = new Client(['handler' => $handler, 'cookies' => $cookieJar]);
         
-        $wappalyzer = new Wappalyzer(__DIR__ . '/app.json', $client);
+        $wappalyzer = new Wappalyzer($client);
         $this->assertEquals([
-            'url' => 'http://localhost',
+            'url' => 'https://www.madeit.be/',
             'language' => 'nl-BE',
             'detected' => [
                 'Font Awesome' => [
                     'cats' => [17],
-                    'html' => [
-                        '<link[^>]* href=[^>]+(?:([\d.]+)/)?(?:css/)?font-awesome(?:\.min)?\.css\;version:\1',
-                        '<link[^>]* href="https://use\.fontawesome\.com/releases/v([^>]+)/css/\;version:\1',
-                        '<script[^>]* src=[^>]+fontawesome(?:\.js)?',
-                    ],
-                    'icon' => 'Font Awesome.png',
-                    'website' => 'http://fontawesome.io',
                     'detected' => true,
+                    "description" => "Font Awesome is a font and icon toolkit based on CSS and Less.",
+                    "html" => [
+                        "<link[^>]* href=[^>]+(?:([\\d.]+)/)?(?:css/)?font-awesome(?:\\.min)?\\.css\\;version:\\1",
+                        "<link[^>]* href=[^>]*kit\\-pro\\.fontawesome\\.com/releases/v([0-9.]+)/\\;version:\\1"
+                    ],
+                    "icon" => "font-awesome.svg",
+                    "js" => [
+                        "FontAwesomeCdnConfig" => "",
+                        "___FONT_AWESOME___" => ""
+                    ],
+                    "pricing" => [
+                        "low",
+                        "freemium",
+                        "recurring"
+                    ],
+                    "scripts" => [
+                        "(?:F|f)o(?:n|r)t-?(?:A|a)wesome(?:.*?([0-9a-fA-F]{7,40}|[\\d]+(?:.[\\d]+(?:.[\\d]+)?)?)|)",
+                        "\\.fontawesome\\.com/([0-9a-z]+).js"
+                    ],
+                    "website" => "https://fontawesome.com/"
                 ],
                 'PHP' => [
                     'cats' => [27],
@@ -183,7 +232,8 @@ class WappalyzerTest extends TestCase
                     'website' => 'http://php.net',
                     'detected' => true,
                     'version' => '7.2.7',
-                    'cpe' => 'cpe:/a:php:php'
+                    'cpe' => 'cpe:/a:php:php',
+                    "description" => "PHP is a general-purpose scripting language used for web development.",
                 ],
                 'WordPress' => [
                     'cats' => [
@@ -202,32 +252,54 @@ class WappalyzerTest extends TestCase
                     'js' => [
                         'wp_username' => ''
                     ],
-                    'meta' => ['generator' => '^WordPress ?([\d.]+)?\;version:\1'],
-                    'script' => '/wp-(?:content|includes)/',
+                    'meta' => [
+                        'generator' => '^WordPress ?([\d.]+)?\;version:\1',
+                        "shareaholic:wp_version" => ""
+                    ],
                     'website' => 'https://wordpress.org',
                     'detected' => true,
                     'version' =>  '4.9.7',
                     'headers' => [
-                        'link' => 'rel="https://api\.w\.org/"'
+                        'link' => 'rel="https://api\.w\.org/"',
+                        'X-Pingback' => '/xmlrpc\.php$',
+                    ],
+                    "cpe" => "cpe:/a:wordpress:wordpress",
+                    "description" => "WordPress is a free and open-source content management system written in PHP and paired with a MySQL or MariaDB database. Features include a plugin architecture and a template system.",
+                    "pricing" => [
+                        "low",
+                        "recurring",
+                        "freemium"
+                    ],
+                    "saas" => true,
+                    "scripts" => [
+                        "/wp-(?:content|includes)/",
+                        "wp-embed\\.min\\.js"
                     ],
                 ],
                 'Yoast SEO' => [
-                    'cats' => [ 54 ],
-                    'html' => [ 
-                        '<!-- This site is optimized with the Yoast (?:WordPress )?SEO plugin v([\d.]+) -\;version:\1',
+                    'cats' => [ 54, 87 ],
+                    "description" => "Yoast SEO is a search engine optimisation plugin for WordPress and other platforms.",
+                    "dom" => [
+                        "script.yoast-schema-graph" => [
+                            "attributes" => [
+                                "class" => ""
+                            ]
+                        ]
                     ],
-                    'icon' => 'Yoast SEO.png',
-                    'implies' => 'WordPress',
-                    'website' => 'http://yoast.com',
-                    'detected' => 1,
+                    "html" => "<!-- This site is optimized with the Yoast (?:WordPress )?SEO plugin v([\\d.]+) -\\;version:\\1",
+                    "icon" => "Yoast SEO.png",
+                    "requires" => "WordPress",
+                    "website" => "https://yoast.com",
+                    'detected' => true,
                     'version' => '7.8',
                 ],
-                'MySQL' => [
+                /*'MySQL' => [
                     'cats' => [ 34 ],
                     'icon' => 'MySQL.svg',
                     'website' => 'http://mysql.com',
                     'cpe' => 'cpe:/a:mysql:mysql',
-                ],
+                    "description" => "MySQL is an open-source relational database management system.",
+                ],*/
                 'Laravel' => [
                     'cats' => [18],
                     'cookies' => [
@@ -240,9 +312,10 @@ class WappalyzerTest extends TestCase
                     ],
                     'website' => 'https://laravel.com',
                     'detected' => true,
-                    'cpe' => 'cpe:/a:laravel:laravel'
+                    'cpe' => 'cpe:/a:laravel:laravel',
+                    "description" => "Laravel is a free, open-source PHP web framework.",
                 ]
             ]
-        ], $wappalyzer->analyze('http://localhost'));
+        ], $wappalyzer->analyze('https://www.madeit.be/'));
     }
 }
