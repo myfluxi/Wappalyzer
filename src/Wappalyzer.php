@@ -2,6 +2,7 @@
 
 namespace MadeITBelgium\Wappalyzer;
 
+use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ServerException;
@@ -150,7 +151,7 @@ class Wappalyzer
                     list($key, $value) = explode(': ', $line);
 
                     $headers[strtolower($key)] = $value;
-                } catch (\Exception $e) {
+                } catch (Exception $e) {
                 }
             }
         }
