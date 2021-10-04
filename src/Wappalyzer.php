@@ -66,7 +66,7 @@ class Wappalyzer
             $headers = $this->getHeadersFromResponse($headers);
         } else {
             $response = $this->client->request('GET', $url);
-            if ($response->getStatusCode() === 200) {
+            if ($response->getStatusCode() < 400) {
                 $html = (string) $response->getBody();
                 $headers = $this->fixHeaders($response->getHeaders());
 
