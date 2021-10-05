@@ -171,6 +171,7 @@ class WappalyzerTest extends TestCase
     {
         $jar = new CookieJar;
         $cookieJar = $jar->fromArray(['laravel_session' => 'ABC'], 'localhost');
+        $js = ['adroll_adv_id', 'foo', 'bar'];
         $mock = new MockHandler([
             new Response(200, [
                 'cache-control' => 'no-store, no-cache, must-revalidate',
@@ -189,7 +190,7 @@ class WappalyzerTest extends TestCase
         
         
         $handler = HandlerStack::create($mock);
-        $client = new Client(['handler' => $handler, 'cookies' => $cookieJar]);
+        $client = new Client(['handler' => $handler, 'cookies' => $cookieJar, 'js' => $js]);
         
         $wappalyzer = new Wappalyzer($client);
         $this->assertEquals([
@@ -314,6 +315,26 @@ class WappalyzerTest extends TestCase
                     'detected' => true,
                     'cpe' => 'cpe:/a:laravel:laravel',
                     "description" => "Laravel is a free, open-source PHP web framework.",
+                ],
+                'AdRoll' =>[
+                    'cats' => [
+                        0 => 36,
+                        1 => 77,
+                    ],
+                    'description' => 'AdRoll is a digital marketing technology platform that specializes in retargeting.',
+                    'icon' => 'AdRoll.svg',
+                    'js' => [
+                        'adroll_adv_id' => '',
+                        'adroll_pix_id' => '',
+                    ],
+                    'pricing' => [
+                        0 => 'low',
+                        1 => 'recurring',
+                    ],
+                    'saas' => true,
+                    'scripts' => '(?:a|s)\\.adroll\\.com',
+                    'website' => 'http://adroll.com',
+                    'detected' => true,
                 ]
             ]
         ], $wappalyzer->analyze('https://www.madeit.be/'));
