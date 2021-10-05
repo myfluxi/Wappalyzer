@@ -15,7 +15,7 @@ This library is a PHP version Fork of the Wappalyzer utility that uncovers the t
 Require this package in your `composer.json` and update composer.
 
 ```php
-"madeitbelgium/wappalyzer": "~1.0"
+"madeitbelgium/wappalyzer": "^2.0"
 ```
 
 # Documentation
