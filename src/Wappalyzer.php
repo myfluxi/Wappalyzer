@@ -94,10 +94,8 @@ class Wappalyzer
             $this->apps[$appName] = $this->detected[$appName] ?? $app;
 
             $this->analyzeUrl($appName, $app, $url);
-
             $this->analyzeHtml($appName, $app, $html);
             $this->analyzeMeta($appName, $app, $html);
-
             $this->analyzeHeaders($appName, $app, $headers);
             $this->analyzeScripts($appName, $app, $html);
             $this->analyzeCookies($appName, $app, $cookies);
@@ -106,7 +104,7 @@ class Wappalyzer
         $apps = $this->detected;
         $apps = $this->resolveExcludes($apps);
 
-        $implies = $this->resolveImplies($apps, $url);
+        $implies = $this->resolveImplies($apps);
 
         foreach ($implies as $appName => $app) {
             $this->detected[$appName] = $app;
@@ -254,30 +252,36 @@ class Wappalyzer
         return $apps;
     }
 
-    public function resolveImplies($apps, $url)
+    public function resolveImplies($apps)
     {
         $checkImplies = true;
+        $keys = ['implies', 'requires'];
         $implies = [];
 
-        // Implied applications
+        // Implied and required applications
         // Run several passes as implied apps may imply other apps
         while ($checkImplies) {
             $checkImplies = false;
 
-            foreach ($apps as $appName => $app) {
-                if (isset($app['requires'])) {
-                    foreach ($this->asArray($app['requires']) as $implied) {
-                        $implied = $this->parsePatterns($implied)[0];
+            foreach ($apps as $app) {
+                $implications = [];
+                foreach ($keys as $key) {
+                    if (isset($app[$key])) {
+                        $implications = array_merge($implications, $this->asArray($app[$key]));
+                    }
+                }
 
-                        if (!isset($this->apps[$implied['string']])) {
-                            continue;
-                        }
+                foreach (array_unique($implications) as $implied) {
+                    $implied = $this->parsePatterns($implied)[0];
 
-                        if (!array_key_exists($implied['string'], $implies) && !array_key_exists($implied['string'], $this->detected)) {
-                            $implies[$implied['string']] = $this->apps[$implied['string']];
+                    if (!isset($this->apps[$implied['string']])) {
+                        continue;
+                    }
 
-                            $checkImplies = true;
-                        }
+                    if (!array_key_exists($implied['string'], $implies) && !array_key_exists($implied['string'], $this->detected)) {
+                        $implies[$implied['string']] = $this->apps[$implied['string']];
+
+                        $checkImplies = true;
                     }
                 }
             }

@@ -141,13 +141,13 @@ class WappalyzerTest extends TestCase
                     'detected' => true,
                     'version' => '7.8',
                 ],
-                /*'MySQL' => [
+                'MySQL' => [
                     'cats' => [ 34 ],
                     'icon' => 'MySQL.svg',
                     'website' => 'http://mysql.com',
                     'cpe' => 'cpe:/a:mysql:mysql',
                     "description" => "MySQL is an open-source relational database management system.",
-                ],*/
+                ],
                 'Laravel' => [
                     'cats' => [18],
                     'cookies' => [
@@ -293,13 +293,13 @@ class WappalyzerTest extends TestCase
                     'detected' => true,
                     'version' => '7.8',
                 ],
-                /*'MySQL' => [
+                'MySQL' => [
                     'cats' => [ 34 ],
                     'icon' => 'MySQL.svg',
                     'website' => 'http://mysql.com',
                     'cpe' => 'cpe:/a:mysql:mysql',
                     "description" => "MySQL is an open-source relational database management system.",
-                ],*/
+                ],
                 'Laravel' => [
                     'cats' => [18],
                     'cookies' => [
