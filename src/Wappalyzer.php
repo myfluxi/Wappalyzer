@@ -164,6 +164,15 @@ class Wappalyzer
     }
 
     /**
+     * Wappalizer categories
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+
+    /**
     * Parse apps.json patterns
     */
     public function parsePatterns($patterns, $escape = true)
