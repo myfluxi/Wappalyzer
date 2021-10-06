@@ -30,6 +30,25 @@
     "saas": true,
     "website": "http://modx.com"
   },
+  "MTCaptcha": {
+    "cats": [
+      16
+    ],
+    "description": "MTCaptcha is a captcha service that is GDPR and WCAG compliant, providing the confidence of privacy and accessibility.",
+    "icon": "MTCaptcha.png",
+    "js": {
+      "mtcaptcha.getVerifiedToken": "",
+      "mtcaptchaConfig.sitekey": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "service(?:2)?\\.mtcaptcha\\.com/",
+    "website": "https://www.mtcaptcha.com"
+  },
   "MadAdsMedia": {
     "cats": [
       36
@@ -327,7 +346,7 @@
       41
     ],
     "description": "MasterCard facilitates electronic funds transfers throughout the world, most commonly through branded credit cards, debit cards and prepaid cards.",
-    "dom": "[aria-labelledby='pi-mastercard']",
+    "dom": "[aria-labelledby='pi-mastercard'], [aria-labelledby='pi-master']",
     "icon": "Mastercard.svg",
     "website": "https://www.mastercard.com"
   },
@@ -665,6 +684,51 @@
     "scripts": "memberstack\\.js",
     "url": "^https?//.+\\.memberstack\\.io",
     "website": "https://www.memberstack.io"
+  },
+  "Mention Me": {
+    "cats": [
+      94
+    ],
+    "description": "Mention Me is a referral marketing platform for conversion-obsessed ecommerce brands.",
+    "icon": "Mention Me.png",
+    "js": {
+      "MentionMe": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scripts": "\\.mention-me\\.com/",
+    "website": "https://www.mention-me.com"
+  },
+  "Menufy Online Ordering": {
+    "cats": [
+      93
+    ],
+    "description": "Menufy is an online and mobile meal ordering service.",
+    "dom": "a[href*='.menufy.com/'][target='_blank']",
+    "icon": "Menufy.png",
+    "pricing": [
+      "payg"
+    ],
+    "saas": true,
+    "website": "https://restaurant.menufy.com"
+  },
+  "Menufy Website": {
+    "cats": [
+      51
+    ],
+    "description": "Menufy is an online and mobile meal ordering service.",
+    "icon": "Menufy.png",
+    "js": {
+      "Views_Website_Layouts_Footer_Menufy": ""
+    },
+    "pricing": [
+      "payg"
+    ],
+    "saas": true,
+    "scripts": "sitecontent-menufycom\\.netdna-ssl\\.com/",
+    "website": "https://restaurant.menufy.com"
   },
   "Mercado Shops": {
     "cats": [
@@ -1592,7 +1656,8 @@
       "payg"
     ],
     "saas": true,
-    "website": "https://microcms.io"
+    "website": "https://microcms.io",
+    "xhr": "\\.microcms\\.io"
   },
   "mini_httpd": {
     "cats": [
@@ -1603,6 +1668,16 @@
     },
     "icon": "mini_httpd.png",
     "website": "http://acme.com/software/mini_httpd"
+  },
+  "mobicred": {
+    "cats": [
+      41,
+      91
+    ],
+    "description": "Mobicred is a credit facility that allows you to safely shop online with our participating retailers.",
+    "icon": "Mobicred.png",
+    "scripts": "app\\.mobicredwidget\\.co\\.za",
+    "website": "https://mobicred.co.za/"
   },
   "mod_auth_pam": {
     "cats": [

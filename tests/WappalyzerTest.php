@@ -101,7 +101,7 @@ class WappalyzerTest extends TestCase
                         'wp_username' => ''
                     ],
                     'meta' => [
-                        'generator' => '^WordPress ?([\d.]+)?\;version:\1',
+                        'generator' => '^WordPress(?: ([\d.]+))?\;version:\1',
                         "shareaholic:wp_version" => ""
                     ],
                     'website' => 'https://wordpress.org',
@@ -254,7 +254,7 @@ class WappalyzerTest extends TestCase
                         'wp_username' => ''
                     ],
                     'meta' => [
-                        'generator' => '^WordPress ?([\d.]+)?\;version:\1',
+                        'generator' => '^WordPress(?: ([\d.]+))?\;version:\1',
                         "shareaholic:wp_version" => ""
                     ],
                     'website' => 'https://wordpress.org',

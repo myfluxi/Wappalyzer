@@ -174,14 +174,14 @@
     "cats": [
       93
     ],
-    "description": "Upserve is a restaurant management solution featuring an Android or iOS-based point-of-sale system, online ordering, contactless payments, automated inventory management, sales analytics, and more.",    
-    "icon": "Upserve.svg",
+    "description": "Upserve is a restaurant management solution featuring an Android or iOS-based point-of-sale system, online ordering, contactless payments, automated inventory management, sales analytics, and more.",
     "dom": "a[href*='app.upserve.com/']",
-    "scripts": "app\\.upserve\\.com/",
-    "saas": true,
+    "icon": "Upserve.svg",
     "pricing": [
       "payg"
     ],
+    "saas": true,
+    "scripts": "app\\.upserve\\.com/",
     "website": "https://onlineordering.upserve.com"
   },
   "Upvoty": {
@@ -210,14 +210,22 @@
       68
     ],
     "description": "UsableNet is a technology for web accessibility and digital transformation, providing end-to-end services.",
-    "html": "<iframe[ˆ>]*\\.usablenet\\.com/pt/",
+    "dom": "iframe[src*='.usablenet.com/pt/']",
     "icon": "UsableNet.png",
+    "js": {
+      "enableUsableNetAssistive": ""
+    },
+    "pricing": [
+      "poa",
+      "recurring"
+    ],
+    "saas": true,
     "scripts": "\\.usablenet\\.com/pt/",
-    "website": "https://usablenet.com/"
+    "website": "https://usablenet.com"
   },
   "Uscreen": {
     "cats": [
-      1
+      14
     ],
     "description": "Uscreen is a CMS to monetize VOD and live content. They provide site hosting, video hosting, and a payment gateway for selling video based content.",
     "dom": {
