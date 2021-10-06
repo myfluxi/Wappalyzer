@@ -1,4 +1,4 @@
-name: Email Service
+name: Laravel
 
 on: [push, pull_request]
 
