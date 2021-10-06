@@ -18,6 +18,7 @@ class Wappalyzer
 {
     private $apps;
     private $categories;
+    private $groups;
 
     private $detected = [];
     private $client;
@@ -42,6 +43,7 @@ class Wappalyzer
         $this->apps = $apps;
 
         $this->categories = json_decode(file_get_contents(__DIR__ . '/categories.json'), true);
+        $this->groups = json_decode(file_get_contents(__DIR__ . '/groups.json'), true);
 
         $this->parseJsPatterns();
     }
@@ -179,6 +181,13 @@ class Wappalyzer
         return $this->categories;
     }
 
+    /**
+     * Wappalizer groups
+     */
+    public function getGroups()
+    {
+        return $this->groups;
+    }
 
     /**
      * Parse apps.json patterns
