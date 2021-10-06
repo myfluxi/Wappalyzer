@@ -22,6 +22,8 @@ class Wappalyzer
     private $detected = [];
     private $client;
 
+    private $jsPatterns;
+
     public function __construct($client = null)
     {
         if ($client === null) {
@@ -37,9 +39,11 @@ class Wappalyzer
             $appData = json_decode(file_get_contents(__DIR__ . '/technologies/' . $file), true);
             $apps = array_merge($apps, $appData);
         }
-
         $this->apps = $apps;
+
         $this->categories = json_decode(file_get_contents(__DIR__ . '/categories.json'), true);
+
+        $this->parseJsPatterns();
     }
 
     public function analyze($url)
@@ -72,6 +76,8 @@ class Wappalyzer
 
                 $cookieJar = $this->client->getConfig('cookies');
                 $cookies = $cookieJar->toArray();
+
+                $js = $this->client->getConfig('js') ?? [];
             } else {
                 throw new Exception("Can't load URL.");
             }
@@ -94,19 +100,18 @@ class Wappalyzer
             $this->apps[$appName] = $this->detected[$appName] ?? $app;
 
             $this->analyzeUrl($appName, $app, $url);
-
             $this->analyzeHtml($appName, $app, $html);
             $this->analyzeMeta($appName, $app, $html);
-
             $this->analyzeHeaders($appName, $app, $headers);
             $this->analyzeScripts($appName, $app, $html);
             $this->analyzeCookies($appName, $app, $cookies);
+            $this->analyzeJs($appName, $app, $js);
         }
 
         $apps = $this->detected;
         $apps = $this->resolveExcludes($apps);
 
-        $implies = $this->resolveImplies($apps, $url);
+        $implies = $this->resolveImplies($apps);
 
         foreach ($implies as $appName => $app) {
             $this->detected[$appName] = $app;
@@ -117,6 +122,7 @@ class Wappalyzer
             $this->analyzeHeaders($appName, $app, $headers);
             $this->analyzeScripts($appName, $app, $html);
             $this->analyzeCookies($appName, $app, $cookies);
+            $this->analyzeJs($appName, $app, $js);
         }
 
         return [
@@ -158,16 +164,25 @@ class Wappalyzer
     }
 
     /**
-    * Enclose string in array
-    */
+     * Enclose string in array
+     */
     public function asArray($value)
     {
         return is_array($value) ? $value : [ $value ];
     }
 
     /**
-    * Parse apps.json patterns
-    */
+     * Wappalizer categories
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+
+    /**
+     * Parse apps.json patterns
+     */
     public function parsePatterns($patterns, $escape = true)
     {
         if (!$patterns) {
@@ -215,13 +230,14 @@ class Wappalyzer
     }
 
     /**
-    * Parse JavaScript patterns
-    */
+     * Parse JavaScript patterns
+     */
     public function parseJsPatterns()
     {
         foreach (array_keys($this->apps) as $appName) {
-            if ($this->apps[$appName]->js) {
-                $this->jsPatterns[$appName] = $this->parsePatterns($this->apps[$appName]->js);
+            $var = $this->apps[$appName];
+            if (isset($this->apps[$appName]['js'])) {
+                $this->jsPatterns[$appName] = $this->parsePatterns($this->apps[$appName]['js']);
             }
         }
     }
@@ -254,30 +270,36 @@ class Wappalyzer
         return $apps;
     }
 
-    public function resolveImplies($apps, $url)
+    public function resolveImplies($apps)
     {
         $checkImplies = true;
+        $keys = ['implies', 'requires'];
         $implies = [];
 
-        // Implied applications
+        // Implied and required applications
         // Run several passes as implied apps may imply other apps
         while ($checkImplies) {
             $checkImplies = false;
 
-            foreach ($apps as $appName => $app) {
-                if (isset($app['requires'])) {
-                    foreach ($this->asArray($app['requires']) as $implied) {
-                        $implied = $this->parsePatterns($implied)[0];
+            foreach ($apps as $app) {
+                $implications = [];
+                foreach ($keys as $key) {
+                    if (isset($app[$key])) {
+                        $implications = array_merge($implications, $this->asArray($app[$key]));
+                    }
+                }
 
-                        if (!isset($this->apps[$implied['string']])) {
-                            continue;
-                        }
+                foreach (array_unique($implications) as $implied) {
+                    $implied = $this->parsePatterns($implied)[0];
 
-                        if (!array_key_exists($implied['string'], $implies) && !array_key_exists($implied['string'], $this->detected)) {
-                            $implies[$implied['string']] = $this->apps[$implied['string']];
+                    if (!isset($this->apps[$implied['string']])) {
+                        continue;
+                    }
 
-                            $checkImplies = true;
-                        }
+                    if (!array_key_exists($implied['string'], $implies) && !array_key_exists($implied['string'], $this->detected)) {
+                        $implies[$implied['string']] = $this->apps[$implied['string']];
+
+                        $checkImplies = true;
                     }
                 }
             }
@@ -287,8 +309,8 @@ class Wappalyzer
     }
 
     /**
-    * Analyze URL
-    */
+     * Analyze URL
+     */
     public function analyzeUrl($appName, $app, $url)
     {
         if (!isset($app['url'])) {
@@ -309,8 +331,8 @@ class Wappalyzer
     }
 
     /**
-    * Analyze HTML
-    */
+     * Analyze HTML
+     */
     public function analyzeHtml($appName, $app, $html)
     {
         if (!isset($app['html'])) {
@@ -331,8 +353,8 @@ class Wappalyzer
     }
 
     /**
-    * Analyze meta tag
-    */
+     * Analyze meta tag
+     */
     public function analyzeMeta($appName, $app, $html)
     {
         if (!isset($app['meta'])) {
@@ -367,8 +389,8 @@ class Wappalyzer
     }
 
     /**
-    * Analyze response headers
-    */
+     * Analyze response headers
+     */
     public function analyzeHeaders($appName, $app, $headers)
     {
         if (!isset($app['headers'])) {
@@ -397,8 +419,8 @@ class Wappalyzer
     }
 
     /**
-    * Analyze script tag
-    */
+     * Analyze script tag
+     */
     public function analyzeScripts($appName, $app, $html)
     {
         if (!isset($app['script'])) {
@@ -429,8 +451,8 @@ class Wappalyzer
     }
 
     /**
-    * Analyze cookies
-    */
+     * Analyze cookies
+     */
     public function analyzeCookies($appName, $app, $cookies)
     {
         if (!isset($app['cookies'])) {
@@ -455,33 +477,25 @@ class Wappalyzer
     }
 
     /**
-    * Analyze JavaScript variables
-    */
-    /*
-    public function analyzeJs($app, $results)
+     * Analyze JavaScript variables
+     */
+    public function analyzeJs($appName, $app, $js)
     {
-        $promises = [];
-
-        foreach (array_keys($results) as $string) {
-            if (! function_exists($results[$string])) {
-                foreach (array_keys($results[$string]) as $index) {
-                    $pattern = $this->jsPatterns[$app->name][$string][$index];
-                    $value = $results[$string][$index];
-
-                    if ($pattern && $pattern->regex->test($value)) {
-                        $this->addDetected($app, $pattern, 'js', $value);
-                    }
-                }
-            }
+        if (!isset($app['js'])) {
+            return;
         }
 
-        return $promises;
+        foreach ($this->jsPatterns[$appName] as $key => $jsPattern) {
+            if (in_array($key, $js, true)) {
+                $this->addDetected($appName, $app, $key, 'js', null);
+            }
+        }
     }
-    */
+
 
     /**
-    * Mark application as detected, set confidence and version
-    */
+     * Mark application as detected, set confidence and version
+     */
     public function addDetected($appName, $app, $pattern, $type, $value, $key = null)
     {
         $this->apps[$appName]['detected'] = true;
