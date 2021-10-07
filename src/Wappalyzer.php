@@ -57,9 +57,6 @@ class Wappalyzer
     public function analyze($url)
     {
         $this->url = $url;
-        $startTime = time();
-
-        $scripts = [];
 
         if ($this->client === false) {
             $ch = curl_init();
@@ -103,40 +100,35 @@ class Wappalyzer
             $language = is_array($matches) && count($matches) > 0 ? $matches[1] : null;
         }
 
-        foreach ($this->apps as $appName => $app) {
-            $this->apps[$appName] = $this->detected[$appName] ?? $app;
-
-            $this->analyzeUrl($appName, $app);
-            $this->analyzeHtml($appName, $app);
-            $this->analyzeMeta($appName, $app);
-            $this->analyzeHeaders($appName, $app);
-            $this->analyzeScripts($appName, $app);
-            $this->analyzeCookies($appName, $app);
-            $this->analyzeJs($appName, $app);
-        }
-
-        $apps = $this->detected;
-        $apps = $this->resolveExcludes($apps);
-
-        $implies = $this->resolveImplies($apps);
-
-        foreach ($implies as $appName => $app) {
-            $this->detected[$appName] = $app;
-
-            $this->analyzeUrl($appName, $app);
-            $this->analyzeHtml($appName, $app);
-            $this->analyzeMeta($appName, $app);
-            $this->analyzeHeaders($appName, $app);
-            $this->analyzeScripts($appName, $app);
-            $this->analyzeCookies($appName, $app);
-            $this->analyzeJs($appName, $app);
-        }
+        $this->doAnalyze($this->apps);
 
         return [
             'url' => $url,
             'language' => $language,
             'detected' => $this->detected,
         ];
+    }
+
+    public function doAnalyze($apps)
+    {
+        foreach ($apps as $appName => $app) {
+            $this->analyzeUrl($appName, $app);
+            $this->analyzeHtml($appName, $app);
+            $this->analyzeMeta($appName, $app);
+            $this->analyzeHeaders($appName, $app);
+            $this->analyzeScripts($appName, $app);
+            $this->analyzeCookies($appName, $app);
+            $this->analyzeJs($appName, $app);
+        }
+
+        $this->resolveExcludes();
+        $implies = $this->resolveImplies();
+
+        if (empty($implies)) {
+            return true;
+        }
+
+        return $this->doAnalyze($implies);
     }
 
     private function fixHeaders($headers)
@@ -249,14 +241,13 @@ class Wappalyzer
     public function parseJsPatterns()
     {
         foreach (array_keys($this->apps) as $appName) {
-            $var = $this->apps[$appName];
             if (isset($this->apps[$appName]['js'])) {
                 $this->jsPatterns[$appName] = $this->parsePatterns($this->apps[$appName]['js']);
             }
         }
     }
 
-    public function resolveExcludes($apps)
+    public function resolveExcludes()
     {
         $excludes = [];
 
@@ -275,46 +266,33 @@ class Wappalyzer
             if (array_key_exists($appName, $this->detected)) {
                 unset($this->detected[$appName]);
             }
-
-            if (array_key_exists($appName, $apps)) {
-                unset($apps[$appName]);
-            }
         }
-
-        return $apps;
     }
 
-    public function resolveImplies($apps)
+    public function resolveImplies()
     {
-        $checkImplies = true;
         $keys = ['implies', 'requires'];
         $implies = [];
 
         // Implied and required applications
-        // Run several passes as implied apps may imply other apps
-        while ($checkImplies) {
-            $checkImplies = false;
+        foreach ($this->detected as $app) {
+            $implications = [];
+            foreach ($keys as $key) {
+                if (isset($app[$key])) {
+                    $implications = array_merge($implications, $this->asArray($app[$key]));
+                }
+            }
 
-            foreach ($apps as $app) {
-                $implications = [];
-                foreach ($keys as $key) {
-                    if (isset($app[$key])) {
-                        $implications = array_merge($implications, $this->asArray($app[$key]));
-                    }
+            foreach (array_unique($implications) as $implication) {
+                $appName = $this->parsePatterns($implication)[0]['string'];
+
+                if (!isset($this->apps[$appName])) {
+                    continue;
                 }
 
-                foreach (array_unique($implications) as $implied) {
-                    $implied = $this->parsePatterns($implied)[0];
-
-                    if (!isset($this->apps[$implied['string']])) {
-                        continue;
-                    }
-
-                    if (!array_key_exists($implied['string'], $implies) && !array_key_exists($implied['string'], $this->detected)) {
-                        $implies[$implied['string']] = $this->apps[$implied['string']];
-
-                        $checkImplies = true;
-                    }
+                if (!array_key_exists($appName, $implies) && !array_key_exists($appName, $this->detected)) {
+                    $implies[$appName] = $this->apps[$appName];
+                    $this->detected[$appName] = $this->apps[$appName];
                 }
             }
         }
@@ -533,6 +511,7 @@ class Wappalyzer
                 }
             }
         }
+
         $this->detected[$appName] = $this->apps[$appName];
     }
 }
