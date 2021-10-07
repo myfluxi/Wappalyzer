@@ -16,14 +16,21 @@ use GuzzleHttp\Client;
  */
 class Wappalyzer
 {
-    private $apps;
+    private $client;
+
     private $categories;
     private $groups;
 
-    private $detected = [];
-    private $client;
+    private $url;
+    private $html;
+    private $headers;
+    private $cookies;
+    private $js;
 
+    private $apps;
     private $jsPatterns;
+
+    private $detected = [];
 
     public function __construct($client = null)
     {
@@ -35,12 +42,11 @@ class Wappalyzer
 
         $files = array_diff(scandir(__DIR__ . '/technologies'), array('..', '.'));
 
-        $apps = [];
+        $this->apps = [];
         foreach ($files as $file) {
             $appData = json_decode(file_get_contents(__DIR__ . '/technologies/' . $file), true);
-            $apps = array_merge($apps, $appData);
+            $this->apps = array_merge($this->apps, $appData);
         }
-        $this->apps = $apps;
 
         $this->categories = json_decode(file_get_contents(__DIR__ . '/categories.json'), true);
         $this->groups = json_decode(file_get_contents(__DIR__ . '/groups.json'), true);
@@ -50,11 +56,10 @@ class Wappalyzer
 
     public function analyze($url)
     {
+        $this->url = $url;
         $startTime = time();
 
         $scripts = [];
-        $cookies = [];
-        $js = [];
 
         if ($this->client === false) {
             $ch = curl_init();
@@ -66,20 +71,20 @@ class Wappalyzer
             $response = curl_exec($ch);
 
             $header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
-            $headers = substr($response, 0, $header_size);
-            $html = substr($response, $header_size);
+            $this->headers = substr($response, 0, $header_size);
+            $this->html = substr($response, $header_size);
 
-            $headers = $this->getHeadersFromResponse($headers);
+            $this->headers = $this->getHeadersFromResponse($this->headers);
         } else {
             $response = $this->client->request('GET', $url);
             if ($response->getStatusCode() < 400) {
-                $html = (string) $response->getBody();
-                $headers = $this->fixHeaders($response->getHeaders());
+                $this->html = (string) $response->getBody();
+                $this->headers = $this->fixHeaders($response->getHeaders());
 
                 $cookieJar = $this->client->getConfig('cookies');
-                $cookies = $cookieJar->toArray();
+                $this->cookies = $cookieJar->toArray();
 
-                $js = $this->client->getConfig('js') ?? [];
+                $this->js = $this->client->getConfig('js') ?? [];
             } else {
                 throw new Exception("Can't load URL.");
             }
@@ -88,12 +93,12 @@ class Wappalyzer
         // Additional information
         $language = null;
 
-        if ($html) {
-            if (!is_string($html)) {
-                $html = '';
+        if ($this->html) {
+            if (!is_string($this->html)) {
+                $this->html = '';
             }
 
-            preg_match('/<html[^>]*[: ]lang="([a-z]{2}(([-_])[A-Z]{2})?)"/i', $html, $matches);
+            preg_match('/<html[^>]*[: ]lang="([a-z]{2}(([-_])[A-Z]{2})?)"/i', $this->html, $matches);
 
             $language = is_array($matches) && count($matches) > 0 ? $matches[1] : null;
         }
@@ -101,13 +106,13 @@ class Wappalyzer
         foreach ($this->apps as $appName => $app) {
             $this->apps[$appName] = $this->detected[$appName] ?? $app;
 
-            $this->analyzeUrl($appName, $app, $url);
-            $this->analyzeHtml($appName, $app, $html);
-            $this->analyzeMeta($appName, $app, $html);
-            $this->analyzeHeaders($appName, $app, $headers);
-            $this->analyzeScripts($appName, $app, $html);
-            $this->analyzeCookies($appName, $app, $cookies);
-            $this->analyzeJs($appName, $app, $js);
+            $this->analyzeUrl($appName, $app);
+            $this->analyzeHtml($appName, $app);
+            $this->analyzeMeta($appName, $app);
+            $this->analyzeHeaders($appName, $app);
+            $this->analyzeScripts($appName, $app);
+            $this->analyzeCookies($appName, $app);
+            $this->analyzeJs($appName, $app);
         }
 
         $apps = $this->detected;
@@ -118,13 +123,13 @@ class Wappalyzer
         foreach ($implies as $appName => $app) {
             $this->detected[$appName] = $app;
 
-            $this->analyzeUrl($appName, $app, $url);
-            $this->analyzeHtml($appName, $app, $html);
-            $this->analyzeMeta($appName, $app, $html);
-            $this->analyzeHeaders($appName, $app, $headers);
-            $this->analyzeScripts($appName, $app, $html);
-            $this->analyzeCookies($appName, $app, $cookies);
-            $this->analyzeJs($appName, $app, $js);
+            $this->analyzeUrl($appName, $app);
+            $this->analyzeHtml($appName, $app);
+            $this->analyzeMeta($appName, $app);
+            $this->analyzeHeaders($appName, $app);
+            $this->analyzeScripts($appName, $app);
+            $this->analyzeCookies($appName, $app);
+            $this->analyzeJs($appName, $app);
         }
 
         return [
@@ -320,7 +325,7 @@ class Wappalyzer
     /**
      * Analyze URL
      */
-    public function analyzeUrl($appName, $app, $url)
+    public function analyzeUrl($appName, $app)
     {
         if (!isset($app['url'])) {
             return;
@@ -333,8 +338,8 @@ class Wappalyzer
         }
 
         foreach ($patterns as $pattern) {
-            if (preg_match('~' . $pattern['regex'] . '~i', $url)) {
-                $this->addDetected($appName, $app, $pattern, 'url', $url);
+            if (preg_match('~' . $pattern['regex'] . '~i', $this->url)) {
+                $this->addDetected($appName, $app, $pattern, 'url', $this->url);
             }
         }
     }
@@ -342,7 +347,7 @@ class Wappalyzer
     /**
      * Analyze HTML
      */
-    public function analyzeHtml($appName, $app, $html)
+    public function analyzeHtml($appName, $app)
     {
         if (!isset($app['html'])) {
             return;
@@ -355,8 +360,8 @@ class Wappalyzer
         }
 
         foreach ($patterns as $pattern) {
-            if (@preg_match('~' . $pattern['regex'] . '~i', $html)) {
-                $this->addDetected($appName, $app, $pattern, 'html', $html);
+            if (@preg_match('~' . $pattern['regex'] . '~i', $this->html)) {
+                $this->addDetected($appName, $app, $pattern, 'html', $this->html);
             }
         }
     }
@@ -364,7 +369,7 @@ class Wappalyzer
     /**
      * Analyze meta tag
      */
-    public function analyzeMeta($appName, $app, $html)
+    public function analyzeMeta($appName, $app)
     {
         if (!isset($app['meta'])) {
             return;
@@ -373,7 +378,7 @@ class Wappalyzer
         $regex = "/<meta[^>]+>/i";
         $patterns = $this->parsePatterns($app['meta']);
 
-        if ($patterns && (preg_match_all($regex, $html, $matches))) {
+        if ($patterns && (preg_match_all($regex, $this->html, $matches))) {
             foreach ($matches as $matchs) {
                 foreach ($matchs as $match) {
                     foreach ($patterns as $key => $meta) {
@@ -400,7 +405,7 @@ class Wappalyzer
     /**
      * Analyze response headers
      */
-    public function analyzeHeaders($appName, $app, $headers)
+    public function analyzeHeaders($appName, $app)
     {
         if (!isset($app['headers'])) {
             return;
@@ -415,8 +420,8 @@ class Wappalyzer
         foreach ($patterns as $headerName => $pattern) {
             $headerName = strtolower($headerName);
 
-            if (array_key_exists($headerName, $headers)) {
-                $headerValue = $headers[$headerName];
+            if (array_key_exists($headerName, $this->headers)) {
+                $headerValue = $this->headers[$headerName];
                 if (is_array($headerValue)) {
                     $headerValue = $headerValue[0];
                 }
@@ -430,7 +435,7 @@ class Wappalyzer
     /**
      * Analyze script tag
      */
-    public function analyzeScripts($appName, $app, $html)
+    public function analyzeScripts($appName, $app)
     {
         if (!isset($app['script'])) {
             return;
@@ -444,7 +449,7 @@ class Wappalyzer
 
         $regex = "/<script[^>]+>/i";
 
-        if ($patterns && (preg_match_all($regex, $html, $matches))) {
+        if ($patterns && (preg_match_all($regex, $this->html, $matches))) {
             foreach ($matches as $matchs) {
                 foreach ($matchs as $match) {
                     foreach ($patterns as $pattern) {
@@ -462,7 +467,7 @@ class Wappalyzer
     /**
      * Analyze cookies
      */
-    public function analyzeCookies($appName, $app, $cookies)
+    public function analyzeCookies($appName, $app)
     {
         if (!isset($app['cookies'])) {
             return;
@@ -475,7 +480,7 @@ class Wappalyzer
 
         foreach ($patterns as $patternName => $pattern) {
             $patternName = strtolower($patternName);
-            foreach ($cookies as $cookie) {
+            foreach ($this->cookies as $cookie) {
                 if ($patternName === strtolower($cookie['Name'])) {
                     if (preg_match('/' . $pattern['regex'] . '/i', $cookie['Value'])) {
                         $this->addDetected($appName, $app, $pattern, 'cookies', $cookie, $cookie['Name']);
@@ -488,14 +493,14 @@ class Wappalyzer
     /**
      * Analyze JavaScript variables
      */
-    public function analyzeJs($appName, $app, $js)
+    public function analyzeJs($appName, $app)
     {
         if (!isset($app['js'])) {
             return;
         }
 
         foreach ($this->jsPatterns[$appName] as $key => $jsPattern) {
-            if (in_array($key, $js, true)) {
+            if (in_array($key, $this->js, true)) {
                 $this->addDetected($appName, $app, $key, 'js', null);
             }
         }
