@@ -5,6 +5,7 @@
 /npm-debug.log
 /vendor
 composer.lock
+.idea
 
 package-lock.json
 

@@ -1,11 +1,22 @@
 #!/bin/bash
 
-git clone git@github.com:AliasIO/wappalyzer.git
-rm -rf icons/*
-cp wappalyzer/src/drivers/webextension/images/icons/* icons/
-rm -rf src/technologies/*
-cp wappalyzer/src/technologies/* src/technologies/
+REMOTE_URL="https://github.com/AliasIO/wappalyzer"
+REMOTE_REPO="aliasio"
+REMOTE_BRANCH="master"
 
-cp wappalyzer/src/categories.json src/categories.json
+git remote add $REMOTE_REPO $REMOTE_URL > /dev/null 2>&1
+git fetch $REMOTE_REPO
+git merge $REMOTE_REPO/$REMOTE_BRANCH
 
-rm -rf wappalyzer
+rm -rf icons
+mv src/drivers/webextension/images/icons icons
+
+git reset
+git add icons
+git add src/technologies
+git add src/categories.json
+git add src/groups.json
+
+git commit -m $(git describe $REMOTE_REPO/$REMOTE_BRANCH --abbrev=0 --tags)
+git clean -f -d
+git reset --hard

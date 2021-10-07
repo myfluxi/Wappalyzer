@@ -32,6 +32,7 @@ class WappalyzerTest extends TestCase
                 'status' => '200',
                 'vary' => 'Accept-Encoding,Cookie',
                 'x-powered-by' => 'PHP/7.2.7',
+                'x-github-request-id' => 'DA9A:AF74:3CF1A7:47D586:615EFC90'
             ], file_get_contents(__DIR__ . '/site.html')),
         ]);
         
@@ -101,7 +102,7 @@ class WappalyzerTest extends TestCase
                         'wp_username' => ''
                     ],
                     'meta' => [
-                        'generator' => '^WordPress ?([\d.]+)?\;version:\1',
+                        'generator' => '^WordPress(?: ([\d.]+))?\;version:\1',
                         "shareaholic:wp_version" => ""
                     ],
                     'website' => 'https://wordpress.org',
@@ -162,7 +163,55 @@ class WappalyzerTest extends TestCase
                     'detected' => true,
                     'cpe' => 'cpe:/a:laravel:laravel',
                     "description" => "Laravel is a free, open-source PHP web framework.",
-                ]
+                ],
+                'GitHub Pages' => [
+                    'cats' => [
+                        0 => 62,
+                    ],
+                    'description' => 'GitHub Pages is a static site hosting service.',
+                    'headers' => [
+                        'Server' => '^GitHub\\.com$',
+                        'X-GitHub-Request-Id' => '',
+                    ],
+                    'icon' => 'GitHub.svg',
+                    'implies' => 'Ruby on Rails',
+                    'url' => '^https?://[^/]+\\.github\\.io',
+                    'website' => 'https://pages.github.com/',
+                    'detected' => true,
+                ],
+                'Ruby on Rails' => [
+                    'cats' => [
+                        0 => 18,
+                    ],
+                    'cookies' => [
+                        '_session_id' => '\\;confidence:75',
+                    ],
+                    'cpe' => 'cpe:/a:rubyonrails:rails',
+                    'description' => 'Ruby on Rails is a server-side web application framework written in Ruby under the MIT License.',
+                    'headers' => [
+                        'Server' => 'mod_(?:rails|rack)',
+                        'X-Powered-By' => 'mod_(?:rails|rack)',
+                    ],
+                    'icon' => 'Ruby on Rails.png',
+                    'implies' => 'Ruby',
+                    'meta' => [
+                        'csrf-param' => '^authenticity_token$\\;confidence:50',
+                    ],
+                    'scripts' => '/assets/application-[a-z\\d]{32}/\\.js\\;confidence:50',
+                    'website' => 'https://rubyonrails.org',
+                ],
+                'Ruby' => [
+                    'cats' => [
+                        0 => 27,
+                    ],
+                    'cpe' => 'cpe:/a:ruby-lang:ruby',
+                    'description' => 'Ruby is an open-source object-oriented programming language.',
+                    'headers' => [
+                        'Server' => '(?:Mongrel|WEBrick|Ruby)',
+                    ],
+                    'icon' => 'Ruby.png',
+                    'website' => 'http://ruby-lang.org',
+                ],
             ]
         ], $wappalyzer->analyze('https://www.madeit.be/'));
     }
@@ -254,7 +303,7 @@ class WappalyzerTest extends TestCase
                         'wp_username' => ''
                     ],
                     'meta' => [
-                        'generator' => '^WordPress ?([\d.]+)?\;version:\1',
+                        'generator' => '^WordPress(?: ([\d.]+))?\;version:\1',
                         "shareaholic:wp_version" => ""
                     ],
                     'website' => 'https://wordpress.org',
@@ -316,7 +365,7 @@ class WappalyzerTest extends TestCase
                     'cpe' => 'cpe:/a:laravel:laravel',
                     "description" => "Laravel is a free, open-source PHP web framework.",
                 ],
-                'AdRoll' =>[
+                'AdRoll' => [
                     'cats' => [
                         0 => 36,
                         1 => 77,
