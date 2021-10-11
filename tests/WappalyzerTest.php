@@ -194,6 +194,10 @@ class WappalyzerTest extends TestCase
                     ],
                     'icon' => 'Ruby on Rails.png',
                     'implies' => 'Ruby',
+                    "js" => [
+                        "ReactOnRails" => "",
+                      "__REACT_ON_RAILS_EVENT_HANDLERS_RAN_ONCE__" => ""
+                    ],
                     'meta' => [
                         'csrf-param' => '^authenticity_token$\\;confidence:50',
                     ],

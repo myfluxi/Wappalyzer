@@ -325,6 +325,21 @@
     "scripts": "omnisrc\\.com",
     "website": "https://www.omnisend.com"
   },
+  "OnUniverse": {
+    "cats": [
+      51
+    ],
+    "description": "OnUniverse is the first website builder and commerce platform built for mobile devices.",
+    "dom": "link[href*='onuniverse-assets.imgix.net'], img[src*='onuniverse-assets.imgix.net']",
+    "icon": "OnUniverse.png",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://onuniverse.com"
+  },
   "OneAPM": {
     "cats": [
       10

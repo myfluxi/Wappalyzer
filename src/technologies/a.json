@@ -45,6 +45,19 @@
     "scripts": "try\\.abtasty\\.com",
     "website": "https://www.abtasty.com"
   },
+  "ABOUT YOU Commerce Suite": {
+    "cats": [
+      6
+    ],
+    "description": "ABOUT YOU Commerce Suite is an enterprise ready infrastructure solution designed for ecommerce companies.",
+    "dom": "link[href*='cdn.aboutyou.de/'], img[src*='cdn.aboutyou.de/']",
+    "icon": "ABOUT YOU Commerce Suite.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://commercesuite.aboutyou.com"
+  },
   "AD EBiS": {
     "cats": [
       36,
@@ -113,7 +126,11 @@
       "AOS.refresh": "\\;confidence:50",
       "AOS.refreshHard": "\\;confidence:50"
     },
-    "scripts": "unpkg\\.com/aos@(next)/dist/aos\\.js\\;version:\\1",
+    "oss": true,
+    "scripts": [
+      "unpkg\\.com/aos@([\\d\\.]+)/dist/aos\\.js\\;version:\\1",
+      "/typo3conf/ext/udem_vendor/Resources/Public/aos-([\\d\\.]+)\\;version:\\1"
+    ],
     "website": "http://michalsnik.github.io/aos/"
   },
   "AT Internet Analyzer": {
@@ -241,6 +258,18 @@
     "saas": true,
     "scripts": "acsbapp?\\.com/.*/acsb\\.js",
     "website": "https://accessibe.com"
+  },
+  "Accessibility Toolbar Plugin": {
+    "cats": [
+      68
+    ],
+    "description": "Accessibility Toolbar Plugin is an accessibility component without dependencies (clean javascript), including a variety of tools.",
+    "icon": "Accessibility Toolbar Plugin.png",
+    "js": {
+      "MicAccessTool.prototype.openCloseBoxKeyboard": ""
+    },
+    "oss": true,
+    "website": "https://webworks.ga/acc_toolbar"
   },
   "Accessible360": {
     "cats": [
@@ -621,6 +650,26 @@
     ],
     "saas": true,
     "website": "https://www.adroll.com/features/consent-management"
+  },
+  "AdScale": {
+    "cats": [
+      36
+    ],
+    "description": "AdScale is a cloud-based, AI-powered performance optimisation platform which utilises machine learning to automate and optimise AdWords campaigns across Google Search, Google Shopping, Google Display, and YouTube.",
+    "icon": "AdScale.svg",
+    "js": {
+      "_adscale": "",
+      "adscaleAddToCart": "",
+      "adscaleViewProduct": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring",
+      "payg"
+    ],
+    "saas": true,
+    "scripts": "\\.adscale\\.com/",
+    "website": "https://www.adscale.com"
   },
   "AdThrive": {
     "cats": [
@@ -1152,7 +1201,8 @@
     "scripts": [
       "portal\\.afterpay\\.com",
       "static\\.afterpay\\.com",
-      "present-afterpay\\.js"
+      "present-afterpay\\.js",
+      "afterpay-products\\.min\\.js"
     ],
     "website": "https://www.afterpay.com/"
   },
@@ -1476,13 +1526,13 @@
     ],
     "description": "Allyable is an automated web accessibility solution with an AI engine.",
     "icon": "Allyable.png",
-    "scripts": "portal\\.allyable\\.com/",
-    "saas": true,
     "pricing": [
       "freemium",
       "mid",
       "recurring"
     ],
+    "saas": true,
+    "scripts": "portal\\.allyable\\.com/",
     "website": "https://allyable.com"
   },
   "Alpine.js": {
@@ -1746,6 +1796,24 @@
     },
     "icon": "amber.png",
     "website": "https://amberframework.org"
+  },
+  "AmeriCommerce": {
+    "cats": [
+      6
+    ],
+    "description": "AmeriCommerce is an ecommerce platform built for high volume online stores and complex products with features such as multi-store management.",
+    "dom": "p.AmeriCommerce-powered-by-link > a[href*='.americommerce.com/'][target='_blank']",
+    "icon": "AmeriCommerce.png",
+    "js": {
+      "AC.storeDomain": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "\\.americommerce\\.com/",
+    "website": "https://www.americommerce.com"
   },
   "American Express": {
     "cats": [
@@ -2340,15 +2408,15 @@
     "cats": [
       31
     ],
-    "description": "ArvanCloud is a Cloud Services Provider, offering a wide range of incorporated cloud services including CDN, DDoS mitigation, Cloud Managed DNS, Cloud Security, VoD/AoD Streaming, Live Streaming, Cloud Compute, Cloud Object Storage, and PaaS.",
+    "description": "ArvanCloud is a cloud services provider, offering a wide range of incorporated cloud services including CDN, DDoS mitigation, Cloud Managed DNS, Cloud Security, VoD/AoD Streaming, Live Streaming, Cloud Compute, Cloud Object Storage, and PaaS.",
     "headers": {
-      "AR-PoweredBy": "Arvan Cloud \\(arvancloud\\.com\\)"
+      "server": "ArvanCloud"
     },
     "icon": "ArvanCloud.png",
     "js": {
       "ArvanCloud": ""
     },
-    "website": "http://www.ArvanCloud.com"
+    "website": "http://www.arvancloud.com"
   },
   "AsciiDoc": {
     "cats": [
@@ -2576,6 +2644,15 @@
     "scripts": "(?:\\.)?audioeye\\.com/(?:ae\\.js)?",
     "website": "https://www.audioeye.com"
   },
+  "Audiohook": {
+    "cats": [
+      36
+    ],
+    "description": "Audiohook specializes in programmatic audio advertising.",
+    "dom": "img[src*='listen.audiohook.com/']",
+    "icon": "Audiohook.svg",
+    "website": "https://www.audiohook.com"
+  },
   "Aurelia": {
     "cats": [
       12
@@ -2590,6 +2667,22 @@
       "aurelia(?:\\.min)?\\.js"
     ],
     "website": "http://aurelia.io"
+  },
+  "Auryc": {
+    "cats": [
+      10
+    ],
+    "description": "Auryc is a client-side journey intelligence platform that surfaces real-time insights.",
+    "icon": "Auryc.svg",
+    "js": {
+      "aurycJsLibConfig.base.code_version": "([\\d\\.]+)\\;version:\\1"
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scripts": "cdn\\.auryc\\.com/",
+    "website": "https://www.auryc.com"
   },
   "Auth0": {
     "cats": [
@@ -2756,13 +2849,23 @@
       "azure-sitename": "",
       "azure-slotname": "",
       "azure-version": "",
-      "x-ms-gateway-requestid": "",
+      "server": "^Windows-Azure",
       "x-ms-client-request-id": "",
       "x-ms-correlation-request-id": "",
-      "server": "^Windows-Azure"
+      "x-ms-gateway-requestid": ""
     },
     "icon": "azure.svg",
     "website": "https://azure.microsoft.com"
+  },
+  "Azure AD B2C": {
+    "cats": [
+      69
+    ],
+    "description": "Azure Active Directory B2C is a customer identity access management (CIAM) solution.",
+    "icon": "AzureADB2C.png",
+    "implies": "Azure",
+    "url": "https.+\\.b2clogin\\.com",
+    "website": "https://azure.microsoft.com/en-us/services/active-directory/external-identities/b2c/"
   },
   "Azure CDN": {
     "cats": [
@@ -2773,8 +2876,8 @@
       "X-EC-Debug": "",
       "server": "^(?:ECAcc|ECS|ECD)"
     },
-    "implies": "Azure",
     "icon": "azure.svg",
+    "implies": "Azure",
     "website": "https://azure.microsoft.com/en-us/services/cdn/"
   },
   "a-blog cms": {
@@ -2857,15 +2960,5 @@
     "icon": "augmented-ui.png",
     "oss": true,
     "website": "http://augmented-ui.com"
-  },
-  "Azure AD B2C": {
-    "cats": [
-      69
-    ],
-    "description": "Azure Active Directory B2C is a customer identity access management (CIAM) solution.",
-    "icon": "AzureADB2C.png",
-	  "url": "https.+\\.b2clogin\\.com",
-    "implies": "Azure",
-    "website": "https://azure.microsoft.com/en-us/services/active-directory/external-identities/b2c/"
   }
 }

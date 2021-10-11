@@ -80,6 +80,23 @@
     ],
     "website": "http://dnnsoftware.com"
   },
+  "Daily Deals": {
+    "cats": [
+      5
+    ],
+    "description": "Daily Deals is a flash sale, limited-time discounts, countdown timers, and sales analytics solution.",
+    "icon": "Daily Deals.svg",
+    "js": {
+      "ddAddToCheckout": "\\;confidence:50",
+      "ddAddToOrder": "\\;confidence:50"
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scripts": "assets\\.dailydeals\\.ai/",
+    "website": "https://dailydeals.ai"
+  },
   "Dancer": {
     "cats": [
       18
@@ -419,22 +436,22 @@
       1
     ],
     "description": "Directus is a free and open-source headless CMS framework for managing custom SQL-based databases.",
-    "icon": "Directus.svg",
     "headers": {
       "x-powered-by": "^Directus$"
     },
+    "icon": "Directus.svg",
     "implies": [
       "Vue.js",
       "TinyMCE",
       "core-js"
     ],
-    "saas": true,
     "oss": true,
     "pricing": [
       "freemium",
       "low",
       "recurring"
     ],
+    "saas": true,
     "website": "https://directus.io"
   },
   "Discourse": {
@@ -702,6 +719,24 @@
       "generator": "^DokuWiki( Release [\\d-]+)?\\;version:\\1"
     },
     "website": "https://www.dokuwiki.org"
+  },
+  "Doofinder": {
+    "cats": [
+      29
+    ],
+    "description": "Doofinder is a search site solution that enables users to include advanced and smart search engine capabilities in their ecommerce website.",
+    "icon": "Doofinder.svg",
+    "js": {
+      "doofinder.classic.version": "(.+)\\;version:\\1"
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "cdn\\.doofinder\\.com/",
+    "website": "https://www.doofinder.com"
   },
   "Dotclear": {
     "cats": [

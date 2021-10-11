@@ -1,4 +1,20 @@
 {
+  "MGID": {
+    "cats": [
+      36
+    ],
+    "description": "MGID is a programmatic advertising platform frequently used by misinformation websites.",
+    "icon": "MGID.png",
+    "js": {
+      "MgSensor.mgqWorker": ""
+    },
+    "pricing": [
+      "payg"
+    ],
+    "saas": true,
+    "scripts": "\\.mgid\\.com/",
+    "website": "https://www.mgid.com"
+  },
   "MODX": {
     "cats": [
       1
@@ -799,6 +815,26 @@
     ],
     "website": "https://metomic.io"
   },
+  "Metrilo": {
+    "cats": [
+      10,
+      75
+    ],
+    "description": "Metrilo is an ecommerce analytics, email marketing software provider.",
+    "icon": "Metrilo.svg",
+    "js": {
+      "metrilo": "",
+      "metriloBotRegexp": "",
+      "metriloCookie": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "\\.metrilo\\.com/",
+    "website": "https://www.metrilo.com"
+  },
   "Microsoft 365": {
     "cats": [
       30,
@@ -1492,6 +1528,24 @@
     },
     "url": "/mozard/!suite",
     "website": "http://mozard.nl"
+  },
+  "Mulberry": {
+    "cats": [
+      5
+    ],
+    "description": "Mulberry is a developer of personalised product protection solutions used to help brands unlock additional revenue.",
+    "icon": "Mulberry.svg",
+    "implies": "Cart Functionality",
+    "js": {
+      "mulberry.cta": "",
+      "mulberryShop": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scripts": "\\.getmulberry\\.com/",
+    "website": "https://www.getmulberry.com"
   },
   "Mura CMS": {
     "cats": [

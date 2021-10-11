@@ -346,7 +346,8 @@
     "icon": "React.png",
     "js": {
       "React.version": "^(.+)$\\;version:\\1",
-      "react.version": "^(.+)$\\;version:\\1"
+      "ReactOnRails": "",
+      "__REACT_ON_RAILS_EVENT_HANDLERS_RAN_ONCE__": ""
     },
     "scripts": [
       "react(?:-with-addons)?[.-]([\\d.]*\\d)[^/]*\\.js\\;version:\\1",
@@ -413,6 +414,20 @@
     ],
     "scripts": "rebuyengine\\.com",
     "website": "https://rebuyengine.com/"
+  },
+  "Recapture": {
+    "cats": [
+      32,
+      75
+    ],
+    "description": "Recapture is an abandoned cart recovery and email marketing solution.",
+    "icon": "Recapture.png",
+    "pricing": [
+      "payg"
+    ],
+    "saas": true,
+    "scripts": "cdn\\.recapture\\.io/.+\\?v=\\d+(?:&ver=([\\d\\.]+)?)?\\;version:\\1",
+    "website": "https://recapture.io"
   },
   "Recart": {
     "cats": [
@@ -883,6 +898,22 @@
     "scripts": "admin\\.revenuehunt\\.com/",
     "website": "https://revenuehut.com"
   },
+  "ReviewSolicitors": {
+    "cats": [
+      90
+    ],
+    "description": "ReviewSolicitors is a free and independent client-led review platform focusing on the UK legal market.",
+    "icon": "ReviewSolicitors.svg",
+    "js": {
+      "rs.getWidgetHtml": ""
+    },
+    "pricing": [
+      "freemium"
+    ],
+    "saas": true,
+    "scripts": "\\.reviewsolicitors\\.co\\.uk/",
+    "website": "https://www.reviewsolicitors.co.uk"
+  },
   "RevolverMaps": {
     "cats": [
       35
@@ -1185,6 +1216,10 @@
     },
     "icon": "Ruby on Rails.png",
     "implies": "Ruby",
+    "js": {
+      "ReactOnRails": "",
+      "__REACT_ON_RAILS_EVENT_HANDLERS_RAN_ONCE__": ""
+    },
     "meta": {
       "csrf-param": "^authenticity_token$\\;confidence:50"
     },

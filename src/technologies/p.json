@@ -145,6 +145,41 @@
     "scripts": "cdn\\.paddle\\.com/paddle/paddle\\.js",
     "website": "https://paddle.com/"
   },
+  "PagSeguro": {
+    "cats": [
+      41
+    ],
+    "description": "PagSeguro is an online or mobile payment-based ecommerce service for commercial operations.",
+    "dom": "form[action*='pagseguro.uol.com.br'][target='pagseguro']",
+    "icon": "PagSeguro.svg",
+    "js": {
+      "PagSeguroDirectPayment": "",
+      "_PagSeguroDirectPayment": ""
+    },
+    "pricing": [
+      "payg"
+    ],
+    "saas": true,
+    "scripts": "\\.pagseguro\\.uol\\.com\\.br/",
+    "website": "https://pagseguro.uol.com.br"
+  },
+  "Pagar.me": {
+    "cats": [
+      41
+    ],
+    "description": "Pagar.me is a Portuguese-language online payments solution for businesses in Brazil.",
+    "icon": "Pagar.me.svg",
+    "js": {
+      "PagarMeCheckout": "",
+      "pagarme.balance": ""
+    },
+    "pricing": [
+      "payg"
+    ],
+    "saas": true,
+    "scripts": "assets\\.pagar\\.me/",
+    "website": "https://pagar.me"
+  },
   "PageFly": {
     "cats": [
       51
@@ -1195,6 +1230,31 @@
     },
     "scripts": "polymer\\.js",
     "website": "http://polymer-project.org"
+  },
+  "Popmenu": {
+    "cats": [
+      1,
+      93
+    ],
+    "cookies": {
+      "Popmenu-Token": ""
+    },
+    "description": "Popmenu is a restaurant platform which offers CMS, online menus, ordering and delivery and marketing automation solutions.",
+    "icon": "Popmenu.svg",
+    "implies": [
+      "React",
+      "Apollo"
+    ],
+    "js": {
+      "POPMENU_CLIENT": "",
+      "popmenuHydrated": ""
+    },
+    "pricing": [
+      "recurring",
+      "mid"
+    ],
+    "website": "https://get.popmenu.com",
+    "xhr": "popmenu\\.com"
   },
   "Popper": {
     "cats": [

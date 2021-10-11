@@ -28,6 +28,20 @@
     "scripts": "secure\\.ap\\.tnspayments\\.com",
     "website": "https://tnsi.com/products/payments/"
   },
+  "TRISOshop": {
+    "cats": [
+      6
+    ],
+    "description": "TRISOshop is an ecommerce platform.",
+    "dom": "a[href*='www.trisoshop.pl'][target='_blank']",
+    "icon": "TRISOshop.svg",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.trisoshop.pl"
+  },
   "TRUENDO": {
     "cats": [
       67
@@ -489,6 +503,24 @@
       "Windows Server"
     ],
     "website": "https://www.tessituranetwork.com"
+  },
+  "TestFreaks": {
+    "cats": [
+      90
+    ],
+    "description": "TestFreaks is an impartial source that provides product and seller review content for ecommerce websites.",
+    "icon": "TestFreaks.svg",
+    "js": {
+      "applyTestFreaks": "",
+      "testFreaks": ""
+    },
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "\\.testfreaks\\.com/",
+    "website": "https://www.testfreaks.com"
   },
   "Texthelp": {
     "cats": [
@@ -995,12 +1027,12 @@
     "js": {
       "Trengo.eventBus": ""
     },
-    "scripts": "\\.widget\\.trengo\\.eu/",
-    "saas": true,
     "pricing": [
       "low",
       "recurring"
     ],
+    "saas": true,
+    "scripts": "\\.widget\\.trengo\\.eu/",
     "website": "https://trengo.com"
   },
   "Tripadviser.Widget": {
@@ -1011,20 +1043,6 @@
     "icon": "Tripadviser.Widget.svg",
     "scripts": "tripadvisor\\.[\\w]+/WidgetEmbed",
     "website": "https://www.tripadvisor.com/Widgets"
-  },
-  "TRISOshop": {
-    "cats": [
-      6
-    ],
-    "description": "TRISOshop is an ecommerce platform.",
-    "icon": "TRISOshop.svg",
-    "dom": "a[href*='www.trisoshop.pl'][target='_blank']",
-    "saas": true,
-    "pricing": [
-      "low",
-      "recurring"
-    ],
-    "website": "https://www.trisoshop.pl"
   },
   "TripleLift": {
     "cats": [
@@ -1063,6 +1081,20 @@
       "ci-mpsnare\\.iovation\\.com"
     ],
     "website": "https://www.transunion.com/solution/truvalidate"
+  },
+  "True Fit": {
+    "cats": [
+      76
+    ],
+    "description": "True Fit is a data-driven personalisation platform for footwear and apparel retailers.",
+    "icon": "True Fit.png",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "cdn\\.truefitcorp\\.com/(?:.+/([\\d\\.]+))?\\;version:\\1",
+    "website": "https://www.truefit.com"
   },
   "TrueCommerce": {
     "cats": [

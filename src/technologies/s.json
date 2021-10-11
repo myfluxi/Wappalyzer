@@ -344,6 +344,20 @@
     "scripts": "cdn\\.salesfire\\.co\\.uk/",
     "website": "https://www.salesfire.co.uk"
   },
+  "SalesReps.io": {
+    "cats": [
+      10
+    ],
+    "description": "SalesReps.io is a sales representative performance and commission reporting software provider.",
+    "icon": "SalesReps.io.png",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "api\\.salesreps\\.io/",
+    "website": "https://salesreps.io"
+  },
   "Salesfloor": {
     "cats": [
       5,
@@ -555,10 +569,10 @@
     "meta": {
       "generator": "^Saprenco.com Website Builder$"
     },
-    "saas": true,
     "pricing": [
       "poa"
     ],
+    "saas": true,
     "website": "https://www.sapren.net"
   },
   "Sarka-SPIP": {
@@ -837,13 +851,13 @@
     "js": {
       "_sellfy.version": "([\\d\\.]+)\\;version:\\1"
     },
-    "scripts": "sellfy\\.com/js/",
-    "saas": true,
     "pricing": [
       "recurring",
       "low",
       "freemium"
     ],
+    "saas": true,
+    "scripts": "sellfy\\.com/js/",
     "website": "https://sellfy.com"
   },
   "Sellingo": {
@@ -1028,6 +1042,23 @@
       "generator": "Serendipity(?: v\\.([\\d.]+))?\\;version:\\1"
     },
     "website": "http://s9y.org"
+  },
+  "Service Management Group": {
+    "cats": [
+      73
+    ],
+    "description": "Service Management Group offers customer experience measurement, employee engagement, social monitoring, publishing, and brand research services.",
+    "dom": "link[href*='api.smg.com']",
+    "icon": "Service Management Group.png",
+    "js": {
+      "smgETrackParams": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scripts": "\\.smg\\.com/",
+    "website": "https://www.smg.com"
   },
   "Service Provider Pro": {
     "cats": [
@@ -1390,6 +1421,17 @@
     "url": "^https?//.+\\.myshopify\\.com",
     "website": "http://shopify.com"
   },
+  "Shopify Chat": {
+    "cats": [
+      52
+    ],
+    "description": "Shopify Chat is Shopify's native live chat function that allows you to have real-time conversations with customers visiting your Shopify store.",
+    "icon": "Shopify.svg",
+    "scripts": [
+      "cdn\\.shopify\\.com/shopifycloud/shopify_chat/"
+    ],
+    "website": "https://www.shopify.com/inbox"
+  },
   "Shopify Consent Management": {
     "cats": [
       67
@@ -1477,6 +1519,20 @@
     ],
     "robots": "# Powered by Shoporama",
     "website": "https://www.shoporama.dk"
+  },
+  "Shoppiko": {
+    "cats": [
+      6
+    ],
+    "description": "Shoppiko is an ecommerce platform solution in India, which provides ecommerce website or ecommerce mobile application.",
+    "dom": "a[href*='shoppiko.com'][target='_blank']",
+    "icon": "Shoppiko.png",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://shoppiko.com"
   },
   "Shoppy": {
     "cats": [
@@ -1847,6 +1903,23 @@
     "saas": true,
     "scripts": "/__ssobj/core\\.js",
     "website": "https://www.sitespect.com"
+  },
+  "SiteVibes": {
+    "cats": [
+      10
+    ],
+    "description": "SiteVibes is a cloud-based user generated content and visual marketing platform.",
+    "icon": "SiteVibes.png",
+    "js": {
+      "SiteVibesManager": ""
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "app\\.sitevibes\\.com/",
+    "website": "https://sitevibes.com"
   },
   "Sitecore": {
     "cats": [
@@ -2765,6 +2838,25 @@
     "implies": "Ruby on Rails",
     "website": "https://spreecommerce.org"
   },
+  "Sprig": {
+    "cats": [
+      73,
+      10
+    ],
+    "description": "Sprig is a UX analysis and management tool to understand what motivates customers to sign up, engage, and remain loyal to products.",
+    "icon": "Sprig.png",
+    "js": {
+      "UserLeap": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "cdn\\.userleap\\.com/",
+    "website": "https://sprig.com"
+  },
   "Spring": {
     "cats": [
       18
@@ -3116,6 +3208,20 @@
     "icon": "Store Systems.png",
     "website": "http://store-systems.de"
   },
+  "StoreHippo": {
+    "cats": [
+      6
+    ],
+    "description": "StoreHippo is a SaaS based ecommerce platform.",
+    "dom": "link[href*='.storehippo.com'], img[src*='.storehippo.com']",
+    "icon": "StoreHippo.png",
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://www.storehippo.com"
+  },
   "Storeden": {
     "cats": [
       6
@@ -3125,6 +3231,21 @@
     },
     "icon": "storeden.svg",
     "website": "https://www.storeden.com"
+  },
+  "StorifyMe": {
+    "cats": [
+      5
+    ],
+    "description": "StorifyMe is a storytelling platform for creating and distributing web stories on social networks and the open web.",
+    "dom": "link[href*='cdn.storifyme.com/']",
+    "icon": "StorifyMe.png",
+    "pricing": [
+      "freemium",
+      "poa"
+    ],
+    "saas": true,
+    "scripts": "cdn\\.storifyme\\.com/",
+    "website": "https://www.storifyme.com"
   },
   "Storyblok": {
     "cats": [

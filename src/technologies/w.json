@@ -565,7 +565,7 @@
       52
     ],
     "description": "WhatsApp Business is a free to download app available on Android and iPhone using which businesses can connect with their customers.",
-    "dom": "link[href*='api.whatsapp.com/send'], link[href*='wa.me/'], div[class*='wptwa-container']",
+    "dom": "link[href*='api.whatsapp.com/send'], link[href*='wa.me/'], div[class*='wptwa-container'], a[href*='wa.link'][target='_blank']",
     "icon": "WhatsApp.svg",
     "website": "https://www.whatsapp.com/business"
   },
@@ -608,6 +608,24 @@
     "saas": true,
     "scripts": "assets/\\d+-\\d+/stack/en/widenjs\\.js",
     "website": "https://www.widen.com"
+  },
+  "WidgetWhats": {
+    "cats": [
+      52
+    ],
+    "description": "WidgetWhats is a fully customizable chat widget with appearance, text, color, button style and position.",
+    "icon": "WidgetWhats.png",
+    "js": {
+      "wwwa_loaded": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scripts": "\\.widgetwhats\\.com/",
+    "website": "https://widgetwhats.com"
   },
   "Wigzo": {
     "cats": [
@@ -702,6 +720,23 @@
       "X-Powered-By": "Winstone(?:\\/([\\d.]+))?\\;version:\\1"
     },
     "website": "http://winstone.sourceforge.net"
+  },
+  "Wirecard": {
+    "cats": [
+      41
+    ],
+    "description": "Wirecard is a defunct German payment processor and financial services provider.",
+    "icon": "Wirecard.svg",
+    "js": {
+      "WirecardHPP": "",
+      "WirecardPaymentPage": ""
+    },
+    "pricing": [
+      "payg"
+    ],
+    "saas": true,
+    "scripts": "\\.wirecard\\.com/",
+    "website": "https://www.wirecard.com"
   },
   "Wisepops": {
     "cats": [
@@ -838,6 +873,22 @@
     "icon": "Woopra.png",
     "scripts": "static\\.woopra\\.com",
     "website": "http://www.woopra.com"
+  },
+  "WoowUp": {
+    "cats": [
+      53
+    ],
+    "description": "WoowUp is a tool of CRM and predictive marketing.",
+    "icon": "WoowUp.png",
+    "js": {
+      "WU._trackProductVTEXField": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scripts": "assets-cdn\\.woowup\\.com/",
+    "website": "https://www.woowup.com"
   },
   "WordPress": {
     "cats": [
