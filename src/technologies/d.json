@@ -9,7 +9,7 @@
     "js": {
       "d3.version": "^(.+)$\\;version:\\1"
     },
-    "scripts": "/d3(?:\\. v\\d+)?(?:\\.min)?\\.js",
+    "scriptSrc": "/d3(?:\\. v\\d+)?(?:\\.min)?\\.js",
     "website": "http://d3js.org"
   },
   "DERAK.CLOUD": {
@@ -30,12 +30,22 @@
     },
     "website": "https://derak.cloud"
   },
+  "DHL": {
+    "cats": [
+      99
+    ],
+    "description": "DHL is an international courier, package delivery and express mail service, which is a division of the German logistics firm Deutsche Post.",
+    "icon": "DHL.svg",
+    "requiresCategory": 6,
+    "text": "\\bDHL\\b",
+    "website": "https://www.dhl.com"
+  },
   "DHTMLX": {
     "cats": [
       59
     ],
     "icon": "DHTMLX.png",
-    "scripts": "dhtmlxcommon\\.js",
+    "scriptSrc": "dhtmlxcommon\\.js",
     "website": "http://dhtmlx.com"
   },
   "DM Polopoly": {
@@ -74,11 +84,47 @@
       "generator": "DotNetNuke"
     },
     "oss": true,
-    "scripts": [
+    "scriptSrc": [
       "/js/dnncore\\.js",
       "/js/dnn\\.js"
     ],
     "website": "http://dnnsoftware.com"
+  },
+  "DPD": {
+    "cats": [
+      99
+    ],
+    "description": "DPD is an international parcel delivery service for sorter compatible parcels.",
+    "icon": "DPD.svg",
+    "requiresCategory": 6,
+    "text": [
+      "\\bDPD\\b"
+    ],
+    "website": "https://www.dpd.com"
+  },
+  "DX": {
+    "cats": [
+      99
+    ],
+    "description": "DX (also known as DX Freight) is a British mail, courier and logistics company.",
+    "icon": "DX.svg",
+    "requiresCategory": 6,
+    "text": [
+      "\\bDX\\b"
+    ],
+    "website": "https://www.dxdelivery.com"
+  },
+  "Dachser": {
+    "cats": [
+      99
+    ],
+    "description": "Dachser is a German freight company.",
+    "icon": "Dachser.svg",
+    "requiresCategory": 6,
+    "text": [
+      "\\bDachser\\b"
+    ],
+    "website": "https://www.dachser.com"
   },
   "Daily Deals": {
     "cats": [
@@ -94,7 +140,7 @@
       "poa"
     ],
     "saas": true,
-    "scripts": "assets\\.dailydeals\\.ai/",
+    "scriptSrc": "assets\\.dailydeals\\.ai/",
     "website": "https://dailydeals.ai"
   },
   "Dancer": {
@@ -146,7 +192,7 @@
       "___dart__$dart_dartObject_ZxYxX_0_": "",
       "___dart_dispatch_record_ZxYxX_0_": ""
     },
-    "scripts": [
+    "scriptSrc": [
       "/(?:\\.)?(?:dart)(?:\\.js)?/",
       "packages/browser/dart\\.js"
     ],
@@ -195,7 +241,7 @@
       "jQuery.fn.dataTable.version": "^(.+)$\\;version:\\1"
     },
     "oss": true,
-    "scripts": "dataTables.*\\.js",
+    "scriptSrc": "dataTables.*\\.js",
     "website": "http://datatables.net"
   },
   "Datadog": {
@@ -216,7 +262,7 @@
       "freemium"
     ],
     "saas": true,
-    "scripts": "www\\.datadoghq-browser-agent\\.com",
+    "scriptSrc": "www\\.datadoghq-browser-agent\\.com",
     "website": "https://www.datadoghq.com"
   },
   "Datadome": {
@@ -234,7 +280,7 @@
       "X-DataDome-CID": ""
     },
     "icon": "datadome.png",
-    "scripts": "^https://ct\\.datadome\\.co/[a-z]\\.js$",
+    "scriptSrc": "^https://ct\\.datadome\\.co/[a-z]\\.js$",
     "website": "https://datadome.co/"
   },
   "DatoCMS": {
@@ -267,7 +313,7 @@
       "poa"
     ],
     "saas": true,
-    "scripts": "cdn\\.dealerspike\\.com",
+    "scriptSrc": "cdn\\.dealerspike\\.com",
     "website": "https://www.dealerspike.com",
     "xhr": "\\.dealerspike\\.com"
   },
@@ -299,7 +345,7 @@
       "poa"
     ],
     "saas": true,
-    "scripts": "cdn\\.decibelinsight\\.net",
+    "scriptSrc": "cdn\\.decibelinsight\\.net",
     "website": "https://decibel.com"
   },
   "DedeCMS": {
@@ -312,8 +358,20 @@
     "js": {
       "DedeContainer": ""
     },
-    "scripts": "dedeajax",
+    "scriptSrc": "dedeajax",
     "website": "http://dedecms.com"
+  },
+  "Delivengo": {
+    "cats": [
+      99
+    ],
+    "description": "Delivengo is an international shipping service powered by La Poste.",
+    "icon": "La Poste.svg",
+    "requiresCategory": 6,
+    "text": [
+      "\\bDelivengo\\b"
+    ],
+    "website": "https://mydelivengo.laposte.fr/"
   },
   "Detectify": {
     "cats": [
@@ -328,6 +386,18 @@
     "icon": "Detectify.svg",
     "website": "https://detectify.com/"
   },
+  "Deutsche Post": {
+    "cats": [
+      99
+    ],
+    "description": "Deutsche Post is a German multinational package delivery and supply chain management company in Germany.",
+    "icon": "Deutsche Post.svg",
+    "requiresCategory": 6,
+    "text": [
+      "\\bDeutsche Post\\b"
+    ],
+    "website": "https://www.deutschepost.de"
+  },
   "Dianomi": {
     "cats": [
       36
@@ -341,7 +411,7 @@
       "payg"
     ],
     "saas": true,
-    "scripts": "\\.dianomi\\.com/",
+    "scriptSrc": "\\.dianomi\\.com/",
     "website": "https://www.dianomi.com"
   },
   "Didomi": {
@@ -350,7 +420,7 @@
     ],
     "description": "Didomi is a consent management platform helping brands and businesses collect, store and leverage their customer consents.",
     "icon": "didomi.png",
-    "scripts": "sdk\\.privacy-center\\.org/.*/loader\\.js",
+    "scriptSrc": "sdk\\.privacy-center\\.org/.*/loader\\.js",
     "website": "https://www.didomi.io/en/consent-preference-management"
   },
   "Digest": {
@@ -387,11 +457,25 @@
       "payg"
     ],
     "saas": true,
-    "scripts": [
+    "scriptSrc": [
       "digistore/digistore\\.js",
       "www\\.digistore24\\.com"
     ],
     "website": "https://www.digistore24.com"
+  },
+  "Digital Showroom": {
+    "cats": [
+      6
+    ],
+    "description": "Digital Showroom is an ecommerce platform.",
+    "dom": "div.dd-showrom__layout",
+    "icon": "Digital Showroom.png",
+    "pricing": [
+      "freemium",
+      "payg"
+    ],
+    "saas": true,
+    "website": "https://digitalshowroom.in"
   },
   "DigitalRiver": {
     "cats": [
@@ -411,7 +495,7 @@
       "poa"
     ],
     "saas": true,
-    "scripts": "\\.digitalriver\\.com/",
+    "scriptSrc": "\\.digitalriver\\.com/",
     "website": "https://www.digitalriver.com"
   },
   "DirectAdmin": {
@@ -499,7 +583,7 @@
       "disqus_shortname": "",
       "disqus_url": ""
     },
-    "scripts": "disqus_url",
+    "scriptSrc": "disqus_url",
     "website": "https://disqus.com"
   },
   "District M": {
@@ -526,7 +610,7 @@
       "poa"
     ],
     "saas": true,
-    "scripts": "storage\\.googleapis\\.com/dito/sdk\\.js",
+    "scriptSrc": "storage\\.googleapis\\.com/dito/sdk\\.js",
     "website": "https://www.dito.com.br"
   },
   "Divi": {
@@ -549,7 +633,7 @@
     ],
     "requires": "WordPress",
     "saas": true,
-    "scripts": "Divi/js/custom\\.(?:min|unified)\\.js\\?ver=([\\d.]+)\\;version:\\1",
+    "scriptSrc": "Divi/js/custom\\.(?:min|unified)\\.js\\?ver=([\\d.]+)\\;version:\\1",
     "website": "https://www.elegantthemes.com/gallery/divi"
   },
   "DivideBuy": {
@@ -574,7 +658,7 @@
     "description": "Divio is a Buy now pay later solution. Divido provided whitelabel platform connects lenders, retailers and channel partners at the point of sale",
     "icon": "Divido.png",
     "saas": true,
-    "scripts": "cdn\\.divido\\.com",
+    "scriptSrc": "cdn\\.divido\\.com",
     "website": "https://www.divido.com/"
   },
   "Django": {
@@ -664,7 +748,7 @@
       "dojo": "",
       "dojo.version.major": "^(.+)$\\;version:\\1"
     },
-    "scripts": "([\\d.]+)/dojo/dojo(?:\\.xd)?\\.js\\;version:\\1",
+    "scriptSrc": "([\\d.]+)/dojo/dojo(?:\\.xd)?\\.js\\;version:\\1",
     "website": "https://dojotoolkit.org"
   },
   "Dokan": {
@@ -735,7 +819,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "cdn\\.doofinder\\.com/",
+    "scriptSrc": "cdn\\.doofinder\\.com/",
     "website": "https://www.doofinder.com"
   },
   "Dotclear": {
@@ -766,7 +850,7 @@
       "poa"
     ],
     "saas": true,
-    "scripts": "js/_dmptv([\\d.]+)\\.js\\;version:\\1",
+    "scriptSrc": "js/_dmptv([\\d.]+)\\.js\\;version:\\1",
     "website": "https://dotdigital.com"
   },
   "DoubleClick Ad Exchange (AdX)": {
@@ -776,7 +860,7 @@
     "description": "DoubleClick Ad Exchange is a real-time marketplace to buy and sell display advertising space.",
     "icon": "DoubleClick.svg",
     "saas": true,
-    "scripts": [
+    "scriptSrc": [
       "googlesyndication\\.com/pagead/show_ads\\.js",
       "tpc\\.googlesyndication\\.com/safeframe",
       "googlesyndication\\.com.*abg\\.js"
@@ -788,7 +872,7 @@
       36
     ],
     "icon": "DoubleClick.svg",
-    "scripts": "2mdn\\.net",
+    "scriptSrc": "2mdn\\.net",
     "website": "http://www.doubleclickbygoogle.com/solutions/digital-marketing/campaign-manager/"
   },
   "DoubleClick Floodlight": {
@@ -796,7 +880,7 @@
       36
     ],
     "icon": "DoubleClick.svg",
-    "scripts": "https?://fls\\.doubleclick\\.net",
+    "scriptSrc": "https?://fls\\.doubleclick\\.net",
     "website": "http://support.google.com/ds/answer/6029713?hl=en"
   },
   "DoubleClick for Publishers (DFP)": {
@@ -809,7 +893,7 @@
       "freemium"
     ],
     "saas": true,
-    "scripts": "googletagservices\\.com/tag/js/gpt(?:_mobile)?\\.js",
+    "scriptSrc": "googletagservices\\.com/tag/js/gpt(?:_mobile)?\\.js",
     "website": "http://www.google.com/dfp"
   },
   "Doxygen": {
@@ -831,7 +915,7 @@
     ],
     "description": "Draft.js is a JavaScript rich text editor framework, built for React.",
     "icon": "draftjs.png",
-    "scripts": "draft-js(@|/)([\\d.]+)\\;version:\\2",
+    "scriptSrc": "draft-js(@|/)([\\d.]+)\\;version:\\2",
     "website": "https://draftjs.org/"
   },
   "DreamWeaver": {
@@ -886,7 +970,7 @@
       "generator": "^Drupal(?:\\s([\\d.]+))?\\;version:\\1"
     },
     "oss": true,
-    "scripts": "drupal\\.js",
+    "scriptSrc": "drupal\\.js",
     "website": "https://drupal.org"
   },
   "Drupal Commerce": {
@@ -900,7 +984,7 @@
     "icon": "Drupal Commerce.png",
     "implies": "Drupal",
     "oss": true,
-    "scripts": [
+    "scriptSrc": [
       "/modules/(?:contrib/)?commerce/js/conditions\\.js\\;confidence:50",
       "/profiles/commerce_kickstart/modules/contrib/commerce/modules/checkout/commerce_checkout\\.js\\;confidence:50",
       "/sites/(?:all|default)/modules/(?:contrib/)?commerce/modules/checkout/commerce_checkout\\.js\\;confidence:50"
@@ -915,7 +999,7 @@
     "icon": "Drupal.svg",
     "implies": "Drupal",
     "oss": true,
-    "scripts": [
+    "scriptSrc": [
       "sites\\/(?!default|all).*\\/files"
     ],
     "website": "https://www.drupal.org/docs/multisite-drupal"
@@ -949,7 +1033,7 @@
       "poa"
     ],
     "saas": true,
-    "scripts": "apps\\.mydukaan\\.io/",
+    "scriptSrc": "apps\\.mydukaan\\.io/",
     "website": "https://mydukaan.io"
   },
   "Duopana": {
@@ -962,7 +1046,7 @@
     "description": "Duopana is a platform for creating online communities, blogs and managing collaborative content.",
     "html": "(?:<!-- /*BeraCode script)",
     "icon": "Duopana.svg",
-    "scripts": "\\*berajs.beracode.com\\*",
+    "scriptSrc": "\\*berajs.beracode.com\\*",
     "website": "https://duopana.com/"
   },
   "Dynamic Yield": {
@@ -985,7 +1069,7 @@
       "poa"
     ],
     "saas": true,
-    "scripts": "cdn(?:-eu)?\\.dynamicyield\\.\\w+/",
+    "scriptSrc": "cdn(?:-eu)?\\.dynamicyield\\.\\w+/",
     "website": "https://www.dynamicyield.com"
   },
   "Dynamicweb": {
@@ -1031,7 +1115,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "cdn\\.db-ip\\.com",
+    "scriptSrc": "cdn\\.db-ip\\.com",
     "website": "https://db-ip.com/",
     "xhr": "api\\.db-ip\\.com"
   },
@@ -1043,7 +1127,7 @@
     "js": {
       "Decimal.ROUND_HALF_FLOOR": ""
     },
-    "scripts": [
+    "scriptSrc": [
       "decimal[.-]([\\d.]*\\d+)(?:\\.min)?\\.js\\;version:\\1",
       "/([\\d.]*\\d+)/decimal(?:\\.min)?\\.js\\;version:\\1",
       "decimal(?:\\.min)?\\.js(?:\\?ver(?:sion)?=([\\d.]*\\d+))?\\;version:\\1"
@@ -1058,7 +1142,7 @@
     "js": {
       "deepMiner": ""
     },
-    "scripts": "deepMiner\\.js",
+    "scriptSrc": "deepMiner\\.js",
     "website": "https://github.com/deepwn/deepMiner"
   }
 }

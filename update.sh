@@ -18,5 +18,5 @@ git add src/categories.json
 git add src/groups.json
 
 git commit -m $(git describe $REMOTE_REPO/$REMOTE_BRANCH --abbrev=0 --tags)
-git clean -f -d
+git clean -f -d --exclude="vendor"
 git reset --hard

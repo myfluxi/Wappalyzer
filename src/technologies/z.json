@@ -6,7 +6,7 @@
     "html": "<!-- ZK [.\\d\\s]+-->",
     "icon": "ZK.png",
     "implies": "Java",
-    "scripts": "zkau/",
+    "scriptSrc": "zkau/",
     "website": "http://zkoss.org"
   },
   "ZURB Foundation": {
@@ -40,6 +40,27 @@
     "url": "\\/zabbix\\/\\;confidence:30",
     "website": "http://zabbix.com"
   },
+  "Zakra": {
+    "cats": [
+      80
+    ],
+    "description": "Zakra is flexible, fast, lightweight and modern multipurpose WordPress theme that comes with many starter free sites.",
+    "dom": "link#zakra-style-css",
+    "icon": "Zakra.png",
+    "js": {
+      "zakraFrontend": "",
+      "zakraNavHelper.dimension": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring",
+      "onetime"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/themes/zakra/",
+    "website": "https://zakratheme.com"
+  },
   "Zanox": {
     "cats": [
       36
@@ -49,8 +70,19 @@
     "js": {
       "zanox": ""
     },
-    "scripts": "zanox\\.com/scripts/zanox\\.js$",
+    "scriptSrc": "zanox\\.com/scripts/zanox\\.js$",
     "website": "http://zanox.com"
+  },
+  "Zeleris": {
+    "cats": [
+      99
+    ],
+    "description": "Zeleris provides door to door shipment delivery to Ireland, UK and the EU.",
+    "requiresCategory": 6,
+    "text": [
+      "\\Zeleris\\b"
+    ],
+    "website": "https://www.zeleris.com"
   },
   "Zen Cart": {
     "cats": [
@@ -103,7 +135,7 @@
       "low"
     ],
     "saas": true,
-    "scripts": "static\\.zdassets\\.com",
+    "scriptSrc": "static\\.zdassets\\.com",
     "website": "https://zendesk.com"
   },
   "Zendesk Chat": {
@@ -117,7 +149,7 @@
       "payg"
     ],
     "saas": true,
-    "scripts": "v2\\.zopim\\.com",
+    "scriptSrc": "v2\\.zopim\\.com",
     "website": "http://zopim.com"
   },
   "Zenfolio": {
@@ -131,6 +163,20 @@
     },
     "website": "https://zenfolio.com"
   },
+  "Zeotap": {
+    "cats": [
+      97
+    ],
+    "description": "Zeotap is a customer intelligence platform that helps brands better understand their customers and predict behaviors.",
+    "dom": "link[href*='.zeotap.com']",
+    "icon": "Zeotap.png",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.zeotap\\.com",
+    "website": "https://zeotap.com"
+  },
   "Zepto": {
     "cats": [
       59
@@ -139,7 +185,7 @@
     "js": {
       "Zepto": ""
     },
-    "scripts": "zepto.*\\.js",
+    "scriptSrc": "zepto.*\\.js",
     "website": "http://zeptojs.com"
   },
   "ZestMoney": {
@@ -209,13 +255,14 @@
     "icon": "zip_pay.svg",
     "js": {
       "QuadPayShopify": "",
+      "checkout.enabledpayments.zip": "^true$",
       "quadpayID": ""
     },
     "pricing": [
       "payg"
     ],
     "saas": true,
-    "scripts": [
+    "scriptSrc": [
       "quadpay\\.com",
       "static\\.zipmoney\\.com\\.au",
       "zip\\.co"
@@ -250,7 +297,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "c(?:reator)?\\.zmags\\.com/",
+    "scriptSrc": "c(?:reator)?\\.zmags\\.com/",
     "website": "https://www.creatorbyzmags.com"
   },
   "Zocdoc": {
@@ -264,7 +311,7 @@
       "payg"
     ],
     "saas": true,
-    "scripts": "offsiteschedule\\.zocdoc\\.com",
+    "scriptSrc": "offsiteschedule\\.zocdoc\\.com",
     "website": "https://www.zocdoc.com"
   },
   "Zoey": {
@@ -283,7 +330,7 @@
       "zoey.developer": "",
       "zoeyDev": ""
     },
-    "scripts": "cdna4\\.zoeysite\\.com",
+    "scriptSrc": "cdna4\\.zoeysite\\.com",
     "website": "https://www.zoey.com/"
   },
   "Zoho": {
@@ -336,7 +383,7 @@
       "mid"
     ],
     "saas": true,
-    "scripts": "zoko-shopify-prod\\.web\\.app",
+    "scriptSrc": "zoko-shopify-prod\\.web\\.app",
     "website": "https://www.zoko.io/"
   },
   "Zone.js": {
@@ -364,8 +411,21 @@
       "poa"
     ],
     "saas": true,
-    "scripts": "\\.zonos\\.com/",
+    "scriptSrc": "\\.zonos\\.com/",
     "website": "https://zonos.com"
+  },
+  "ZoodPay": {
+    "cats": [
+      91
+    ],
+    "dom": "img[src*='zoodpay']",
+    "icon": "ZoodPay.png",
+    "pricing": [
+      "payg"
+    ],
+    "saas": true,
+    "scriptSrc": "wp-content/plugins/zoodpay/(?:.+\\?ver=([\\d\\.]+))?\\;version:\\1",
+    "website": "https://www.zoodpay.com"
   },
   "Zoominfo": {
     "cats": [
@@ -374,7 +434,7 @@
     "description": "ZoomInfo provides actionable B2B contact and company information for sales and marketing teams.",
     "icon": "Zoominfo.svg",
     "saas": true,
-    "scripts": "ws\\.zoominfo\\.com",
+    "scriptSrc": "ws\\.zoominfo\\.com",
     "website": "https://www.zoominfo.com/"
   },
   "Zoominfo Chat": {
@@ -384,7 +444,7 @@
     "description": "ZoomInfo chat is a live chat solution.",
     "icon": "Zoominfo.svg",
     "saas": true,
-    "scripts": "madstreetden\\.widget\\.insent\\.ai",
+    "scriptSrc": "madstreetden\\.widget\\.insent\\.ai",
     "website": "https://www.zoominfo.com/chat"
   },
   "Zope": {
@@ -416,7 +476,7 @@
     "meta": {
       "generator": "Zozo Ecommerce"
     },
-    "scripts": [
+    "scriptSrc": [
       "catalog/view/theme/[^\"]+/javascript/common\\.js",
       "zozo-main\\.min\\.js"
     ],
@@ -437,7 +497,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "userapp\\.zyrosite\\.com/",
+    "scriptSrc": "userapp\\.zyrosite\\.com/",
     "website": "https://zyro.com"
   }
 }

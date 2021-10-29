@@ -654,5 +654,35 @@
     ],
     "name": "Digital asset management",
     "priority": 9
+  },
+  "96": {
+    "groups": [
+      2,
+      18
+    ],
+    "name": "Content curation",
+    "priority": 9
+  },
+  "97": {
+    "groups": [
+      2,
+      8
+    ],
+    "name": "Customer data platform",
+    "priority": 9
+  },
+  "98": {
+    "groups": [
+      1
+    ],
+    "name": "Cart abandonment",
+    "priority": 9
+  },
+  "99": {
+    "groups": [
+      1
+    ],
+    "name": "Shipping carriers",
+    "priority": 9
   }
 }

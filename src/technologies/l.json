@@ -24,7 +24,7 @@
       "lkqdSettings": "",
       "lkqd_http_response": ""
     },
-    "scripts": "\\.lkqd\\.net",
+    "scriptSrc": "\\.lkqd\\.net",
     "website": "https://wiki.lkqd.com",
     "xhr": "\\.lkqd\\.net"
   },
@@ -34,7 +34,7 @@
     ],
     "description": "LOU is a Digital Adoption Platform that streamlines user onboarding and training.",
     "icon": "LOU.png",
-    "scripts": "cdn\\.louassist\\.com*",
+    "scriptSrc": "cdn\\.louassist\\.com*",
     "website": "https://www.louassist.com"
   },
   "Lagoon": {
@@ -74,8 +74,25 @@
     "meta": {
       "laterpay:connector:callbacks:on_user_has_access": "deobfuscateText"
     },
-    "scripts": "https?://connectormwi\\.laterpay\\.net/([0-9.]+)[a-zA-z-]*/live/[\\w-]+\\.js\\;version:\\1",
+    "scriptSrc": "https?://connectormwi\\.laterpay\\.net/([0-9.]+)[a-zA-z-]*/live/[\\w-]+\\.js\\;version:\\1",
     "website": "https://www.laterpay.net/"
+  },
+  "LatitudePay": {
+    "cats": [
+      91
+    ],
+    "description": "LatitudePay is an interest-free, buy now, pay later solution.",
+    "dom": "a[href*='latitudepay.com/'][target='_blank'], img[src='.latitudepayapps.com/']",
+    "icon": "LatitudePay.svg",
+    "js": {
+      "checkout.enabledpayments.latitudepay": "^true$"
+    },
+    "pricing": [
+      "freemium"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.latitudepayapps\\.com/",
+    "website": "https://www.latitudepay.com"
   },
   "LaunchDarkly": {
     "cats": [
@@ -93,7 +110,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "(?:\\.|\\-)launchdarkly(?:\\.com/|\\-sdk\\.)",
+    "scriptSrc": "(?:\\.|\\-)launchdarkly(?:\\.com/|\\-sdk\\.)",
     "website": "https://launchdarkly.com",
     "xhr": [
       "app\\.launchdarkly\\.com",
@@ -119,8 +136,31 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "js/ignition-current\\.min\\.js\\;confidence:50",
+    "scriptSrc": "js/ignition-current\\.min\\.js\\;confidence:50",
     "website": "https://www.launchrock.com"
+  },
+  "LayBuy": {
+    "cats": [
+      91
+    ],
+    "description": "Laybuy is a payment service that lets you receive your purchase now and spread the total cost over 6 weekly automatic payments interest free.",
+    "dom": "iframe[src='.laybuy.com/']",
+    "icon": "LayBuy.svg",
+    "js": {
+      "LaybuyHelper": "",
+      "checkout.enabledpayments.laybuy": "^true$",
+      "laybuyEnableCart": "",
+      "laybuyMoneyOverides": ""
+    },
+    "pricing": [
+      "payg"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "\\.laybuy\\.com/",
+      "/wp-content/plugins/woo-laybuy/"
+    ],
+    "website": "https://www.laybuy.com"
   },
   "Layer0": {
     "cats": [
@@ -142,7 +182,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "/__layer0__/cache-manifest\\.js",
+    "scriptSrc": "/__layer0__/cache-manifest\\.js",
     "website": "https://www.layer0.co"
   },
   "Leadinfo": {
@@ -160,7 +200,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "cdn\\.leadinfo\\.net",
+    "scriptSrc": "cdn\\.leadinfo\\.net",
     "website": "https://www.leadinfo.com"
   },
   "Leaflet": {
@@ -174,7 +214,7 @@
       "L.PosAnimation": "",
       "L.version": "^(.+)$\\;version:\\1\\;confidence:0"
     },
-    "scripts": "leaflet.{0,32}\\.js",
+    "scriptSrc": "leaflet.{0,32}\\.js",
     "website": "http://leafletjs.com"
   },
   "Leanplum": {
@@ -191,7 +231,7 @@
       "poa"
     ],
     "saas": true,
-    "scripts": "npm/leanplum-sdk\\@([\\d.]+)\\;version:\\1",
+    "scriptSrc": "npm/leanplum-sdk\\@([\\d.]+)\\;version:\\1",
     "website": "https://www.leanplum.com"
   },
   "Lede": {
@@ -232,7 +272,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "\\.legalmonster\\.com/",
+    "scriptSrc": "\\.legalmonster\\.com/",
     "website": "https://www.legalmonster.com"
   },
   "Less": {
@@ -305,8 +345,27 @@
     "cpe": "cpe:/a:lightbox_photo_gallery_project:lightbox_photo_gallery",
     "html": "<link [^>]*href=\"[^\"]+lightbox(?:\\.min)?\\.css",
     "icon": "Lightbox.png",
-    "scripts": "lightbox(?:-plus-jquery)?.{0,32}\\.js",
+    "scriptSrc": "lightbox(?:-plus-jquery)?.{0,32}\\.js",
     "website": "http://lokeshdhakar.com/projects/lightbox2/"
+  },
+  "Lightning": {
+    "cats": [
+      80
+    ],
+    "description": "Lightning is a very simple and easy to customize WordPress theme which is based on the Bootstrap.",
+    "dom": "link[href*='/wp-content/themes/lightning/'], link[href*='/wp-content/themes/lightning-pro/']",
+    "icon": "Lightning.png",
+    "js": {
+      "lightningOpt.header_scrool": ""
+    },
+    "pricing": [
+      "freemium",
+      "mid",
+      "recurring"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/themes/lightning(?:-pro)?/.+lightning\\.min\\.js(?:.+ver=([\\d\\.]+))?\\;version:\\1",
+    "website": "https://lightning.vektor-inc.co.jp/en/"
   },
   "Lightspeed eCom": {
     "cats": [
@@ -318,7 +377,7 @@
       "low"
     ],
     "saas": true,
-    "scripts": "http://assets\\.webshopapp\\.com",
+    "scriptSrc": "http://assets\\.webshopapp\\.com",
     "url": "seoshop.webshopapp.com",
     "website": "http://www.lightspeedhq.com/products/ecommerce/"
   },
@@ -332,7 +391,7 @@
       "poa"
     ],
     "saas": true,
-    "scripts": "\\.limechat\\.ai/",
+    "scriptSrc": "\\.limechat\\.ai/",
     "website": "https://www.limechat.ai"
   },
   "LinkSmart": {
@@ -345,7 +404,7 @@
       "LinkSmart": "",
       "_mb_site_guid": ""
     },
-    "scripts": "^https?://cdn\\.linksmart\\.com/linksmart_([\\d.]+?)(?:\\.min)?\\.js\\;version:\\1",
+    "scriptSrc": "^https?://cdn\\.linksmart\\.com/linksmart_([\\d.]+?)(?:\\.min)?\\.js\\;version:\\1",
     "website": "http://linksmart.com"
   },
   "Linkedin Insight Tag": {
@@ -357,7 +416,7 @@
     "js": {
       "_linkedin_data_partner_id": ""
     },
-    "scripts": "snap\\.licdn\\.com/li\\.lms-analytics/insight\\.min\\.js",
+    "scriptSrc": "snap\\.licdn\\.com/li\\.lms-analytics/insight\\.min\\.js",
     "website": "https://business.linkedin.com/marketing-solutions/insight-tag"
   },
   "Linkedin Sign-in": {
@@ -370,7 +429,7 @@
       "OnLinkedInAuth": "",
       "onLinkedInLoad": ""
     },
-    "scripts": "platform\\.linkedin\\.com/(?:.*)?in\\.js(?:\\?version)?([\\d.]+)?\\;version:\\1",
+    "scriptSrc": "platform\\.linkedin\\.com/(?:.*)?in\\.js(?:\\?version)?([\\d.]+)?\\;version:\\1",
     "website": "https://www.linkedin.com/developers"
   },
   "Liquid Web": {
@@ -391,7 +450,7 @@
     "js": {
       "List": "\\;confidence:50"
     },
-    "scripts": [
+    "scriptSrc": [
       "list\\.js/\\;confidence:50",
       "@([\\d.]+)/(?:/dist)?list\\.(?:min\\.)?js\\;version:\\1"
     ],
@@ -399,7 +458,8 @@
   },
   "Listrak": {
     "cats": [
-      32
+      32,
+      97
     ],
     "description": "Listrak is a AI-based marketing automation and CRM solutions that unify, interpret and personalise data to engage customer across channels and devices.",
     "icon": "Listrak.png",
@@ -411,7 +471,7 @@
       "poa"
     ],
     "saas": true,
-    "scripts": [
+    "scriptSrc": [
       "(?:cdn|s1)\\.listrakbi\\.com",
       "services\\.listrak\\.com"
     ],
@@ -493,7 +553,7 @@
       "payg"
     ],
     "saas": true,
-    "scripts": "cdn\\.livechatinc\\.com/.*tracking\\.js",
+    "scriptSrc": "cdn\\.livechatinc\\.com/.*tracking\\.js",
     "website": "http://livechatinc.com"
   },
   "LiveHelp": {
@@ -526,7 +586,7 @@
       "poa"
     ],
     "saas": true,
-    "scripts": "\\.liadm\\.com",
+    "scriptSrc": "\\.liadm\\.com",
     "website": "https://www.liveintent.com",
     "xhr": "\\.liadm\\.com"
   },
@@ -549,7 +609,7 @@
       "poa"
     ],
     "saas": true,
-    "scripts": "^https?://lptag\\.liveperson\\.net/tag/tag\\.js",
+    "scriptSrc": "^https?://lptag\\.liveperson\\.net/tag/tag\\.js",
     "website": "https://www.liveperson.com/"
   },
   "LiveRamp PCM": {
@@ -562,7 +622,7 @@
     "js": {
       "wpJsonpLiverampGdprCmp": ""
     },
-    "scripts": "gdpr\\.privacymanager\\.io",
+    "scriptSrc": "gdpr\\.privacymanager\\.io",
     "website": "https://liveramp.com/our-platform/preference-consent-management"
   },
   "LiveStreet CMS": {
@@ -611,7 +671,7 @@
       "LF.CommentCount": "",
       "fyre": ""
     },
-    "scripts": "livefyre_init\\.js",
+    "scriptSrc": "livefyre_init\\.js",
     "website": "http://livefyre.com"
   },
   "Liveinternet": {
@@ -638,7 +698,7 @@
     "js": {
       "livewire": ""
     },
-    "scripts": "livewire(?:\\.min)?\\.js",
+    "scriptSrc": "livewire(?:\\.min)?\\.js",
     "website": "https://laravel-livewire.com"
   },
   "LocalFocus": {
@@ -703,7 +763,7 @@
       "_.differenceBy": "",
       "_.templateSettings.imports._.templateSettings.imports._.VERSION": "^(.+)$\\;version:\\1"
     },
-    "scripts": "lodash.*\\.js",
+    "scriptSrc": "lodash.*\\.js",
     "website": "http://www.lodash.com"
   },
   "LogRocket": {
@@ -712,7 +772,7 @@
     ],
     "description": "LogRocket records videos of user sessions with logs and network data.",
     "icon": "LogRocket.svg",
-    "scripts": [
+    "scriptSrc": [
       "cdn\\.logrocket\\.(com|io)",
       "cdn\\.lr-ingest\\.io"
     ],
@@ -733,7 +793,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "\\.loggly\\.com/",
+    "scriptSrc": "\\.loggly\\.com/",
     "website": "https://www.loggly.com"
   },
   "LogiCommerce": {
@@ -782,11 +842,23 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": [
+    "scriptSrc": [
       "\\.loginradius\\.com",
       "\\.lrcontent\\.com"
     ],
     "website": "https://www.loginradius.com"
+  },
+  "LogoiX": {
+    "cats": [
+      99
+    ],
+    "description": "LogoiX is a German shipping company.",
+    "icon": "LogoiX.png",
+    "requiresCategory": 6,
+    "text": [
+      "\\bLogoiX\\b"
+    ],
+    "website": "https://www.logoix.com"
   },
   "Loja Integrada": {
     "cats": [
@@ -815,7 +887,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "lojamestre\\.\\w+\\.br",
+    "scriptSrc": "lojamestre\\.\\w+\\.br",
     "website": "https://www.lojamestre.com.br/"
   },
   "Loja Virtual": {
@@ -834,7 +906,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": [
+    "scriptSrc": [
       "/js/ljvt_v(\\d+)/\\;version:\\1\\;confidence:20",
       "cdn1\\.solojavirtual\\.com"
     ],
@@ -852,7 +924,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "loja2\\.com\\.br",
+    "scriptSrc": "loja2\\.com\\.br",
     "website": "https://www.loja2.com.br"
   },
   "Loop54": {
@@ -892,7 +964,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "lootly\\.io/",
+    "scriptSrc": "lootly\\.io/",
     "website": "https://lootly.io"
   },
   "Loox": {
@@ -909,8 +981,24 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "loox\\.io/widget",
+    "scriptSrc": "loox\\.io/widget",
     "website": "https://loox.app"
+  },
+  "Loqate": {
+    "cats": [
+      19
+    ],
+    "description": "Loqate is an address verification solution.",
+    "icon": "Loqate.svg",
+    "js": {
+      "loqateAccountCode": "",
+      "pca.platform.productList": ""
+    },
+    "pricing": [
+      "payg"
+    ],
+    "saas": true,
+    "website": "https://www.loqate.com"
   },
   "Lotus Domino": {
     "cats": [
@@ -938,7 +1026,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "sdk\\.loyaltylion\\.net/",
+    "scriptSrc": "sdk\\.loyaltylion\\.net/",
     "website": "https://loyaltylion.com"
   },
   "Lua": {
@@ -973,6 +1061,23 @@
       "Luigis": ""
     },
     "website": "https://www.luigisbox.com"
+  },
+  "Lytics": {
+    "cats": [
+      97
+    ],
+    "description": "Lytics is a customer data platform built for marketing teams.",
+    "icon": "Lytics.svg",
+    "js": {
+      "__lytics__jstag__.version": "(.+)\\;version:\\1"
+    },
+    "pricing": [
+      "high",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.lytics\\.io/",
+    "website": "https://www.lytics.com"
   },
   "libwww-perl-daemon": {
     "cats": [
