@@ -63,7 +63,7 @@ class WappalyzerTest extends TestCase
                         "freemium",
                         "recurring"
                     ],
-                    "scripts" => [
+                    "scriptSrc" => [
                         "(?:F|f)o(?:n|r)t-?(?:A|a)wesome(?:.*?([0-9a-fA-F]{7,40}|[\\d]+(?:.[\\d]+(?:.[\\d]+)?)?)|)",
                         "\\.fontawesome\\.com/([0-9a-z]+).js"
                     ],
@@ -120,7 +120,7 @@ class WappalyzerTest extends TestCase
                         "freemium"
                     ],
                     "saas" => true,
-                    "scripts" => [
+                    "scriptSrc" => [
                         "/wp-(?:content|includes)/",
                         "wp-embed\\.min\\.js"
                     ],
@@ -194,10 +194,14 @@ class WappalyzerTest extends TestCase
                     ],
                     'icon' => 'Ruby on Rails.png',
                     'implies' => 'Ruby',
+                    "js" => [
+                        "ReactOnRails" => "",
+                      "__REACT_ON_RAILS_EVENT_HANDLERS_RAN_ONCE__" => ""
+                    ],
                     'meta' => [
                         'csrf-param' => '^authenticity_token$\\;confidence:50',
                     ],
-                    'scripts' => '/assets/application-[a-z\\d]{32}/\\.js\\;confidence:50',
+                    'scriptSrc' => '/assets/application-[a-z\\d]{32}/\\.js\\;confidence:50',
                     'website' => 'https://rubyonrails.org',
                 ],
                 'Ruby' => [
@@ -264,7 +268,7 @@ class WappalyzerTest extends TestCase
                         "freemium",
                         "recurring"
                     ],
-                    "scripts" => [
+                    "scriptSrc" => [
                         "(?:F|f)o(?:n|r)t-?(?:A|a)wesome(?:.*?([0-9a-fA-F]{7,40}|[\\d]+(?:.[\\d]+(?:.[\\d]+)?)?)|)",
                         "\\.fontawesome\\.com/([0-9a-z]+).js"
                     ],
@@ -321,7 +325,7 @@ class WappalyzerTest extends TestCase
                         "freemium"
                     ],
                     "saas" => true,
-                    "scripts" => [
+                    "scriptSrc" => [
                         "/wp-(?:content|includes)/",
                         "wp-embed\\.min\\.js"
                     ],
@@ -381,7 +385,7 @@ class WappalyzerTest extends TestCase
                         1 => 'recurring',
                     ],
                     'saas' => true,
-                    'scripts' => '(?:a|s)\\.adroll\\.com',
+                    'scriptSrc' => '(?:a|s)\\.adroll\\.com',
                     'website' => 'http://adroll.com',
                     'detected' => true,
                 ]

@@ -6,8 +6,20 @@
     "description": "UIKit is the framework used for developing iOS applications.",
     "html": "<[^>]+class=\"[^\"]*(?:uk-container|uk-section)",
     "icon": "UIKit.png",
-    "scripts": "uikit.*\\.js",
+    "scriptSrc": "uikit.*\\.js",
     "website": "https://getuikit.com"
+  },
+  "UK Mail": {
+    "cats": [
+      99
+    ],
+    "description": "UK Mail is a postal service company operating in the United Kingdom.",
+    "icon": "UK Mail.png",
+    "requiresCategory": 6,
+    "text": [
+      "\\bUK Mail\\b"
+    ],
+    "website": "https://www.ukmail.com"
   },
   "UMI.CMS": {
     "cats": [
@@ -31,13 +43,38 @@
     "icon": "UNIX.png",
     "website": "http://unix.org"
   },
+  "UPS": {
+    "cats": [
+      99
+    ],
+    "description": "UPS is an American multinational shipping & receiving and supply chain management company.",
+    "icon": "UPS.svg",
+    "requiresCategory": 6,
+    "text": [
+      "\\bUPS\\b"
+    ],
+    "website": "https://www.ups.com"
+  },
+  "USWDS": {
+    "cats": [
+      18
+    ],
+    "description": "USWDS is a design system for the federal government.",
+    "icon": "USWDS.svg",
+    "js": {
+      "uswdsPresent": ""
+    },
+    "oss": true,
+    "scriptSrc": "\\buswds\\b",
+    "website": "https://designsystem.digital.gov"
+  },
   "Ubercart": {
     "cats": [
       6
     ],
     "icon": "Ubercart.png",
     "implies": "Drupal",
-    "scripts": "uc_cart/uc_cart_block\\.js",
+    "scriptSrc": "uc_cart/uc_cart_block\\.js",
     "website": "http://www.ubercart.org"
   },
   "Ubuntu": {
@@ -77,7 +114,7 @@
     "js": {
       "ucCatalog": ""
     },
-    "scripts": "cgi-bin\\/UCJavaScript\\?",
+    "scriptSrc": "cgi-bin\\/UCJavaScript\\?",
     "url": "/cgi-bin/UCEditor\\?",
     "website": "http://ultracart.com"
   },
@@ -113,8 +150,29 @@
       "X-Unbounce-PageId": ""
     },
     "icon": "Unbounce.png",
-    "scripts": "ubembed\\.com",
+    "scriptSrc": "ubembed\\.com",
     "website": "http://unbounce.com"
+  },
+  "Unbxd": {
+    "cats": [
+      76,
+      29
+    ],
+    "description": "Unbxd is an ecommerce product discovery platform that applies artificial intelligence and advanced data sciences to connect shoppers to the products they are most likely to buy.",
+    "icon": "Unbxd.svg",
+    "js": {
+      "Unbxd.version": "^([\\d\\.]+)$\\;version:\\1"
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": [
+      "\\.cloudfront\\.net/unbxdAnalytics\\.js",
+      "unbxd\\.s\\d\\.amazonaws\\.com"
+    ],
+    "website": "https://unbxd.com"
   },
   "Underscore.js": {
     "cats": [
@@ -127,7 +185,7 @@
       "_.VERSION": "^(.+)$\\;confidence:0\\;version:\\1",
       "_.restArguments": ""
     },
-    "scripts": "underscore.*\\.js(?:\\?ver=([\\d.]+))?\\;version:\\1",
+    "scriptSrc": "underscore.*\\.js(?:\\?ver=([\\d.]+))?\\;version:\\1",
     "website": "http://underscorejs.org"
   },
   "Uniconsent": {
@@ -135,7 +193,7 @@
       67
     ],
     "icon": "Uniconsent.png",
-    "scripts": "cmp\\.uniconsent\\.mgr\\.consensu\\.org/dfp\\.js",
+    "scriptSrc": "cmp\\.uniconsent\\.mgr\\.consensu\\.org/dfp\\.js",
     "website": "https://www.uniconsent.com/"
   },
   "Unpkg": {
@@ -146,13 +204,12 @@
     "dom": "link[href*='unpkg.com']",
     "icon": "Unpkg.png",
     "oss": true,
-    "scripts": "unpkg\\.com/",
+    "scriptSrc": "unpkg\\.com/",
     "website": "https://unpkg.com"
   },
   "UpSellit": {
     "cats": [
-      76,
-      6
+      98
     ],
     "description": "UpSellit is a performance based lead and cart abandonment recovery solutions.",
     "icon": "UpSellit.png",
@@ -167,7 +224,7 @@
       "mid"
     ],
     "saas": true,
-    "scripts": "www\\.upsellit\\.com/",
+    "scriptSrc": "www\\.upsellit\\.com/",
     "website": "https://us.upsellit.com"
   },
   "Upserve": {
@@ -181,7 +238,7 @@
       "payg"
     ],
     "saas": true,
-    "scripts": "app\\.upserve\\.com/",
+    "scriptSrc": "app\\.upserve\\.com/",
     "website": "https://onlineordering.upserve.com"
   },
   "Upvoty": {
@@ -220,7 +277,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "\\.usablenet\\.com/pt/",
+    "scriptSrc": "\\.usablenet\\.com/pt/",
     "website": "https://usablenet.com"
   },
   "Uscreen": {
@@ -259,7 +316,7 @@
       "payg"
     ],
     "saas": true,
-    "scripts": [
+    "scriptSrc": [
       "userlike\\.min\\.js",
       "userlikelib\\.min\\.js",
       "//userlike-cdn-widgets\\.",
@@ -279,13 +336,20 @@
   },
   "UserVoice": {
     "cats": [
-      13
+      13,
+      73
     ],
     "description": "UserVoice is a management to collect and analyse feedback from customers.",
-    "icon": "UserVoice.png",
+    "icon": "UserVoice.svg",
     "js": {
       "UserVoice": ""
     },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.uservoice\\.com/",
     "website": "http://uservoice.com"
   },
   "UserWay": {
@@ -294,7 +358,7 @@
     ],
     "description": "UserWay is a web accessibility overlay for websites that claims to improve compliance with accessibility standards.",
     "icon": "UserWay.png",
-    "scripts": "cdn\\.userway\\.org/widget.*\\.js",
+    "scriptSrc": "cdn\\.userway\\.org/widget.*\\.js",
     "website": "https://userway.org/"
   },
   "UserZoom": {
@@ -310,7 +374,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "\\.userzoom\\.com/",
+    "scriptSrc": "\\.userzoom\\.com/",
     "website": "https://www.userzoom.com"
   },
   "Usercentrics": {
@@ -328,7 +392,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "\\.usercentrics\\.eu/.+\\.js",
+    "scriptSrc": "\\.usercentrics\\.eu/.+\\.js",
     "website": "https://usercentrics.com"
   },
   "Ushahidi": {
@@ -349,8 +413,24 @@
     "js": {
       "Ushahidi": ""
     },
-    "scripts": "/js/ushahidi\\.js$",
+    "scriptSrc": "/js/ushahidi\\.js$",
     "website": "http://www.ushahidi.com"
+  },
+  "Usizy": {
+    "cats": [
+      76
+    ],
+    "description": "Usizy is the top size recommendation and prediction solution for ecommerce using machine learning, big data, and isomoprhic algorythms.",
+    "icon": "Usizy.svg",
+    "js": {
+      "uSizyUniversal": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "static\\.usizy\\.es/",
+    "website": "https://usizy.com"
   },
   "uKnowva": {
     "cats": [
@@ -367,7 +447,7 @@
     "meta": {
       "generator": "uKnowva (?: ([\\d.]+))?\\;version:\\1"
     },
-    "scripts": "/media/conv/js/jquery\\.js",
+    "scriptSrc": "/media/conv/js/jquery\\.js",
     "website": "https://uknowva.com"
   },
   "uPortal": {
@@ -392,7 +472,7 @@
     ],
     "description": "uRemediate provides web accessibility testing tools and accessibility overlays.",
     "icon": "User1st.png",
-    "scripts": "fecdn\\.user1st\\.info/Loader/head",
+    "scriptSrc": "fecdn\\.user1st\\.info/Loader/head",
     "website": "https://www.user1st.com/uremediate/"
   },
   "user.com": {

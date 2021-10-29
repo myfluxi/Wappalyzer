@@ -415,11 +415,11 @@ class Wappalyzer
      */
     public function analyzeScripts($appName, $app)
     {
-        if (!isset($app['script'])) {
+        if (!isset($app['scriptSrc'])) {
             return;
         }
 
-        $patterns = $this->parsePatterns($app['script']);
+        $patterns = $this->parsePatterns($app['scriptSrc']);
 
         if (count($patterns) === 0) {
             return;
@@ -434,7 +434,7 @@ class Wappalyzer
                         $r = '~src=["\']' . $pattern['regex'] . '["\']~i';
 
                         if (preg_match($r, $match)) {
-                            $this->addDetected($appName, $app, $pattern, 'script', $match);
+                            $this->addDetected($appName, $app, $pattern, 'scriptSrc', $match);
                         }
                     }
                 }

@@ -1,4 +1,14 @@
 {
+  "B2C Europe": {
+    "cats": [
+      99
+    ],
+    "description": "B2C Europe offers logistic solutions for your ecommerce businesses.",
+    "icon": "B2C Europe.svg",
+    "requiresCategory": 6,
+    "text": "\\bB2C Europe\\b",
+    "website": "https://www.b2ceurope.eu/"
+  },
   "BEM": {
     "cats": [
       12
@@ -32,6 +42,18 @@
       "generator": "^boom site builder$"
     },
     "website": "http://manaandisheh.com"
+  },
+  "BRT": {
+    "cats": [
+      99
+    ],
+    "description": "BRT, also known as Bartolini, is an Italian-based logistics service provider.",
+    "icon": "BRT.svg",
+    "requiresCategory": 6,
+    "text": [
+      "\\bBRT\\b"
+    ],
+    "website": "https://www.brt.it"
   },
   "Babel": {
     "cats": [
@@ -67,7 +89,7 @@
       "Backbone": "",
       "Backbone.VERSION": "^(.+)$\\;version:\\1"
     },
-    "scripts": "backbone.*\\.js",
+    "scriptSrc": "backbone.*\\.js",
     "website": "http://backbonejs.org"
   },
   "Backdrop": {
@@ -94,7 +116,7 @@
       10
     ],
     "icon": "Baidu Tongji.png",
-    "scripts": "hm\\.baidu\\.com/hm\\.js",
+    "scriptSrc": "hm\\.baidu\\.com/hm\\.js",
     "website": "https://tongji.baidu.com/"
   },
   "Banshee": {
@@ -122,7 +144,7 @@
     "meta": {
       "base-theme-name": "\\d+"
     },
-    "scripts": "thebase\\.in/js",
+    "scriptSrc": "thebase\\.in/js",
     "website": "https://thebase.in"
   },
   "Basic": {
@@ -137,9 +159,10 @@
   },
   "Bazaarvoice": {
     "cats": [
-      90
+      90,
+      96
     ],
-    "description": "Bazaarvoice is a provider of UGC solutions like ratings and reviews and Q&A.",
+    "description": "Bazaarvoice is a provider of user-generated content solutions like ratings and reviews and Q&A.",
     "icon": "Bazaarvoice.png",
     "js": {
       "BV.api": ""
@@ -149,7 +172,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": [
+    "scriptSrc": [
       "apps\\.bazaarvoice\\.com",
       "cdn\\.curalate\\.com"
     ],
@@ -169,7 +192,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "cdn\\.trybeans\\.com",
+    "scriptSrc": "cdn\\.trybeans\\.com",
     "website": "https://www.trybeans.com/"
   },
   "Beeketing": {
@@ -188,7 +211,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "sdk\\.beeketing\\.com/",
+    "scriptSrc": "sdk\\.beeketing\\.com/",
     "website": "https://beeketing.com"
   },
   "Bentobox": {
@@ -222,7 +245,7 @@
       "poa"
     ],
     "saas": true,
-    "scripts": "msecnd\\.net/api/beYableJSv(\\d+)\\;version:\\1",
+    "scriptSrc": "msecnd\\.net/api/beYableJSv(\\d+)\\;version:\\1",
     "website": "https://beyable.com"
   },
   "BeyondMenu": {
@@ -236,7 +259,7 @@
       "payg"
     ],
     "saas": true,
-    "scripts": "static\\.beyondmenu\\.com/",
+    "scriptSrc": "static\\.beyondmenu\\.com/",
     "website": "https://www.beyondmenu.com/contactus.aspx"
   },
   "Big Cartel": {
@@ -266,7 +289,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "(?:\\.|plugins/)?bigcommerce(?:\\.com)?/(?:assets)?",
+    "scriptSrc": "(?:\\.|plugins/)?bigcommerce(?:\\.com)?/(?:assets)?",
     "url": "mybigcommerce\\.com",
     "website": "http://www.bigcommerce.com"
   },
@@ -296,6 +319,33 @@
     "url": "(?:\\?|&)bigWAdminID=",
     "website": "http://bigware.de"
   },
+  "Bikayi": {
+    "cats": [
+      6
+    ],
+    "description": "Bikayi is a WhatsApp-integrated ecommerce store.",
+    "icon": "Bikayi.svg",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "assets\\.bikayi\\.com/",
+    "website": "https://bikayi.com"
+  },
+  "Billbee": {
+    "cats": [
+      99
+    ],
+    "description": "Billbee is an order processing and inventory management solution.",
+    "icon": "Billbee.png",
+    "requiresCategory": 6,
+    "text": [
+      "\\bBillbee\\b"
+    ],
+    "website": "https://www.billbee.io/"
+  },
   "Birdeye": {
     "cats": [
       32,
@@ -311,7 +361,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": [
+    "scriptSrc": [
       "birdeye\\.com/embed",
       "birdeye\\.com"
     ],
@@ -343,7 +393,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": [
+    "scriptSrc": [
       "cdn\\.bitrix24\\.com",
       "\\.bitrix24\\..+/bitrix/js/crm/form_loader\\.js"
     ],
@@ -357,7 +407,7 @@
     "js": {
       "bitt": ""
     },
-    "scripts": "bittads\\.com/js/bitt\\.js$",
+    "scriptSrc": "bittads\\.com/js/bitt\\.js$",
     "website": "http://bittads.com"
   },
   "Bizweb": {
@@ -382,7 +432,7 @@
       "BLACKBAUD": "",
       "don_premium_map": ""
     },
-    "scripts": "js/convio/modules\\.js",
+    "scriptSrc": "js/convio/modules\\.js",
     "url": "/site/Donation2?.*df_id=",
     "website": "https://www.blackbaud.com/products/blackbaud-luminate-online"
   },
@@ -404,7 +454,7 @@
     ],
     "icon": "Blazor.png",
     "implies": "Microsoft ASP.NET",
-    "scripts": [
+    "scriptSrc": [
       "blazor\\.server\\.js",
       "blazor\\.host\\.min\\.js",
       "blazor\\.webassembly\\.js"
@@ -456,6 +506,27 @@
     ],
     "website": "https://putyourlightson.com/plugins/blitz"
   },
+  "Blocksy": {
+    "cats": [
+      80
+    ],
+    "description": "Blocksy is a blazing fast and lightweight WordPress theme.",
+    "dom": "link[href*='/wp-content/themes/blocksy/']",
+    "icon": "Blocksy.svg",
+    "js": {
+      "blocksyJsonP": "",
+      "blocksyResponsiveMenuCache": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring",
+      "onetime"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/themes/blocksy/(?:.+main\\.js(?:\\?ver=([\\d\\.]+)))?\\;version:\\1",
+    "website": "https://creativethemes.com/blocksy"
+  },
   "Blogger": {
     "cats": [
       11
@@ -495,7 +566,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": [
+    "scriptSrc": [
       "cdns\\.brsrvr\\.com/v([\\d.]+)\\;version:\\1",
       "cdn\\.brcdn\\.com/v([\\d.]+)\\;version:\\1"
     ],
@@ -516,7 +587,7 @@
       "poa"
     ],
     "saas": true,
-    "scripts": "\\.getblue\\.io",
+    "scriptSrc": "\\.getblue\\.io",
     "website": "https://web.getblue.io/en/"
   },
   "Blue Triangle": {
@@ -535,7 +606,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "\\.btttag\\.com/btt\\.js",
+    "scriptSrc": "\\.btttag\\.com/btt\\.js",
     "website": "https://bluetriangle.com",
     "xhr": "\\.btttag\\.com"
   },
@@ -556,7 +627,7 @@
       "poa"
     ],
     "saas": true,
-    "scripts": "\\.bluecore\\.com",
+    "scriptSrc": "\\.bluecore\\.com",
     "website": "https://www.bluecore.com"
   },
   "Bluefish": {
@@ -584,7 +655,7 @@
       "poa"
     ],
     "saas": true,
-    "scripts": "\\.blueknow\\.com",
+    "scriptSrc": "\\.blueknow\\.com",
     "website": "https://www.blueknow.com"
   },
   "Boba.js": {
@@ -592,7 +663,7 @@
       59
     ],
     "implies": "Google Analytics",
-    "scripts": "boba(?:\\.min)?\\.js",
+    "scriptSrc": "boba(?:\\.min)?\\.js",
     "website": "http://boba.space150.com"
   },
   "Bokeh": {
@@ -605,8 +676,21 @@
       "Bokeh": "",
       "Bokeh.version": "^(.+)$\\;version:\\1"
     },
-    "scripts": "bokeh.*\\.js",
+    "scriptSrc": "bokeh.*\\.js",
     "website": "https://bokeh.org"
+  },
+  "Bol.com": {
+    "cats": [
+      99
+    ],
+    "description": "Bol.com is a webshop in the Netherlands and offers general merchandising products.",
+    "icon": "Bol.com.svg",
+    "requiresCategory": 6,
+    "text": [
+      "\\bBOL\\b",
+      "\\bbol\\.com\\b"
+    ],
+    "website": "https://www.bol.com"
   },
   "Bold Chat": {
     "cats": [
@@ -618,7 +702,7 @@
       "poa"
     ],
     "saas": true,
-    "scripts": "^https?://vmss\\.boldchat\\.com/aid/\\d{18}/bc\\.vms4/vms\\.js",
+    "scriptSrc": "^https?://vmss\\.boldchat\\.com/aid/\\d{18}/bc\\.vms4/vms\\.js",
     "website": "https://www.boldchat.com/"
   },
   "BoldGrid": {
@@ -634,7 +718,7 @@
       "<link[^>]+s\\d+\\.boldgrid\\.com"
     ],
     "requires": "WordPress",
-    "scripts": "/wp-content/plugins/post-and-page-builder",
+    "scriptSrc": "/wp-content/plugins/post-and-page-builder",
     "website": "https://boldgrid.com"
   },
   "Bolt CMS": {
@@ -666,7 +750,7 @@
       "poa"
     ],
     "saas": true,
-    "scripts": [
+    "scriptSrc": [
       "connect\\.bolt\\.com/",
       "account\\.bolt\\.com/"
     ],
@@ -691,7 +775,7 @@
     ],
     "description": "BookDinners is a restaurant table booking widget.",
     "icon": "BookDinners.svg",
-    "scripts": "bookdinners\\.nl/widget\\.js",
+    "scriptSrc": "bookdinners\\.nl/widget\\.js",
     "website": "https://www.bookdinners.nl"
   },
   "Bookatable": {
@@ -700,7 +784,7 @@
     ],
     "description": "Bookatable is a restaurant table booking widget.",
     "icon": "Bookatable.svg",
-    "scripts": "bda\\.bookatable\\.com/deploy/lbui\\.direct\\.min\\.js",
+    "scriptSrc": "bda\\.bookatable\\.com/deploy/lbui\\.direct\\.min\\.js",
     "website": "https://www.bookatable.co.uk"
   },
   "Bookero": {
@@ -716,7 +800,7 @@
       "low",
       "recurring"
     ],
-    "scripts": "cdn\\.bookero\\.pl",
+    "scriptSrc": "cdn\\.bookero\\.pl",
     "url": "\\.bookero\\.(?:org|pl)",
     "website": "https://www.bookero.org"
   },
@@ -751,7 +835,7 @@
       "low",
       "recurring"
     ],
-    "scripts": "booksy\\.com/widget/code\\.js",
+    "scriptSrc": "booksy\\.com/widget/code\\.js",
     "website": "https://booksy.com/"
   },
   "Boomerang": {
@@ -784,7 +868,7 @@
       "bootstrap.Alert.VERSION": "^(.+)$\\;version:\\1",
       "jQuery.fn.tooltip.Constructor.VERSION": "^(.+)$\\;version:\\1"
     },
-    "scripts": [
+    "scriptSrc": [
       "bootstrap(?:[^>]*?([0-9a-fA-F]{7,40}|[\\d]+(?:.[\\d]+(?:.[\\d]+)?)?)|)[^>]*?(?:\\.min)?\\.js\\;version:\\1"
     ],
     "website": "https://getbootstrap.com"
@@ -799,7 +883,7 @@
       "Bootstrap",
       "jQuery"
     ],
-    "scripts": "bootstrap-table(?:\\.min)?\\.js",
+    "scriptSrc": "bootstrap-table(?:\\.min)?\\.js",
     "website": "http://bootstrap-table.wenzhixin.net.cn/"
   },
   "Booxi": {
@@ -818,7 +902,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "/bxe_core\\.js",
+    "scriptSrc": "/bxe_core\\.js",
     "website": "https://www.booxi.com"
   },
   "Borderfree": {
@@ -841,7 +925,7 @@
       "poa"
     ],
     "saas": true,
-    "scripts": [
+    "scriptSrc": [
       "global\\.prd\\.borderfree\\.com",
       "wm\\.prd\\.borderfree\\.com",
       "bfx\\.js",
@@ -882,6 +966,53 @@
     "implies": "Laravel",
     "website": "https://botble.com"
   },
+  "BowNow": {
+    "cats": [
+      32
+    ],
+    "cookies": {
+      "bownow_act": "",
+      "bownow_aid": "",
+      "bownow_cid": "",
+      "bownow_mbid": ""
+    },
+    "description": "BowNow is a marketing automation tool with business card management, sales support, analysis, and e-mail magazine functions.",
+    "icon": "BowNow.png",
+    "js": {
+      "_bownow_ts": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://bow-now.jp"
+  },
+  "Boxtal": {
+    "cats": [
+      99
+    ],
+    "description": "Boxtal is a cloud-based multi-carrier shipping solution.",
+    "icon": "Boxtal.svg",
+    "requiresCategory": 6,
+    "text": [
+      "\\bBoxtal\\b"
+    ],
+    "website": "https://www.boxtal.com"
+  },
+  "Bpost": {
+    "cats": [
+      99
+    ],
+    "description": "Bpost, also known as the Belgian Post Group, is the Belgian company responsible for the delivery of national and international mail.",
+    "icon": "Bpost.svg",
+    "requiresCategory": 6,
+    "text": [
+      "\\bBpost\\b"
+    ],
+    "website": "https://www.bpost.be"
+  },
   "BrainSINS": {
     "cats": [
       76
@@ -898,7 +1029,7 @@
       "poa"
     ],
     "saas": true,
-    "scripts": [
+    "scriptSrc": [
       "mw\\.brainsins\\.com",
       "cloudfront\\.net/brainsins(?:_v)?(\\d+)\\.js\\;version:\\1"
     ],
@@ -914,7 +1045,7 @@
       "Braintree": "",
       "Braintree.version": "^(.+)$\\;version:\\1"
     },
-    "scripts": "js\\.braintreegateway\\.com",
+    "scriptSrc": "js\\.braintreegateway\\.com",
     "website": "https://www.braintreepayments.com"
   },
   "Branch": {
@@ -933,7 +1064,7 @@
       "freemium"
     ],
     "saas": true,
-    "scripts": [
+    "scriptSrc": [
       "cdn\\.branch\\.io",
       "app\\.link/_r\\?sdk=web([\\d.]+)\\;version:\\1"
     ],
@@ -952,7 +1083,7 @@
       "poa"
     ],
     "saas": true,
-    "scripts": "cdn\\.brandfolder\\.com/",
+    "scriptSrc": "cdn\\.brandfolder\\.com/",
     "website": "https://brandfolder.com"
   },
   "Braze": {
@@ -970,7 +1101,7 @@
       "poa"
     ],
     "saas": true,
-    "scripts": "js\\.appboycdn\\.com/web-sdk/([\\d.]+)\\;version:\\1",
+    "scriptSrc": "js\\.appboycdn\\.com/web-sdk/([\\d.]+)\\;version:\\1",
     "website": "https://www.braze.com"
   },
   "Bread": {
@@ -992,7 +1123,7 @@
       "poa"
     ],
     "saas": true,
-    "scripts": "\\.getbread\\.com",
+    "scriptSrc": "\\.getbread\\.com",
     "website": "https://www.breadpayments.com"
   },
   "BrightInfo": {
@@ -1012,7 +1143,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "app\\.brightinfo\\.com",
+    "scriptSrc": "app\\.brightinfo\\.com",
     "website": "https://www.brightinfo.com"
   },
   "Brightspot": {
@@ -1040,7 +1171,7 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "cdn\\.broadstreetads\\.com",
+    "scriptSrc": "cdn\\.broadstreetads\\.com",
     "website": "https://broadstreetads.com"
   },
   "Bronto": {
@@ -1059,7 +1190,7 @@
       "poa"
     ],
     "saas": true,
-    "scripts": "(?:snip|cdn)\\.bronto\\.com",
+    "scriptSrc": "(?:snip|cdn)\\.bronto\\.com",
     "website": "https://bronto.com"
   },
   "Brownie": {
@@ -1087,7 +1218,7 @@
       "payg"
     ],
     "saas": true,
-    "scripts": "assets\\.youthsrl\\.com/brownie",
+    "scriptSrc": "assets\\.youthsrl\\.com/brownie",
     "website": "https://www.browniesuite.com"
   },
   "BrowserCMS": {
@@ -1152,6 +1283,18 @@
     "saas": true,
     "website": "http://bubble.io"
   },
+  "Budbee": {
+    "cats": [
+      99
+    ],
+    "description": "Budbee is a tech company that operates a logistics service for ecommerce.",
+    "icon": "Budbee.svg",
+    "requiresCategory": 6,
+    "text": [
+      "\\bBudbee\\b"
+    ],
+    "website": "https://app.budbee.com/"
+  },
   "BugSnag": {
     "cats": [
       10
@@ -1163,7 +1306,7 @@
       "bugsnag": "",
       "bugsnagClient": ""
     },
-    "scripts": "/bugsnag.*\\.js",
+    "scriptSrc": "/bugsnag.*\\.js",
     "website": "http://bugsnag.com"
   },
   "Bugcrowd": {
@@ -1275,7 +1418,7 @@
     ],
     "html": "<!-- BC_OBNW -->",
     "icon": "Business Catalyst.svg",
-    "scripts": "CatalystScripts",
+    "scriptSrc": "CatalystScripts",
     "website": "http://businesscatalyst.com"
   },
   "Buy me a coffee": {
@@ -1290,7 +1433,7 @@
       "payg"
     ],
     "saas": true,
-    "scripts": "cdnjs\\.buymeacoffee\\.com/([\\d.]+)\\;version:\\1",
+    "scriptSrc": "cdnjs\\.buymeacoffee\\.com/([\\d.]+)\\;version:\\1",
     "website": "https://www.buymeacoffee.com"
   },
   "BuySellAds": {
@@ -1304,7 +1447,7 @@
       "_bsap": "",
       "_bsap_serving_callback": ""
     },
-    "scripts": [
+    "scriptSrc": [
       "^https?://s\\d\\.buysellads\\.com/",
       "servedby-buysellads\\.com/monetization(?:\\.[\\w\\d]+)?\\.js"
     ],
@@ -1324,8 +1467,27 @@
       "recurring"
     ],
     "saas": true,
-    "scripts": "cdn\\.co-buying\\.com/",
+    "scriptSrc": "cdn\\.co-buying\\.com/",
     "website": "https://www.buyapowa.com"
+  },
+  "BySide": {
+    "cats": [
+      32,
+      76
+    ],
+    "description": "BySide is a personalisation and marketing automation platform.",
+    "icon": "BySide.svg",
+    "js": {
+      "BySide": "",
+      "bysideWebcare_banner": ""
+    },
+    "pricing": [
+      "poa",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "webcare\\.byside\\.com/",
+    "website": "https://byside.com"
   },
   "Bynder": {
     "cats": [
