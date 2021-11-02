@@ -216,6 +216,28 @@ class WappalyzerTest extends TestCase
                     'icon' => 'Ruby.png',
                     'website' => 'http://ruby-lang.org',
                 ],
+                'reCAPTCHA' => [
+                    'cats' => [
+                        16,
+                    ],
+                    'html' => [
+                        '<div[^>]+id="recaptcha_image',
+                        '<link[^>]+recaptcha',
+                        '<div[^>]+class="g-recaptcha"',
+                    ],
+                    'icon' => 'reCAPTCHA.svg',
+                    'js' => [
+                        'Recaptcha' => '',
+                        'recaptcha' => '',
+                    ],
+                    'scriptSrc' => [
+                        'api-secure\\.recaptcha\\.net',
+                        'recaptcha_ajax\\.js',
+                        '/recaptcha/api\\.js',
+                    ],
+                    'website' => 'https://www.google.com/recaptcha/',
+                    'detected' => true,
+                ]
             ]
         ], $wappalyzer->analyze('https://www.madeit.be/'));
     }
@@ -387,6 +409,28 @@ class WappalyzerTest extends TestCase
                     'saas' => true,
                     'scriptSrc' => '(?:a|s)\\.adroll\\.com',
                     'website' => 'http://adroll.com',
+                    'detected' => true,
+                ],
+                'reCAPTCHA' => [
+                    'cats' => [
+                        16,
+                    ],
+                    'html' => [
+                        '<div[^>]+id="recaptcha_image',
+                        '<link[^>]+recaptcha',
+                        '<div[^>]+class="g-recaptcha"',
+                    ],
+                    'icon' => 'reCAPTCHA.svg',
+                    'js' => [
+                        'Recaptcha' => '',
+                        'recaptcha' => '',
+                    ],
+                    'scriptSrc' => [
+                        'api-secure\\.recaptcha\\.net',
+                        'recaptcha_ajax\\.js',
+                        '/recaptcha/api\\.js',
+                    ],
+                    'website' => 'https://www.google.com/recaptcha/',
                     'detected' => true,
                 ]
             ]
