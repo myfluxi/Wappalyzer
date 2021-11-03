@@ -4,6 +4,7 @@ namespace MadeITBelgium\Wappalyzer;
 
 use Exception;
 use GuzzleHttp\Client;
+use Symfony\Component\DomCrawler\Crawler;
 
 /**
  * MadeITBelgium Wappalyzer PHP Library.
@@ -119,6 +120,8 @@ class Wappalyzer
             $this->analyzeScripts($appName, $app);
             $this->analyzeCookies($appName, $app);
             $this->analyzeJs($appName, $app);
+            $this->analyzeDom($appName, $app);
+            $this->analyzeXhr($appName, $app);
         }
 
         $this->resolveExcludes();
@@ -311,7 +314,7 @@ class Wappalyzer
 
         $patterns = $this->parsePatterns($app['url']);
 
-        if (count($patterns) === 0) {
+        if (empty($patterns)) {
             return;
         }
 
@@ -333,7 +336,7 @@ class Wappalyzer
 
         $patterns = $this->parsePatterns($app['html'], false);
 
-        if (count($patterns) === 0) {
+        if (empty($patterns)) {
             return;
         }
 
@@ -391,7 +394,7 @@ class Wappalyzer
 
         $patterns = $this->parsePatterns($app['headers']);
 
-        if (count($patterns) === 0) {
+        if (empty($patterns)) {
             return;
         }
 
@@ -421,7 +424,7 @@ class Wappalyzer
 
         $patterns = $this->parsePatterns($app['scriptSrc']);
 
-        if (count($patterns) === 0) {
+        if (empty($patterns)) {
             return;
         }
 
@@ -452,7 +455,7 @@ class Wappalyzer
         }
         $patterns = $this->parsePatterns($app['cookies']);
 
-        if (count($patterns) === 0) {
+        if (empty($patterns)) {
             return;
         }
 
@@ -484,6 +487,60 @@ class Wappalyzer
         }
     }
 
+    /**
+     * Analyze DOM
+     */
+    public function analyzeDom($appName, $app)
+    {
+        if (!isset($app['dom'])) {
+            return;
+        }
+
+        $patterns = $this->parsePatterns($app['dom']);
+
+        if (empty($patterns)) {
+            return;
+        }
+
+        $crawler = new Crawler($this->html);
+
+        foreach ($patterns as $pattern) {
+            foreach ($pattern as $selector) {
+                try {
+                    // Handle malformed expressions
+                    $results = $crawler->filter($selector);
+                } catch (Exception $e) {
+                    continue;
+                }
+
+                if ($results->count() > 0) {
+                    $this->addDetected($appName, $app, $selector, 'dom', null);
+                }
+            }
+        }
+    }
+
+    /**
+     * Analyze XHR
+     */
+    public function analyzeXhr($appName, $app)
+    {
+        if (!isset($app['xhr'])) {
+            return;
+        }
+
+        $patterns = $this->parsePatterns($app['xhr'], false);
+
+        if (empty($patterns)) {
+            return;
+        }
+
+        foreach ($patterns as $pattern) {
+            if (@preg_match('~' . $pattern['regex'] . '~i', $this->html)) {
+                $this->addDetected($appName, $app, $pattern, 'xhr', $this->html);
+            }
+        }
+    }
 
     /**
      * Mark application as detected, set confidence and version

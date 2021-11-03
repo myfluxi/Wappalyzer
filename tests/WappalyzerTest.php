@@ -237,7 +237,24 @@ class WappalyzerTest extends TestCase
                     ],
                     'website' => 'https://www.google.com/recaptcha/',
                     'detected' => true,
-                ]
+                ],
+                'Facebook Pixel' => [
+                    'cats' => [
+                        10,
+                    ],
+                    'description' => 'Facebook pixel is an analytics tool that allows you to measure the effectiveness of your advertising.',
+                    'dom' => 'img[src*=\'facebook.com/tr\']',
+                    'icon' => 'Facebook.svg',
+                    'js' => [
+                        '_fbq' => '',
+                    ],
+                    'scriptSrc' => [
+                        'connect\\.facebook.\\w+/signals/config/\\d+\\?v=([\\d\\.]+)\\;version:\\1',
+                        'connect\\.facebook\\.\\w+/.+/fbevents\\.js',
+                    ],
+                    'website' => 'http://facebook.com',
+                    'detected' => true,
+                ],
             ]
         ], $wappalyzer->analyze('https://www.madeit.be/'));
     }
@@ -432,7 +449,24 @@ class WappalyzerTest extends TestCase
                     ],
                     'website' => 'https://www.google.com/recaptcha/',
                     'detected' => true,
-                ]
+                ],
+                'Facebook Pixel' => [
+                    'cats' => [
+                        10,
+                    ],
+                    'description' => 'Facebook pixel is an analytics tool that allows you to measure the effectiveness of your advertising.',
+                    'dom' => 'img[src*=\'facebook.com/tr\']',
+                    'icon' => 'Facebook.svg',
+                    'js' => [
+                        '_fbq' => '',
+                    ],
+                    'scriptSrc' => [
+                        'connect\\.facebook.\\w+/signals/config/\\d+\\?v=([\\d\\.]+)\\;version:\\1',
+                        'connect\\.facebook\\.\\w+/.+/fbevents\\.js',
+                    ],
+                    'website' => 'http://facebook.com',
+                    'detected' => true,
+                ],
             ]
         ], $wappalyzer->analyze('https://www.madeit.be/'));
     }
