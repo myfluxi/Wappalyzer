@@ -121,6 +121,7 @@ class Wappalyzer
             $this->analyzeCookies($appName, $app);
             $this->analyzeJs($appName, $app);
             $this->analyzeDom($appName, $app);
+            $this->analyzeXhr($appName, $app);
         }
 
         $this->resolveExcludes();
@@ -515,6 +516,28 @@ class Wappalyzer
                 if ($results->count() > 0) {
                     $this->addDetected($appName, $app, $selector, 'dom', null);
                 }
+            }
+        }
+    }
+
+    /**
+     * Analyze XHR
+     */
+    public function analyzeXhr($appName, $app)
+    {
+        if (!isset($app['xhr'])) {
+            return;
+        }
+
+        $patterns = $this->parsePatterns($app['xhr'], false);
+
+        if (empty($patterns)) {
+            return;
+        }
+
+        foreach ($patterns as $pattern) {
+            if (@preg_match('~' . $pattern['regex'] . '~i', $this->html)) {
+                $this->addDetected($appName, $app, $pattern, 'xhr', $this->html);
             }
         }
     }
