@@ -832,9 +832,10 @@
     "cats": [
       91
     ],
+    "description": "Addi is a service that allows users to make purchases and pay for them in installments over time",
     "icon": "addi.png",
     "scriptSrc": "s3\\.amazonaws\\.com/widgets\\.addi\\.com/bundle\\.min\\.js",
-    "website": "https://www.addi.com/"
+    "website": "https://co.addi.com/"
   },
   "Addsearch": {
     "cats": [
@@ -1433,6 +1434,18 @@
     "oss": true,
     "website": "https://akaunting.com"
   },
+  "Akinon": {
+    "cats": [
+      6
+    ],
+    "description": "Akinon is a cloud-based headless commerce platform with an integrated application suite including omnichannel and marketplace capabilities, mobile and in-store solutions, and an OMS.",
+    "icon": "akinon.png",
+    "pricing": [
+      "poa"
+    ],
+    "scriptSrc": "cdn-mgsm\\.akinon\\.net/",
+    "website": "https://www.akinon.com/"
+  },
   "Akka HTTP": {
     "cats": [
       18,
@@ -1941,6 +1954,71 @@
     },
     "scriptSrc": "AnalysysFangzhou_JS_SDK\\.min\\.js\\?v=([\\d.]+)\\;version:\\1",
     "website": "https://ark.analysys.cn"
+  },
+  "AndersNoren Baskerville": {
+    "cats": [
+      80
+    ],
+    "description": "AndersNoren Baskerville is a responsive and retina-ready masonry WordPress theme for hoarders.",
+    "icon": "AndersNoren.svg",
+    "pricing": [
+      "freemium"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/themes/baskerville(?:-2)?/",
+    "website": "https://andersnoren.se/teman/baskerville-wordpress-theme"
+  },
+  "AndersNoren Fukasawa": {
+    "cats": [
+      80
+    ],
+    "description": "AndersNoren Fukasawa is a minimal masonry style blog WordPress theme for photographers and collectors.",
+    "icon": "AndersNoren.svg",
+    "pricing": [
+      "freemium"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/themes/fukasawa/",
+    "website": "https://andersnoren.se/teman/fukasawa-wordpress-theme"
+  },
+  "AndersNoren Hemingway": {
+    "cats": [
+      80
+    ],
+    "description": "AndersNoren Hemingway is a clean and beautiful two-column WordPress theme for bloggers.",
+    "icon": "AndersNoren.svg",
+    "pricing": [
+      "freemium"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/themes/hemingway/",
+    "website": "https://andersnoren.se/teman/hemingway-wordpress-theme"
+  },
+  "AndersNoren Hitchcock": {
+    "cats": [
+      80
+    ],
+    "description": "AndersNoren Hitchcock is a portfolio WordPress theme for designers, photographers and other creatives.",
+    "icon": "AndersNoren.svg",
+    "pricing": [
+      "freemium"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/themes/hitchcock/",
+    "website": "https://andersnoren.se/teman/hitchcock-wordpress-theme"
+  },
+  "AndersNoren Lovecraft": {
+    "cats": [
+      80
+    ],
+    "description": "AndersNoren Lovecraft is a beautiful two-column WordPress theme for bloggers.",
+    "icon": "AndersNoren.svg",
+    "pricing": [
+      "freemium"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/themes/lovecraft/",
+    "website": "https://andersnoren.se/teman/lovecraft-wordpress-theme"
   },
   "Anetwork": {
     "cats": [
@@ -2673,6 +2751,18 @@
     "icon": "Atlassian Statuspage.svg",
     "website": "https://www.statuspage.io/"
   },
+  "Atome": {
+    "cats": [
+      91
+    ],
+    "description": "Atome is a brand that allows users to purchase products online and pay for them in monthly installments.",
+    "icon": "atome.png",
+    "js": {
+      "atomeWidget": ""
+    },
+    "scriptSrc": "gateway\\.apaylater\\.com/",
+    "website": "https://www.atome.sg/"
+  },
   "Attentive": {
     "cats": [
       76,
@@ -3002,6 +3092,23 @@
     "requires": "WordPress",
     "scriptSrc": "/wp-content/themes/airi/",
     "website": "https://athemes.com/theme/airi"
+  },
+  "aThemes Astrid": {
+    "cats": [
+      80
+    ],
+    "description": "aThemes Astrid is a powerful yet lightweight and flexible WordPress theme.",
+    "dom": "link#astrid-style-css",
+    "icon": "aThemes.svg",
+    "pricing": [
+      "low",
+      "recurring",
+      "onetime",
+      "freemium"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/themes/astrid/",
+    "website": "https://athemes.com/theme/astrid"
   },
   "aThemes Sydney": {
     "cats": [

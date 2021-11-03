@@ -431,7 +431,7 @@ class Wappalyzer
             foreach ($matches as $matchs) {
                 foreach ($matchs as $match) {
                     foreach ($patterns as $pattern) {
-                        $r = '~src=["\']' . $pattern['regex'] . '["\']~i';
+                        $r = '~src=["\'].*' . $pattern['regex'] . '.*["\']~i';
 
                         if (preg_match($r, $match)) {
                             $this->addDetected($appName, $app, $pattern, 'scriptSrc', $match);
