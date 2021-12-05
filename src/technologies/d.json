@@ -102,6 +102,19 @@
     ],
     "website": "https://www.dpd.com"
   },
+  "DTScout": {
+    "cats": [
+      36
+    ],
+    "description": "DTScout is a marketing data intelligence software.",
+    "icon": "DTScout.png",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.dtscout\\.com/",
+    "website": "https://www.dtscout.com"
+  },
   "DX": {
     "cats": [
       99
@@ -142,6 +155,37 @@
     "saas": true,
     "scriptSrc": "assets\\.dailydeals\\.ai/",
     "website": "https://dailydeals.ai"
+  },
+  "DailyKarma": {
+    "cats": [
+      5
+    ],
+    "description": "DailyKarma is a turnkey cause marketing solutions for ecommerce merchants.",
+    "icon": "DailyKarma.png",
+    "js": {
+      "dkWidgetInit": "\\;confidence:50",
+      "dk_widget": "\\;confidence:50"
+    },
+    "pricing": [
+      "freemium",
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "assets\\.dailykarma\\.io/",
+    "website": "https://www.dailykarma.com"
+  },
+  "Dailymotion": {
+    "cats": [
+      14
+    ],
+    "description": "Dailymotion is a French video-sharing technology platform.",
+    "dom": "img[data-src*='.dailymotion.com/'], iframe[scr*='.dailymotion.com/']",
+    "icon": "Dailymotion.svg",
+    "meta": {
+      "name": "dailymotion-domain-verification"
+    },
+    "website": "https://www.dailymotion.com"
   },
   "Dancer": {
     "cats": [
@@ -187,7 +231,6 @@
     ],
     "html": "/(?:<script)[^>]+(?:type=\"application/dart\")/",
     "icon": "Dart.svg",
-    "implies": "AngularDart",
     "js": {
       "___dart__$dart_dartObject_ZxYxX_0_": "",
       "___dart_dispatch_record_ZxYxX_0_": ""
@@ -822,6 +865,21 @@
     },
     "website": "https://www.dokuwiki.org"
   },
+  "DomainFactory": {
+    "cats": [
+      88
+    ],
+    "description": "DomainFactory has been operating as a web hosting company. It is owned by GoDaddy and targets businesses in Austria and Germany.",
+    "dns": {
+      "SOA": "ns(?:\\d+)?\\.namespace4you\\.de"
+    },
+    "icon": "DomainFactory.png",
+    "pricing": [
+      "low",
+      "recurring"
+    ],
+    "website": "https://www.df.eu"
+  },
   "Doofinder": {
     "cats": [
       29
@@ -914,6 +972,20 @@
     "scriptSrc": "googletagservices\\.com/tag/js/gpt(?:_mobile)?\\.js",
     "website": "http://www.google.com/dfp"
   },
+  "DoubleVerify": {
+    "cats": [
+      36,
+      10
+    ],
+    "description": "DoubleVerify is a software platform for digital media measurement, data, and analytics.",
+    "dom": "link[href*='.doubleverify.com']",
+    "icon": "DoubleVerify.svg",
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://doubleverify.com"
+  },
   "Doxygen": {
     "cats": [
       4
@@ -936,6 +1008,22 @@
     "scriptSrc": "draft-js(@|/)([\\d.]+)\\;version:\\2",
     "website": "https://draftjs.org/"
   },
+  "DreamHost": {
+    "cats": [
+      88
+    ],
+    "description": "DreamHost is a Los Angeles-based web hosting provider and domain name registrar.",
+    "dns": {
+      "NS": "ns\\d+\\.dreamhost\\.com",
+      "SOA": "ns\\d+\\.dreamhost\\.com"
+    },
+    "icon": "DreamHost.svg",
+    "pricing": [
+      "recurring",
+      "low"
+    ],
+    "website": "https://www.dreamhost.com"
+  },
   "DreamWeaver": {
     "cats": [
       20
@@ -950,6 +1038,27 @@
       "MM_showMenu": ""
     },
     "website": "https://www.adobe.com/products/dreamweaver.html"
+  },
+  "Dreamdata": {
+    "cats": [
+      32,
+      10
+    ],
+    "description": "Dreamdata is a B2B revenue attribution platform.",
+    "dom": "link[href*='.bizible.com']",
+    "icon": "Dreamdata.png",
+    "js": {
+      "BizTrackingA": "",
+      "Bizible": ""
+    },
+    "pricing": [
+      "freemium",
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.bizible\\.com/",
+    "website": "https://dreamdata.io"
   },
   "Drift": {
     "cats": [

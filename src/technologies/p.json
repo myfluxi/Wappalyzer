@@ -250,6 +250,23 @@
     },
     "website": "https://www.pagevamp.com"
   },
+  "Paidy": {
+    "cats": [
+      41,
+      91
+    ],
+    "description": "Paidy is basically a two-sided payments service, acting as a middleman between consumers and merchants in Japan.",
+    "icon": "Paidy.png",
+    "js": {
+      "Constants.paidy": ""
+    },
+    "pricing": [
+      "payg"
+    ],
+    "saas": true,
+    "scriptSrc": "apps\\.paidy\\.com",
+    "website": "https://paidy.com"
+  },
   "Pantheon": {
     "cats": [
       62
@@ -305,6 +322,18 @@
       "piTracker": ""
     },
     "website": "https://www.pardot.com"
+  },
+  "ParkingCrew": {
+    "cats": [
+      19
+    ],
+    "description": "ParkingCrew is a direct navigation monetisation provider.",
+    "icon": "ParkingCrew.png",
+    "js": {
+      "pcrewAdloaded": ""
+    },
+    "scripts": "var\\slink\\s=\\s'www\\.parkingcrew\\.net'",
+    "website": "https://www.parkingcrew.com"
   },
   "Pars Elecom Portal": {
     "cats": [
@@ -470,7 +499,7 @@
       "button": {
         "text": "PayPal"
       },
-      "iframe[src*='paypal.com'], img[src*='paypal.com'], img[src*='paypalobjects.com'], link[href*='paypal-express-checkout'], [aria-labelledby='pi-paypal'], [data-paypal-v4='true']": {
+      "iframe[src*='paypal.com'], img[src*='paypal.com'], img[src*='paypalobjects.com'], [aria-labelledby='pi-paypal'], [data-paypal-v4='true']": {
         "exists": ""
       }
     },
@@ -511,6 +540,21 @@
       "\\.paypal\\.com/tagmanager/pptm\\.js"
     ],
     "website": "https://developer.paypal.com/docs/marketing-solutions"
+  },
+  "PayWhirl": {
+    "cats": [
+      41
+    ],
+    "description": "PayWhirl provides widgets and tools to handle recurring payments.",
+    "icon": "paywhirl.png",
+    "js": {
+      "paywhirlForShopifySettings": ""
+    },
+    "pricing": [
+      "payg",
+      "recurring"
+    ],
+    "website": "https://app.paywhirl.com/"
   },
   "Payflex": {
     "cats": [
@@ -588,7 +632,7 @@
     },
     "icon": "PencilBlue.png",
     "implies": "Node.js",
-    "website": "http://pencilblue.org"
+    "website": "https://github.com/pencilblue/pencilblue"
   },
   "Pendo": {
     "cats": [
@@ -928,6 +972,22 @@
     "scriptSrc": "\\.picreel\\.com",
     "website": "https://www.picreel.com"
   },
+  "Picturepark": {
+    "cats": [
+      95
+    ],
+    "description": "Picturepark is designed to facilitate your DAM policies by storing, tagging, searching and delivering files in an automated and controlled way.",
+    "dom": "img[data-name*='Picturepark'], img[data-srcset*='picturepark'], div[style*='picturepark'], source[srcset*='picturepark']",
+    "icon": "Picturepark.svg",
+    "js": {
+      "pictureparkConfiguration": ""
+    },
+    "pricing": [
+      "high",
+      "recurring"
+    ],
+    "website": "https://picturepark.com"
+  },
   "Pimcore": {
     "cats": [
       1,
@@ -1063,6 +1123,17 @@
     "saas": true,
     "scriptSrc": "assets\\.pixlee\\.com",
     "website": "https://pixlee.com"
+  },
+  "Pixnet": {
+    "cats": [
+      1
+    ],
+    "description": "Pixnet is an Taiwanese mobile photo sharing, blogging, and social networking service.",
+    "icon": "Pixnet.svg",
+    "js": {
+      "pix.MIB": ""
+    },
+    "website": "https://www.pixnet.net"
   },
   "Planet": {
     "cats": [
@@ -1277,11 +1348,26 @@
     "cats": [
       59
     ],
+    "description": "Polyfill is a service which accepts a request for a set of browser features and returns only the polyfills that are needed by the requesting browser.",
     "icon": "polyfill.svg",
-    "scriptSrc": [
-      "^https?://cdn\\.polyfill\\.io/"
-    ],
+    "oss": true,
+    "scriptSrc": "polyfill\\.io/v([\\d\\.]+)\\;version:\\1",
     "website": "https://polyfill.io"
+  },
+  "Polylang": {
+    "cats": [
+      87,
+      89
+    ],
+    "description": "Polylang is a WordPress plugin which allows you to create a bilingual or multilingual WordPress site.",
+    "dom": "img[src*='/wp-content/plugins/polylang/']",
+    "icon": "Polylang.svg",
+    "oss": true,
+    "pricing": [
+      "freemium"
+    ],
+    "requires": "WordPress",
+    "website": "https://github.com/polylang/polylang"
   },
   "Polymer": {
     "cats": [
@@ -1352,6 +1438,24 @@
     "requires": "WordPress",
     "scriptSrc": "/wp-content/themes/popularfx/.+\\?ver=([\\d\\.]+)\\;version:\\1",
     "website": "https://popularfx.com"
+  },
+  "Popup Maker": {
+    "cats": [
+      87
+    ],
+    "description": "Popup Maker is a plugin that lets you create popup windows for your WordPress website.",
+    "icon": "Popup Maker.png",
+    "js": {
+      "pum_popups": ""
+    },
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/plugins/popup-maker/(?:.+site(?:\\.min)?\\.js\\?.+ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
+    "website": "https://wppopupmaker.com"
   },
   "Post Affiliate Pro": {
     "cats": [
@@ -1573,7 +1677,7 @@
       80
     ],
     "description": "Press Hueman is a mobile friendly WordPress theme for blogs, magazines and business websites.",
-    "dom": "link[*='/wp-content/themes/hueman/']",
+    "dom": "link[href*='/wp-content/themes/hueman/']",
     "icon": "Press.svg",
     "js": {
       "HUParams": ""
@@ -1900,13 +2004,7 @@
       36
     ],
     "description": "PubMatic is a company that develops and implements online advertising software and strategies for the digital publishing and advertising industry.",
-    "dom": {
-      "iframe[src*='.pubmatic.com']": {
-        "attributes": {
-          "src": ""
-        }
-      }
-    },
+    "dom": "iframe[src*='.pubmatic.com'], link[href*='.pubmatic.com']",
     "icon": "PubMatic.svg",
     "pricing": [
       "payg"
@@ -1972,6 +2070,22 @@
     "scriptSrc": "app\\.purechat\\.com",
     "website": "https://www.purechat.com"
   },
+  "PureCars": {
+    "cats": [
+      6
+    ],
+    "description": "PureCars is an automotive software and managed services company serving dealerships, advertising associations, and OEMs across the North American retail automotive industry.",
+    "dom": "a[href*='app.purecars.com/']",
+    "icon": "PureCars.png",
+    "js": {
+      "_pureCars": ""
+    },
+    "pricing": [
+      "poa"
+    ],
+    "saas": true,
+    "website": "https://www.purecars.com"
+  },
   "PushEngage": {
     "cats": [
       32
@@ -2001,6 +2115,21 @@
     "saas": true,
     "scriptSrc": "cdn\\.pushowl\\.com",
     "website": "https://pushowl.com"
+  },
+  "PushPushGo": {
+    "cats": [
+      32
+    ],
+    "description": "PushPushGo is a GDPR-ready platform which enables startups, SMBs and corporations to create and send automatic web push notification campaigns on desktop and via mobile to manage various scenarios including abandoned carts, segmentation, cross-selling, customer engagement, and return rates.",
+    "dom": "link[href*='.pushpushgo.com/']",
+    "icon": "PushPushGo.svg",
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "scriptSrc": "\\.pushpushgo\\.com/",
+    "website": "https://pushpushgo.com"
   },
   "Pushnami": {
     "cats": [

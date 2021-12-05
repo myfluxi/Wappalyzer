@@ -35,11 +35,11 @@ class WappalyzerTest extends TestCase
                 'x-github-request-id' => 'DA9A:AF74:3CF1A7:47D586:615EFC90'
             ], file_get_contents(__DIR__ . '/site.html')),
         ]);
-        
-        
+
+
         $handler = HandlerStack::create($mock);
         $client = new Client(['handler' => $handler, 'cookies' => $cookieJar]);
-        
+
         $wappalyzer = new Wappalyzer($client);
         $this->assertEquals([
             'url' => 'https://www.madeit.be/',
@@ -279,11 +279,11 @@ class WappalyzerTest extends TestCase
                 'x-powered-by' => 'PHP/7.2.7',
             ], file_get_contents(__DIR__ . '/site.html')),
         ]);
-        
-        
+
+
         $handler = HandlerStack::create($mock);
         $client = new Client(['handler' => $handler, 'cookies' => $cookieJar, 'js' => $js]);
-        
+
         $wappalyzer = new Wappalyzer($client);
         $this->assertEquals([
             'url' => 'https://www.madeit.be/',
@@ -424,6 +424,7 @@ class WappalyzerTest extends TestCase
                         1 => 'recurring',
                     ],
                     'saas' => true,
+                    'dom' => 'link[href*=\'.adroll.com\']',
                     'scriptSrc' => '(?:a|s)\\.adroll\\.com',
                     'website' => 'http://adroll.com',
                     'detected' => true,
