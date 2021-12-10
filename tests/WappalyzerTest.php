@@ -135,12 +135,16 @@ class WappalyzerTest extends TestCase
                             ]
                         ]
                     ],
-                    "html" => "<!-- This site is optimized with the Yoast (?:WordPress )?SEO plugin v([\\d.]+) -\\;version:\\1",
+                    "html" => [
+                        "<!-- This site is optimized with the Yoast (?:WordPress )?SEO plugin v([^\\s]+) -\\;version:\\1",
+                        "<!-- This site is optimized with the Yoast SEO Premium plugin v(?:[^\\s]+) \\(Yoast SEO v([^\\s]+)\\) -\\;version:\\1"
+                    ],
                     "icon" => "Yoast SEO.png",
                     "requires" => "WordPress",
-                    "website" => "https://yoast.com",
+                    "website" => "https://yoast.com/wordpress/plugins/seo/",
                     'detected' => true,
                     'version' => '7.8',
+                    'oss' => true,
                 ],
                 'MySQL' => [
                     'cats' => [ 34 ],
@@ -379,12 +383,16 @@ class WappalyzerTest extends TestCase
                             ]
                         ]
                     ],
-                    "html" => "<!-- This site is optimized with the Yoast (?:WordPress )?SEO plugin v([\\d.]+) -\\;version:\\1",
+                    "html" => [
+                        "<!-- This site is optimized with the Yoast (?:WordPress )?SEO plugin v([^\\s]+) -\\;version:\\1",
+                        "<!-- This site is optimized with the Yoast SEO Premium plugin v(?:[^\\s]+) \\(Yoast SEO v([^\\s]+)\\) -\\;version:\\1"
+                    ],
                     "icon" => "Yoast SEO.png",
                     "requires" => "WordPress",
-                    "website" => "https://yoast.com",
+                    "website" => "https://yoast.com/wordpress/plugins/seo/",
                     'detected' => true,
                     'version' => '7.8',
+                    'oss' => true,
                 ],
                 'MySQL' => [
                     'cats' => [ 34 ],

@@ -115,6 +115,24 @@
     "scriptSrc": "/wp-content/cache/wpfc-minified/",
     "website": "https://www.wpfastestcache.com"
   },
+  "WP Google Map Plugin": {
+    "cats": [
+      87,
+      35
+    ],
+    "description": "WP Google Map Plugin allows you to create google maps shortcodes to display responsive google maps on pages, widgets and custom templates.",
+    "icon": "WP Google Map Plugin.png",
+    "js": {
+      "wpgmp_local": ""
+    },
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/plugins/wp-google-map-plugin/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
+    "pricing": [
+      "freemium",
+      "onetime"
+    ],
+    "website": "https://www.wpmapspro.com"
+  },
   "WP Maintenance Mode": {
     "cats": [
       87
@@ -1162,6 +1180,29 @@
       "/woocommerce(?:\\.min)?\\.js(?:\\?ver=([0-9.]+))?\\;version:\\1"
     ],
     "website": "https://woocommerce.com"
+  },
+  "WooCommerce Blocks": {
+    "cats": [
+      87
+    ],
+    "description": "WooCommerce Blocks offers a range of Gutenberg blocks you can use to build and customise your site.",
+    "icon": "WooCommerce Blocks.png",
+    "dom": { 
+      "link[href*='/wp-content/plugins/woo-gutenberg-products-block/']": {
+        "attributes": {
+          "href": "/wp-content/plugins/woo-gutenberg-products-block/.+\\.css(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1"
+        }
+      }
+    },
+    "oss": true,
+    "pricing": [
+      "freemium"
+    ],
+    "requires": [
+      "WordPress",
+      "WooCommerce"
+    ],
+    "website": "https://github.com/woocommerce/woocommerce-gutenberg-products-block"
   },
   "WooCommerce PayPal Checkout Payment Gateway": {
     "cats": [

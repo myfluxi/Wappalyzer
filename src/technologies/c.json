@@ -206,6 +206,30 @@
     },
     "website": "http://cakephp.org"
   },
+  "Caldera Forms": {
+    "cats": [
+      87
+    ],
+    "description": "Caldera Forms is the free WordPress form builder plugin.",
+    "icon": "Caldera Forms.png",
+    "dom": { 
+      "link[href*='/wp-content/plugins/caldera-forms/']": {
+        "attributes": {
+          "href": "/wp-content/plugins/caldera-forms/.+\\.css(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1"
+        }
+      }
+    },
+    "js": {
+      "calderaForms": ""
+    },
+    "pricing": [
+      "freemium",
+      "onetime"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/plugins/caldera-forms/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
+    "website": "https://calderaforms.com"
+  },
   "CalendarHero": {
     "cats": [
       72
@@ -2082,6 +2106,23 @@
     "saas": true,
     "website": "https://cookieinformation.com"
   },
+  "Cookie Information plugin": {
+    "cats": [
+      87,
+      67
+    ],
+    "description": "Cookie Information plugin helps your website stay compliant with GDPR using a free cookie pop-up, consent log, and more.",
+    "icon": "Cookie Information.svg",
+    "implies": "Cookie Information",
+    "pricing": [
+      "freemium",
+      "low",
+      "recurring"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/plugins/wp-gdpr-compliance/",
+    "website": "https://wordpress.org/plugins/wp-gdpr-compliance"
+  },
   "Cookie Notice": {
     "cats": [
       67,
@@ -2670,6 +2711,21 @@
     },
     "scriptSrc": "cufon-yui\\.js",
     "website": "http://cufon.shoqolate.com"
+  },
+  "Custom Fonts": {
+    "cats": [
+      87,
+      17
+    ],
+    "description": "Custom Fonts plugin helps you easily embed custom fonts files (woff2, woff, ttf, svg, eot, otf) easily in your WordPress website.",
+    "icon": "Custom Fonts.png",
+    "oss": true,
+    "pricing": [
+      "freemium"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/plugins/custom-fonts/",
+    "website": "https://github.com/brainstormforce/custom-fonts"
   },
   "Customer.io": {
     "cats": [
