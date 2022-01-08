@@ -605,6 +605,7 @@
       "<div class=\"ui left\">\\n\\s+© Gitea Version: ([\\d.]+)\\;version:\\1"
     ],
     "icon": "gitea.svg",
+    "implies": "Go",
     "meta": {
       "keywords": "^go,git,self-hosted,gitea$"
     },
@@ -912,9 +913,14 @@
       "<button class=\"ui basic clone button\" id=\"repo-clone-ssh\" data-link=\"gogs@"
     ],
     "icon": "gogs.png",
+    "implies": [
+      "Go",
+      "Macaron"
+    ],
     "meta": {
       "keywords": "go, git, self-hosted, gogs"
     },
+    "oss": true,
     "scriptSrc": "js/gogs\\.js",
     "website": "http://gogs.io"
   },
@@ -1077,6 +1083,18 @@
       "prettyPrint": ""
     },
     "website": "http://code.google.com/p/google-code-prettify"
+  },
+  "Google Customer Reviews": {
+    "cats": [
+      90
+    ],
+    "description": "Google Customer Reviews is a badge on your site that can help users identify your site with the Google brand and can be placed on any page of your site.",
+    "dom": "iframe[src*='.google.com/shopping/customerreviews/'], a[href*='.google.com/shopping/customerreviews/'][target='_blank']",
+    "icon": "Google.svg",
+    "pricing": [
+      "freemium"
+    ],
+    "website": "https://support.google.com/merchants/answer/7105655?hl=en"
   },
   "Google Font API": {
     "cats": [
@@ -1332,6 +1350,10 @@
     ],
     "description": "Grafana is a multi-platform open source analytics and interactive visualisation web application.",
     "icon": "Grafana.svg",
+    "implies": [
+      "Go",
+      "Macaron"
+    ],
     "js": {
       "__grafana_public_path__": "",
       "grafanaBootData.settings.buildInfo['version']": "([\\d.]+)\\;version:\\1"
@@ -1741,6 +1763,7 @@
       "Server": "gunicorn(?:/([\\d.]+))?\\;version:\\1"
     },
     "icon": "gunicorn.png",
+    "implies": "Python",
     "website": "http://gunicorn.org"
   }
 }

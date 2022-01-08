@@ -591,6 +591,26 @@
     "saas": true,
     "website": "https://www.salsify.com"
   },
+  "Saly": {
+    "cats": [
+      6
+    ],
+    "description": "Saly is an enterprise-class B2B ecommerce platform. Dedicated to solving problems faced by manufacturers, wholesalers and distributors.",
+    "icon": "Saly.svg",
+    "implies": [
+      "PHP",
+      "Svelte"
+    ],
+    "meta": {
+      "application-name": "^Saly\\sB2B\\sPlatform$"
+    },
+    "pricing": [
+      "mid",
+      "recurring"
+    ],
+    "saas": true,
+    "website": "https://saly.pl"
+  },
   "Sana Commerce": {
     "cats": [
       6
@@ -697,6 +717,19 @@
     "saas": true,
     "scriptSrc": "satori\\.segs\\.jp/",
     "website": "https://satori.marketing"
+  },
+  "Satori Studio Bento": {
+    "cats": [
+      80
+    ],
+    "description": "Satori Studio Bento is a powerful yet user-friendly free WordPress theme intended for use in the broadest range of web projects.",
+    "icon": "Satori Studio.svg",
+    "pricing": [
+      "freemium"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/themes/bento/",
+    "website": "https://satoristudio.net/bento-free-wordpress-theme"
   },
   "Sazito": {
     "cats": [
@@ -2354,6 +2387,25 @@
     "scriptSrc": "/wp-content/plugins/so-widgets-bundle/.+\\.js(?:\\?ver=(\\d+(?:\\.\\d+)+))?\\;version:\\1",
     "website": "https://siteorigin.com/widgets-bundle"
   },
+  "SitePad": {
+    "cats": [
+      57
+    ],
+    "description": "Build your professional website using easy to use editor and publish static web pages.",
+    "icon": "SitePad.png",
+    "implies": [
+      "PHP"
+    ],
+    "meta": {
+      "generator": "^SitePad .+$"
+    },
+    "pricing": [
+      "freemium",
+      "recurring",
+      "low"
+    ],
+    "website": "https://sitepad.com/"
+  },
   "SiteSpect": {
     "cats": [
       74
@@ -2490,6 +2542,18 @@
     "icon": "Sizmek.png",
     "scriptSrc": "serving-sys\\.com/",
     "website": "http://sizmek.com"
+  },
+  "Skai": {
+    "cats": [
+      10
+    ],
+    "description": "Skai (formerly Kenshoo) is a marketing activation solution for brands and agencies.",
+    "icon": "Skai.svg",
+    "js": {
+      "Ktag_Constants": ""
+    },
+    "scripts": "\\.xg4ken\\.com",
+    "website": "https://skai.io"
   },
   "Skedify": {
     "cats": [
@@ -3334,6 +3398,20 @@
     },
     "website": "https://www.sphinx-doc.org/"
   },
+  "SpiceThemes SpicePress": {
+    "cats": [
+      80
+    ],
+    "description": "SpicePress is a responsive and fully customizable business template by SpiceThemes.",
+    "icon": "SpiceThemes.png",
+    "pricing": [
+      "freemium",
+      "onetime"
+    ],
+    "requires": "WordPress",
+    "scriptSrc": "/wp-content/themes/spicepress(?:-pro)?/",
+    "website": "https://spicethemes.com/spicepress-wordpress-theme"
+  },
   "Spinnakr": {
     "cats": [
       10
@@ -3987,23 +4065,28 @@
     "icon": "Stimulus.png",
     "website": "https://stimulusjs.org/"
   },
+  "StimulusReflex": {
+    "cats": [
+      18
+    ],
+    "description": "StimulusReflex lets you create reactive web interfaces with Ruby on Rails.",
+    "dom": "[data-reflex]",
+    "icon": "stimulus-reflex-logo.svg",
+    "implies": [
+      "Ruby on Rails",
+      "Stimulus"
+    ],
+    "scripts": "\\.stimulate",
+    "website": "https://docs.stimulusreflex.com"
+  },
   "Stitches": {
     "cats": [
       12,
       47
     ],
     "description": "Stitches is a is a CSS-in-JS styling framework with near-zero runtime, SSR, and multi-variant support.",
-    "dom": "style#stitches, .StudioCanvas, .publish-studio-style",
+    "dom": "style#stitches",
     "icon": "Stitches.svg",
-    "implies": [
-      "React",
-      "Next.js",
-      "Gatsby",
-      "Svelte",
-      "SvelteKit",
-      "Vue.js",
-      "Angular"
-    ],
     "meta": {
       "generator": "^c-[A-Za-z]{5}$"
     },

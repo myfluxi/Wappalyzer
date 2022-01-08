@@ -255,10 +255,12 @@
     "description": "Olapic is a content marketing tool specifically focused on visual marketing content.",
     "icon": "Olapic.svg",
     "js": {
+      "olapic": "",
       "olapic.version": "^v([\\d\\.]+)$\\;version:\\1"
     },
     "pricing": [
-      "poa"
+      "poa",
+      "high"
     ],
     "saas": true,
     "website": "https://www.olapic.com"
@@ -481,6 +483,25 @@
       "optanon\\.blob\\.core\\.windows\\.net"
     ],
     "website": "http://www.onetrust.com"
+  },
+  "Onfido": {
+    "cats": [
+      16,
+      69
+    ],
+    "description": "Onfido is a technology company that helps businesses verify people's identities using a photo-based identity document, a selfie and artificial intelligence algorithms.",
+    "dom": "link[href*='.onfido.com'], iframe[src*='onfido.com']",
+    "headers": {
+      "content-security-policy": "(?:api|sync)\\.onfido\\.com"
+    },
+    "icon": "Onfido.svg",
+    "pricing": [
+      "payg",
+      "recurring",
+      "mid"
+    ],
+    "saas": true,
+    "website": "https://onfido.com"
   },
   "Onshop": {
     "cats": [
